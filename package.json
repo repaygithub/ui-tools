@@ -1,0 +1,17 @@
+{
+  "name": "ui-tools",
+  "version": "0.0.0",
+  "description": "Monorepo for ui tooling at REPAY",
+  "main": "index.js",
+  "repository": "git@github.com:repaygithub/ui-tools.git",
+  "author": "JamesNimlos <jnimlos@repay.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "w": "yarn workspace",
+    "ws": "yarn workspaces"
+  }
+}
