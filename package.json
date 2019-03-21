@@ -12,6 +12,13 @@
   ],
   "scripts": {
     "w": "yarn workspace",
-    "ws": "yarn workspaces"
+    "ws": "yarn workspaces",
+    "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
+    "fmt": "yarn lint --fix"
+  },
+  "devDependencies": {
+    "@repay/eslint-config": "./packages/eslint-config",
+    "eslint": "^5.15.3",
+    "prettier": "^1.16.4"
   }
 }
