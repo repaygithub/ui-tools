@@ -11,7 +11,7 @@
     "index.js",
     "*.template"
   ],
-  "repository": "https://github.com/repaygithub/repay-ui/eslint-config",
+  "repository": "https://github.com/repaygithub/ui-tools/tree/master/packages/eslint-config",
   "author": "repaygithub",
   "license": "MIT",
   "publishConfig": {
