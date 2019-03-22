@@ -18,7 +18,8 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint --no-eslintrc --config ./index.js ./*.js"
+    "lint": "eslint --no-eslintrc --config ./index.js ./*.js",
+    "test": "echo no tests implemented for @repay/eslint-config"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",

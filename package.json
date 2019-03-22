@@ -8,16 +8,17 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "modules/*"
   ],
   "scripts": {
     "w": "yarn workspace",
-    "ws": "yarn workspaces",
+    "ws": "yarn workspaces run",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
-    "fmt": "yarn lint --fix"
+    "fmt": "yarn lint --fix",
+    "test": "yarn lint && yarn ws run test"
   },
   "devDependencies": {
-    "@repay/eslint-config": "./packages/eslint-config",
+    "@repay/eslint-config": "./modules/eslint-config",
     "eslint": "^5.15.3",
     "prettier": "^1.16.4"
   }

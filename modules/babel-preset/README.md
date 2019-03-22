@@ -9,14 +9,14 @@ Babel preset used by [@repaygithub](https://github.com/repaygithub/)
 
   ```jsx
   class Accordian extends Component {
-    state = { isOpen: this.props.openOnMount || false }
+    state = { isOpen: this.props.openOnMount || false };
 
     // using assignment like below,
     // `this` references the class instance always
     toggleOpen = () =>
       this.setState(s => {
-        isOpen: !s.isOpen
-      })
+        isOpen: !s.isOpen;
+      });
   }
   ```
 
@@ -28,7 +28,7 @@ Install via the command line using yarn or npm
 
 ```bash
 yarn add --dev @repay/babel-preset
-// OR
+# OR
 npm install --save-dev @repay/babel-preset
 ```
 
