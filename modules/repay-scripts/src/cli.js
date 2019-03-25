@@ -73,6 +73,10 @@ function parseToConfig(argv) {
     }
   }
 
+  if (argv['babel-env']) {
+    process.env.BABEL_ENV = argv['babel-env']
+  }
+
   return {
     babelEnv: argv['babel-env'],
     command: argv._[0],

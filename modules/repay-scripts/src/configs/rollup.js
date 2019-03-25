@@ -1,6 +1,5 @@
 module.exports = getRollupConfig
 
-const getBabelRc = require('./babel')
 const path = require('path')
 const fs = require('fs')
 
@@ -25,7 +24,7 @@ const getSvgExternalizer = (distFile, cwd) => id => {
   return id
 }
 
-function getRollupConfig(input, { cwd, babelEnv }) {
+function getRollupConfig(input, { cwd }) {
   const pkg = JSON.parse(fs.readFileSync(path.resolve(cwd, 'package.json'), 'utf8'))
   if (!pkg.main || !pkg.module) {
     throw new Error('package.json#main && package.json#module are required')
@@ -61,7 +60,7 @@ function getRollupConfig(input, { cwd, babelEnv }) {
       rollupBabel({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs'],
         babelrc: false,
-        ...getBabelRc(babelEnv),
+        presets: ['@repay/babel-preset'],
       }),
       rollupCopy({ files: 'src/**/*.svg', dest: 'dist/icons' }),
       rollupCleanup(),
