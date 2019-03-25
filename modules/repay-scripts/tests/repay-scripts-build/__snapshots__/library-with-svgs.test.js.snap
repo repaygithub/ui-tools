@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@repay/repay-scripts should build a library with svgs 1`] = `
+"import internalSvg from './dist/icons/fake.svg';
+import externalSvg from 'fake-svg-lib/fake.svg';
+
+function index () {
+  console.log(internalSvg);
+  console.log(externalSvg);
+}
+
+export default index;
+//# sourceMappingURL=build.esm.js.map
+"
+`;

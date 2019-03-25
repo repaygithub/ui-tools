@@ -1,0 +1,9 @@
+{
+  "name": "@repay/basic-library",
+  "private": true,
+  "main": "build.js",
+  "module": "build.esm.js",
+  "peerDependencies": {
+    "react": "*"
+  }
+}
