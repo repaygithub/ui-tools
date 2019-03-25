@@ -1,13 +1,12 @@
 module.exports = getWebpackConfig
 
-const getBabelRc = require('./babel')
 const path = require('path')
 
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
-function getWebpackConfig(input, { cwd, babelEnv, env, port }) {
+function getWebpackConfig(input, { cwd, env, port }) {
   const isEnvProduction = env === 'production'
   const isEnvDevelopment = !isEnvProduction
   return {
@@ -28,7 +27,9 @@ function getWebpackConfig(input, { cwd, babelEnv, env, port }) {
           exclude: /node_modules/,
           use: {
             loader: require.resolve('babel-loader'),
-            options: getBabelRc(babelEnv),
+            options: {
+              presets: [require.resolve('@repay/babel-preset')],
+            },
           },
         },
         {
