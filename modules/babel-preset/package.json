@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Babel preset for front end applications",
   "main": "index.js",
-  "repository": "https://github.com/repaygithub/ui-tools/tree/master/packages/babel-preset",
+  "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/babel-preset",
   "license": "MIT",
   "scripts": {
     "test": "echo no tests to run for @repay/babel-preset"
