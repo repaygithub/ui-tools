@@ -2,6 +2,24 @@
 
 Babel preset used by [@repaygithub](https://github.com/repaygithub/)
 
+## Usage
+
+Install via the command line using yarn or npm
+
+```bash
+yarn add --dev @repay/babel-preset
+# OR
+npm install --save-dev @repay/babel-preset
+```
+
+Add the preset to your .babelrc or equivalent
+
+```.babelrc
+{
+  "presets": ["@repay/babel-preset"]
+}
+```
+
 ## EcmaScript Features Supported
 
 - All Proposals that have reached stage-4 and are implemented by `@babel/preset-env`
@@ -21,21 +39,3 @@ Babel preset used by [@repaygithub](https://github.com/repaygithub/)
   ```
 
 - Object rest spread (e.g. `let obj = {...props}`)
-
-## Usage
-
-Install via the command line using yarn or npm
-
-```bash
-yarn add --dev @repay/babel-preset
-# OR
-npm install --save-dev @repay/babel-preset
-```
-
-Add the preset to your .babelrc or equivalent
-
-```.babelrc
-{
-  "presets": ["@repay/babel-preset"]
-}
-```

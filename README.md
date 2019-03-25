@@ -26,3 +26,4 @@ Packages all exist in the `modules/` folder, (using modules allows better autoco
 
 - [`@repay/eslint-config`](./modules/eslint-config)
 - [`@repay/babel-preset`](./modules/babel-preset)
+- [`@repay/scripts`](./modules/repay-scripts)
