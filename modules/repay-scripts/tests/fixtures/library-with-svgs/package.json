@@ -1,0 +1,9 @@
+{
+  "name": "@repay/library-with-svgs",
+  "private": true,
+  "main": "build.js",
+  "module": "build.esm.js",
+  "peerDependencies": {
+    "fake-svg-lib": "*"
+  }
+}

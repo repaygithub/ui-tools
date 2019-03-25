@@ -1,0 +1,6 @@
+{
+  "name": "@repay/web-application",
+  "private": true,
+  "main": "build.js",
+  "module": "build.esm.js"
+}

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@repay/repay-scripts should build a basic library 1`] = `
+"'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = _interopDefault(require('react'));
+
+function App(props) {
+  return React.createElement(\\"div\\", {
+    className: \\"AppWrapper\\"
+  }, props.children);
+}
+
+exports.App = App;
+//# sourceMappingURL=build.js.map
+"
+`;
+
+exports[`@repay/repay-scripts should build a basic library 2`] = `
+"import React from 'react';
+
+function App(props) {
+  return React.createElement(\\"div\\", {
+    className: \\"AppWrapper\\"
+  }, props.children);
+}
+
+export { App };
+//# sourceMappingURL=build.esm.js.map
+"
+`;
