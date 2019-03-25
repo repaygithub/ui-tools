@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "w": "yarn workspace",
-    "ws": "yarn workspaces run",
+    "ws": "yarn workspaces",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
     "fmt": "yarn lint --fix",
     "test": "yarn lint && yarn ws run test"
