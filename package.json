@@ -15,7 +15,8 @@
     "ws": "yarn workspaces",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
     "fmt": "yarn lint --fix",
-    "test": "yarn lint && yarn ws run test"
+    "test": "yarn lint && yarn ws run test",
+    "test:ci": "yarn test"
   },
   "devDependencies": {
     "@repay/eslint-config": "./modules/eslint-config",
