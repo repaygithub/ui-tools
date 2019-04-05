@@ -29,7 +29,7 @@ function cli(cwd) {
     config: {
       type: 'string',
       alias: 'c',
-      description: 'path to override configuration (not supported with --lib)',
+      description: 'path to override configuration',
       default: null,
       requiresArg: true,
     },
@@ -62,9 +62,6 @@ function parseToConfig(argv) {
   let config = argv.config
 
   if (argv.config !== null) {
-    if (argv.lib) {
-      throw Error('`config` argument not supported for libraries')
-    }
     const configPath = path.resolve(argv.config)
     if (fs.existsSync(configPath)) {
       config = configPath

@@ -26,27 +26,29 @@ const getSvgExternalizer = (distFile, cwd) => id => {
 
 function getRollupConfig(input, { cwd }) {
   const pkg = JSON.parse(fs.readFileSync(path.resolve(cwd, 'package.json'), 'utf8'))
-  if (!pkg.main || !pkg.module) {
-    throw new Error('package.json#main && package.json#module are required')
+  if (!pkg.main && !pkg.module) {
+    throw new Error('package.json#main or package.json#module are required')
   }
-  const peerDeps = Object.keys(pkg.peerDependencies || {})
+  const externalDeps = Object.keys(pkg.peerDependencies || {}).concat(
+    Object.keys(pkg.dependencies || {})
+  )
   return {
     input,
-    external: id => isSvg(id) || peerDeps.includes(id),
+    external: id => isSvg(id) || externalDeps.includes(id),
     output: [
-      {
+      pkg.module && {
         file: path.resolve(cwd, pkg.module),
         format: 'es',
         sourcemap: true,
         paths: getSvgExternalizer(path.resolve(cwd, pkg.module), cwd),
       },
-      {
+      pkg.main && {
         file: path.resolve(cwd, pkg.main),
         format: 'cjs',
         sourcemap: true,
         paths: getSvgExternalizer(path.resolve(cwd, pkg.main), cwd),
       },
-    ],
+    ].filter(Boolean),
     plugins: [
       rollupResolve({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.svg'],
