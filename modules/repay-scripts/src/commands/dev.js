@@ -21,7 +21,18 @@ async function dev(options) {
       options.debug && console.log('rollup configuration', config)
     }
     options.debug && console.log('building library...')
-    rollup.watch(config)
+    let watcher = rollup.watch(config)
+    console.log(watcher)
+    watcher.on('event', event => {
+      if (event.code === 'ERROR') {
+        console.error('Error generating bundle')
+        console.error(event.error)
+      } else if (event.code === 'FATAL') {
+        console.error(`\nFatal Rollup Error [${event.error.code}]`)
+        console.error('\t' + event.error.toString() + '\n')
+        process.exit(1)
+      }
+    })
   } else {
     const PORT = options.port
     let config = getWebpackConfig(input, options)
