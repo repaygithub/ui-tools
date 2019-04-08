@@ -69,6 +69,9 @@ module.exports = function babelPreset(api) {
           useBuiltIns: true,
         },
       ],
+      // addes dynamic import syntax
+      require('@babel/plugin-syntax-dynamic-import').default,
+      isEnvTest && require('babel-plugin-dynamic-import-node').default,
     ].filter(Boolean),
   }
 }

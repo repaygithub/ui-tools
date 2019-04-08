@@ -6,10 +6,12 @@ Babel preset used by [@repaygithub](https://github.com/repaygithub/)
 
 Install via the command line using yarn or npm
 
+> `@babel/core` is a peer dependency, which means you must install it yourself.
+
 ```bash
-yarn add --dev @repay/babel-preset
+yarn add --dev @repay/babel-preset @babel/core
 # OR
-npm install --save-dev @repay/babel-preset
+npm install --save-dev @repay/babel-preset @babel/core
 ```
 
 Add the preset to your .babelrc or equivalent
