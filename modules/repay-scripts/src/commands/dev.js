@@ -22,7 +22,6 @@ async function dev(options) {
     }
     options.debug && console.log('building library...')
     let watcher = rollup.watch(config)
-    console.log(watcher)
     watcher.on('event', event => {
       if (event.code === 'ERROR') {
         console.error('Error generating bundle')
