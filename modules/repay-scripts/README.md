@@ -47,10 +47,49 @@ Options:
   --babel-env    set the babel environment
                [string] [choices: "development", "test", "production"] [default:
                                                                    "production"]
-  --config, -c   path to override configuration (not supported with --lib)
-                                                        [string] [default: null]
+  --config, -c   path to override configuration         [string] [default: null]
   --debug        adds extra logging for debugging purposes
                                                       [boolean] [default: false]
   -h, --help     Show help                                             [boolean]
   -v, --version  Show version number                                   [boolean]
+```
+
+### Using `config` option
+
+The config options is passed a file which should export a single function as the `module.exports` which will be called with the pre-made configuration and the options provided to `repay-scripts` as the arguments, and must return a configuration.
+
+#### web app example
+
+```
+# shell command
+repay-scripts dev --config webpack.config.js src/index.js
+```
+
+```js
+// webpack.config.js
+module.exports = (config, options) => {
+  // access options to determine what changes to make
+  if (options.command === "dev") {
+    config.performance = { hints: false };
+  }
+  // returns config whether modified or not
+  return config;
+};
+```
+
+#### library example
+
+```
+# shell command
+repay-scripts dev --config rollup.config.js --lib src/index.ts
+```
+
+```js
+// rollup.config.js
+module.exports = (config, options) => {
+  // remove ESM build
+  config.outputs.splice(0, 1);
+  // allways returns config
+  return config;
+};
 ```

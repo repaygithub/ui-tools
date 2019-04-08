@@ -86,8 +86,13 @@ async function build(options) {
   console.log('building...')
   const input = path.resolve(options.cwd, options.entry)
   const isLibrary = options.lib
+
   if (isLibrary) {
     let config = getRollupConfig(input, options)
+    if (options.config) {
+      config = require(options.config)(config, options)
+      options.debug && console.log('rollup configuration', config)
+    }
     options.debug && console.log(config)
     options.debug && console.log('starting bundler...')
     const bundle = await rollup.rollup(pick(config, inputOptions))
