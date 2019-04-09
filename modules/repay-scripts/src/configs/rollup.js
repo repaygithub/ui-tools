@@ -11,19 +11,6 @@ const rollupSourceMaps = require('rollup-plugin-sourcemaps')
 const rollupFilesize = require('rollup-plugin-filesize')
 const rollupCopy = require('rollup-plugin-cpy')
 
-const svgRegex = /\.svg$/
-const isSvg = id => svgRegex.test(id)
-const isLocalRegex = /^[\.\/]/
-const getSvgExternalizer = (distFile, cwd) => id => {
-  if (isSvg(id) && isLocalRegex.test(id)) {
-    const svgFileLocation = path.resolve(cwd, 'dist/icons', path.basename(id))
-    const distFilePath = path.dirname(distFile)
-    const relativePath = path.relative(distFilePath, svgFileLocation)
-    return relativePath.startsWith('.') ? relativePath : './' + relativePath
-  }
-  return id
-}
-
 function getRollupConfig(input, { cwd }) {
   const pkg = JSON.parse(fs.readFileSync(path.resolve(cwd, 'package.json'), 'utf8'))
   if (!pkg.main && !pkg.module) {
@@ -34,19 +21,17 @@ function getRollupConfig(input, { cwd }) {
   )
   return {
     input,
-    external: id => isSvg(id) || externalDeps.includes(id),
+    external: id => externalDeps.includes(id),
     output: [
       pkg.module && {
         file: path.resolve(cwd, pkg.module),
         format: 'es',
         sourcemap: true,
-        paths: getSvgExternalizer(path.resolve(cwd, pkg.module), cwd),
       },
       pkg.main && {
         file: path.resolve(cwd, pkg.main),
         format: 'cjs',
         sourcemap: true,
-        paths: getSvgExternalizer(path.resolve(cwd, pkg.main), cwd),
       },
     ].filter(Boolean),
     plugins: [
@@ -64,7 +49,6 @@ function getRollupConfig(input, { cwd }) {
         babelrc: false,
         presets: ['@repay/babel-preset'],
       }),
-      rollupCopy({ files: 'src/**/*.svg', dest: 'dist/icons' }),
       rollupCleanup(),
       rollupSourceMaps(),
       rollupFilesize(),
