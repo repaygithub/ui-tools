@@ -9,7 +9,6 @@ const rollupBabel = require('rollup-plugin-babel')
 const rollupCleanup = require('rollup-plugin-cleanup')
 const rollupSourceMaps = require('rollup-plugin-sourcemaps')
 const rollupFilesize = require('rollup-plugin-filesize')
-const rollupCopy = require('rollup-plugin-cpy')
 
 function getRollupConfig(input, { cwd }) {
   const pkg = JSON.parse(fs.readFileSync(path.resolve(cwd, 'package.json'), 'utf8'))
