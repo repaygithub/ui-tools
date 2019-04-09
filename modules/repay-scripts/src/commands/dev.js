@@ -39,6 +39,7 @@ async function dev(options) {
       port: PORT,
       clientLogLevel: 'error',
       contentBase: 'dist',
+      quiet: true,
       compress: true,
       hot: true,
       inline: true,
@@ -55,6 +56,57 @@ async function dev(options) {
       delete config.devServer
     }
     const compiler = webpack(config)
+
+    let isFirstCompile = true
+    // shamelessly copied from react-dev-utils/WebpackDevServerUtils.js
+    // "invalid" is short for "bundle invalidated", it doesn't imply any errors
+    compiler.hooks.invalid.tap('invalid', () => {
+      if (isFirstCompile === false) {
+        console.log(`Compiling...`)
+      } else {
+        console.log('\n\nChanges detected, recompiling...')
+      }
+    })
+
+    compiler.hooks.done.tap('done', async stats => {
+      // We have switched off the default Webpack output in WebpackDevServer
+      const statsData = stats.toJson({
+        all: false,
+        warnings: true,
+        errors: true,
+      })
+
+      const isSuccessful = !statsData.errors.length && !statsData.warnings.length
+      if (isSuccessful) {
+        options.debug && console.log(stats.toString({ all: true, warnings: false, errors: false }))
+
+        console.log('\nCompiled successfully!\n')
+      }
+      if (isSuccessful && isFirstCompile) {
+        console.log(`You can now view your app in the browser at https://localhost:${PORT}/`)
+      }
+      isFirstCompile = false
+
+      // If errors exist, only show errors.
+      if (statsData.errors.length) {
+        // Only keep the first error. Others are often indicative
+        // of the same problem, but confuse the reader with noise.
+        if (statsData.errors.length > 1) {
+          statsData.errors.length = 1
+        }
+        console.log('\n*** Failed to compile. ***\n')
+        console.log(statsData.errors.join('\n\n'))
+        console.log('\n\n\tReview the above errors to fix the build.\n')
+        return
+      }
+
+      // Show warnings if no errors were found.
+      if (statsData.warnings.length) {
+        console.log('\nCompiled with warnings.\n')
+        console.log(statsData.warnings.join('\n\n'))
+      }
+    })
+
     const devServer = new webpackDevServer(compiler, serverConfig)
     devServer.listen(PORT, HOST, err => {
       if (err) {
