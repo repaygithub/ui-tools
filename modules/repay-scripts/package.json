@@ -1,6 +1,6 @@
 {
   "name": "@repay/scripts",
-  "version": "0.2.0-next",
+  "version": "0.2.0",
   "description": "a build tool for developing front-end applications at REPAY",
   "author": "JamesNimlos <jnimlos@repay.com>",
   "homepage": "https://github.com/repaygithub/repay-ui#readme",
