@@ -10,11 +10,13 @@
     "repay-scripts": "bin/repay-scripts"
   },
   "directories": {
-    "src": "src"
+    "lib": "src",
+    "test": "tests"
   },
   "files": [
     "bin",
-    "src"
+    "src",
+    "webpack.js"
   ],
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"
