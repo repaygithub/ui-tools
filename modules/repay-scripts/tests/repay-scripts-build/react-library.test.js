@@ -6,7 +6,6 @@ beforeEach(() => jest.setTimeout(1000 * 60 * 5))
 
 describe('@repay/repay-scripts', () => {
   it('should build a React library', async () => {
-    debugger
     const test = new TestSetup('react-library')
     await test.setup()
     await test.exec(`yarn repay-scripts build --lib index.js`)
