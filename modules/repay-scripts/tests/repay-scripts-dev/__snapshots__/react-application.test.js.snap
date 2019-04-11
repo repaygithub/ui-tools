@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@repay/repay-scripts should host a react application for local development 1`] = `"<div class=\\"app-root\\"><div class=\\"react-root\\">Testing Text</div></div>"`;
