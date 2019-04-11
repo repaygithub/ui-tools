@@ -50,7 +50,15 @@ function cli(cwd) {
   parser.command(
     'dev <entry>',
     'build a javascript library or front-end application for local development',
-    () => {},
+    () => {
+      return parser.option('port', {
+        type: 'integer',
+        alias: 'p',
+        description: 'port for local development.',
+        default: 3434,
+        requiresArgs: true,
+      })
+    },
     argv => repayScripts(parseToConfig(argv))
   )
 
@@ -79,6 +87,7 @@ function parseToConfig(argv) {
     command: argv._[0],
     config,
     cwd,
+    port: argv.port,
     debug: argv.debug,
     entry: argv.entry,
     lib: argv.lib,

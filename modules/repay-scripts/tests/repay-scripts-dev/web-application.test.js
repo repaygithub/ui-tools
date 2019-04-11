@@ -6,11 +6,19 @@ describe('@repay/repay-scripts', () => {
   it('should build a web application for local development', async () => {
     const test = new TestSetup('web-application')
     await test.setup()
-    test.spawn('yarn', ['repay-scripts', 'dev', '--babel-env', 'production', 'index.js'])
+    test.spawn('yarn', [
+      'repay-scripts',
+      'dev',
+      '--babel-env',
+      'production',
+      'index.js',
+      '--port',
+      '9696',
+    ])
 
     await test.waitForText('Compiled successfully')
     const page = await test.getPage()
-    await page.goto('https://localhost:3434')
+    await page.goto('https://localhost:9696')
     const content = await page.$eval('.app-root', el => el.outerHTML)
     expect(content).toMatchSnapshot()
   })
