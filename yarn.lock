@@ -925,6 +925,30 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
+"@repay/babel-preset@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@repay/babel-preset/-/babel-preset-0.1.2.tgz#534edbbbc59cb069e1a69ab04e5b8bbdd4b83675"
+  integrity sha512-PwAAtVLjTZZv5mXvkOztIpPO9ni9vHkgbraCOXEly5ajCrSI8uVe9fkxN2Vw/8krNoTQEbsli4IKpglSi6Babg==
+  dependencies:
+    "@babel/plugin-proposal-class-properties" "^7.3.4"
+    "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
+    "@babel/plugin-transform-destructuring" "^7.3.2"
+    "@babel/preset-env" "^7.3.4"
+    "@babel/preset-react" "^7.0.0"
+    "@babel/preset-typescript" "^7.3.3"
+
+"@repay/eslint-config@./modules/eslint-config":
+  version "1.1.1"
+  dependencies:
+    "@babel/core" "^7.3.4"
+    "@babel/plugin-proposal-optional-chaining" "^7.0.0"
+    babel-eslint "^10.0.1"
+    eslint-config-prettier "^3.0.1"
+    eslint-config-react "^1.1.7"
+    eslint-plugin-prettier "^3.0.0"
+    eslint-plugin-react "^7.11.1"
+    eslint-plugin-react-hooks "^1.5.1"
+
 "@types/babel__core@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.0.tgz#710f2487dda4dcfd010ca6abb2b4dc7394365c51"
