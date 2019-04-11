@@ -6,17 +6,32 @@ const { exec: execOld, spawn } = require('child_process')
 const util = require('util')
 const exec = util.promisify(execOld)
 
+// automatically clean up after tests
+let testInstances = []
+afterEach(async () => {
+  for (const t of testInstances) {
+    await t.cleanup()
+  }
+  testInstances = []
+})
+
 class TestSetup {
   constructor(fixture) {
     this.fixture = fixture
     this.tempDir = tempy.directory()
     this._listeners = []
+    this._server = null
+    testInstances.push(this)
   }
 
   async setup() {
     await fs.copy(path.join(__dirname, 'fixtures', this.fixture), this.tempDir)
     const localRepayScriptsPath = path.join(__dirname, '..')
-    await exec(`yarn add ${localRepayScriptsPath} --mutex network`, { cwd: this.tempDir })
+    await this.yarnAdd(localRepayScriptsPath)
+  }
+
+  yarnAdd(pkgName) {
+    return exec(`yarn add ${pkgName} --mutex network`, { cwd: this.tempDir })
   }
 
   readFile(file) {
@@ -72,6 +87,14 @@ class TestSetup {
   async cleanup() {
     if (this._childProcess && !this._childProcess.killed) {
       await this.kill()
+    }
+    if (this._server) {
+      await this._server.close()
+      this._server = undefined
+    }
+    if (this._browser) {
+      await this._browser.close()
+      this._browser = undefined
     }
     if (this.tempDir) {
       await fs.remove(this.tempDir)
@@ -152,6 +175,23 @@ class TestSetup {
     } else {
       throw new Error(`Could not find update file for ${fileLoc} at ${updateLoc}`)
     }
+  }
+
+  startServer(port = 8100) {
+    const startStaticServer = require('./static-server')
+    this._server = startStaticServer({ directory: path.join(this.tempDir, 'dist'), port })
+  }
+
+  async getBrowser() {
+    const puppeteer = require('puppeteer')
+    return (this._browser = await puppeteer.launch({ ignoreHTTPSErrors: true }))
+  }
+
+  async getPage() {
+    if (!this._browser) {
+      await this.getBrowser()
+    }
+    return this._browser.newPage()
   }
 }
 

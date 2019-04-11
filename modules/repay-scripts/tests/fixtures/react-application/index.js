@@ -6,7 +6,7 @@ container.className = 'app-root'
 document.body.appendChild(container)
 
 const App = () => {
-  return <div>Testing Text</div>
+  return <div className="react-root">Testing Text</div>
 }
 
 ReactDOM.render(<App />, container)
