@@ -54,7 +54,7 @@ function cli(cwd) {
       return parser.option('port', {
         type: 'integer',
         alias: 'p',
-        description: 'port for local development.',
+        description: 'port for developing local web apps',
         default: 3434,
         requiresArgs: true,
       })
