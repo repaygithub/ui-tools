@@ -19,7 +19,6 @@ async function repayScripts(options) {
     }
     case 'dev': {
       options.env = 'development'
-      options.port = '3434'
       await dev(options)
       break
     }
