@@ -48,6 +48,7 @@ module.exports = {
     'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'ignore' }],
     'react/no-string-refs': 'error',
     'react/no-direct-mutation-state': 'error',
+    'react/react-in-jsx-scope': 'error',
     'react/require-render-return': 'error',
     'react/jsx-no-duplicate-props': 'error',
     'react-hooks/rules-of-hooks': 'error',
