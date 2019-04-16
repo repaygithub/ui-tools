@@ -925,18 +925,6 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
-"@repay/babel-preset@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@repay/babel-preset/-/babel-preset-0.1.2.tgz#534edbbbc59cb069e1a69ab04e5b8bbdd4b83675"
-  integrity sha512-PwAAtVLjTZZv5mXvkOztIpPO9ni9vHkgbraCOXEly5ajCrSI8uVe9fkxN2Vw/8krNoTQEbsli4IKpglSi6Babg==
-  dependencies:
-    "@babel/plugin-proposal-class-properties" "^7.3.4"
-    "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
-    "@babel/plugin-transform-destructuring" "^7.3.2"
-    "@babel/preset-env" "^7.3.4"
-    "@babel/preset-react" "^7.0.0"
-    "@babel/preset-typescript" "^7.3.3"
-
 "@repay/eslint-config@./modules/eslint-config":
   version "1.1.1"
   dependencies:
