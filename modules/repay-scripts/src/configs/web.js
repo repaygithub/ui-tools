@@ -18,6 +18,7 @@ function getWebpackConfig(input, { cwd, env, port }) {
     output: {
       path: path.resolve(cwd, 'dist'),
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
+      chunkFilename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`,
       publicPath: '/',
     },
     module: {
@@ -48,7 +49,6 @@ function getWebpackConfig(input, { cwd, env, port }) {
         title: 'Prototype',
         meta: { viewport: 'width=device-width, height=device-height, initial-scale=1' },
       }),
-      // for production use: new webpack.HashedModuleIdsPlugin() for proper cache naming
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // look into html-webpack-multi-build-plugin for production
       new SpriteLoaderPlugin(),
@@ -60,6 +60,12 @@ function getWebpackConfig(input, { cwd, env, port }) {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       // added for when using `yarn link` can ensure a single library is resolved
       alias: {},
+    },
+    optimization: {
+      // always creates a separate bundle for the runtime
+      runtimeChunk: 'single',
+      // available to add cacheGroups to separate big libraries into bundles
+      splitChunks: {},
     },
   }
 }
