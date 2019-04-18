@@ -4,7 +4,6 @@ const path = require('path')
 
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 function getWebpackConfig(input, { cwd, env, port }) {
   const isEnvProduction = env === 'production'
@@ -51,7 +50,6 @@ function getWebpackConfig(input, { cwd, env, port }) {
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // look into html-webpack-multi-build-plugin for production
-      new SpriteLoaderPlugin(),
       isEnvProduction && new webpack.HashedModuleIdsPlugin(),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
