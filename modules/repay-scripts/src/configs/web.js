@@ -33,11 +33,7 @@ function getWebpackConfig(input, { cwd, env, port }) {
           },
         },
         {
-          test: /\.svg$/,
-          use: [require.resolve('svg-sprite-loader'), require.resolve('svgo-loader')],
-        },
-        {
-          test: /\.(png|jpe?g|gif)$/,
+          test: /\.(png|jpe?g|gif|svg)$/i,
           use: {
             loader: require.resolve('file-loader'),
             options: {
