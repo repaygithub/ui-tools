@@ -93,3 +93,37 @@ module.exports = (config, options) => {
   return config;
 };
 ```
+
+### Optimizing Bundles
+
+By default, `@repay/scripts` splits out the webpack runtime as a bundle to prevent unnecessary content hash updates. You can read more about the option [here](https://webpack.js.org/configuration/optimization/#optimizationruntimechunk).
+
+When generating bundles for client facing applications, it's ideal to take libraries used and host them in a separate "vendor" or "common" bundle. This bundle can be cached between releases when the libraries are not upgraded. Here is an example implementation when using `@repay/scripts` and the `config` option.
+
+```js
+// repay-scripts.config.js
+module.exports = (baseConfig, options) => {
+  if (options.env === "production") {
+    // adds library bundles for cactus and react libraries
+    baseConfig.optimization.splitChunks.cacheGroups = {
+      cactus: {
+        // Doesn't include node_modules because of yarn workspaces
+        // symlinking. It normally should include node_modules like
+        // react below
+        test: /[\\/]node_modules[\\/]cactus-/,
+        name: "cactus",
+        chunks: "all"
+      },
+      react: {
+        // selects both react and react-dom into a separate bundle
+        test: /[\\/]node_modules[\\/]react(-dom)?[\\/]/,
+        name: "react",
+        chunks: "all"
+      }
+    };
+  }
+  return baseConfig;
+};
+```
+
+You can learn more about the `splitChunks` object and options in the [webpack docs](https://webpack.js.org/plugins/split-chunks-plugin/#optimizationsplitchunks).

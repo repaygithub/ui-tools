@@ -4,7 +4,6 @@ const path = require('path')
 
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 function getWebpackConfig(input, { cwd, env, port }) {
   const isEnvProduction = env === 'production'
@@ -18,6 +17,7 @@ function getWebpackConfig(input, { cwd, env, port }) {
     output: {
       path: path.resolve(cwd, 'dist'),
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
+      chunkFilename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`,
       publicPath: '/',
     },
     module: {
@@ -33,11 +33,7 @@ function getWebpackConfig(input, { cwd, env, port }) {
           },
         },
         {
-          test: /\.svg$/,
-          use: [require.resolve('svg-sprite-loader'), require.resolve('svgo-loader')],
-        },
-        {
-          test: /\.(png|jpe?g|gif)$/,
+          test: /\.(png|jpe?g|gif|svg)$/i,
           use: {
             loader: require.resolve('file-loader'),
             options: {
@@ -52,10 +48,8 @@ function getWebpackConfig(input, { cwd, env, port }) {
         title: 'Prototype',
         meta: { viewport: 'width=device-width, height=device-height, initial-scale=1' },
       }),
-      // for production use: new webpack.HashedModuleIdsPlugin() for proper cache naming
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // look into html-webpack-multi-build-plugin for production
-      new SpriteLoaderPlugin(),
       isEnvProduction && new webpack.HashedModuleIdsPlugin(),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
@@ -64,6 +58,12 @@ function getWebpackConfig(input, { cwd, env, port }) {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       // added for when using `yarn link` can ensure a single library is resolved
       alias: {},
+    },
+    optimization: {
+      // always creates a separate bundle for the runtime
+      runtimeChunk: 'single',
+      // available to add cacheGroups to separate big libraries into bundles
+      splitChunks: {},
     },
   }
 }
