@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { getStatus } from '../resources/statusResource'
+
 import { reverse } from 'lodash'
 import moment from 'moment'
+
+import { getStatus } from '../resources/statusResource'
 
 class StatusForm extends Component {
   constructor(props) {

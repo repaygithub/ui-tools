@@ -13,7 +13,7 @@ module.exports = {
     },
   },
   extends: ['prettier', 'prettier/react'],
-  plugins: ['prettier', 'react', 'react-hooks'],
+  plugins: ['prettier', 'react', 'react-hooks', 'sort-imports-es6-autofix'],
   env: {
     es6: true,
     node: true,
@@ -53,5 +53,13 @@ module.exports = {
     'react/jsx-no-duplicate-props': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'sort-imports-es6-autofix/sort-imports-es6': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      },
+    ],
   },
 }
