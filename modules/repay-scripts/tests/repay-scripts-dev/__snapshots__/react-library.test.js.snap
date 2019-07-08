@@ -3,3 +3,5 @@
 exports[`@repay/repay-scripts should watch a React library for local development 1`] = `"<div class=\\"AppWrapper\\">Rendered content</div>"`;
 
 exports[`@repay/repay-scripts should watch a React library for local development 2`] = `"<div class=\\"AppWrapper Updated\\">Rendered content</div>"`;
+
+exports[`@repay/repay-scripts should watch the React library as esmodules with tree-shaking 1`] = `"<div class=\\"app-root\\"><div class=\\"AppWrapper Updated\\">Updated Text</div></div>"`;

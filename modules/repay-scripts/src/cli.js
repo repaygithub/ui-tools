@@ -4,6 +4,7 @@ const factory = require('yargs/yargs')
 const repayScripts = require('./repay-scripts')
 const fs = require('fs')
 const path = require('path')
+const logger = require('./helpers/logger')
 
 module.exports = cli
 
@@ -36,6 +37,11 @@ function cli(cwd) {
     debug: {
       type: 'boolean',
       description: 'adds extra logging for debugging purposes',
+      default: false,
+    },
+    'tree-shaking': {
+      type: 'boolean',
+      description: 'enables treeshaking for libraries',
       default: false,
     },
   })
@@ -78,9 +84,15 @@ function parseToConfig(argv) {
     }
   }
 
+  if (!argv.lib && argv['tree-shaking']) {
+    logger.log('--tree-shaking is only applied on libraries')
+  }
+
   if (argv['babel-env']) {
     process.env.BABEL_ENV = argv['babel-env']
   }
+
+  logger.setDebug(argv.debug)
 
   return {
     babelEnv: argv['babel-env'],
@@ -91,5 +103,6 @@ function parseToConfig(argv) {
     debug: argv.debug,
     entry: argv.entry,
     lib: argv.lib,
+    treeShaking: argv['tree-shaking'],
   }
 }

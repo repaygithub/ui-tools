@@ -8,6 +8,7 @@ const webpack = require('webpack')
 const asyncWebpack = util.promisify(webpack)
 const getRollupConfig = require('../configs/rollup')
 const getWebpackConfig = require('../configs/web')
+const logger = require('../helpers/logger')
 
 const inputOptions = [
   'external',
@@ -83,7 +84,7 @@ const pick = (object, keys) =>
   }, {})
 
 async function build(options) {
-  console.log('building...')
+  logger.log('building...')
   const input = path.resolve(options.cwd, options.entry)
   const isLibrary = options.lib
 
@@ -91,25 +92,40 @@ async function build(options) {
     let config = getRollupConfig(input, options)
     if (options.config) {
       config = require(options.config)(config, options)
-      options.debug && console.log('rollup configuration', config)
+      logger.debug('rollup configuration', config)
     }
-    options.debug && console.log(config)
-    options.debug && console.log('starting bundler...')
+    logger.debug(config)
+    logger.debug('starting rollup...')
     const bundle = await rollup.rollup(pick(config, inputOptions))
-    options.debug && console.log('finished bundling, staring write...')
+    logger.debug('finished bundling, staring rollup write...')
     let writePromises = config.output.map(out => bundle.write(pick(out, outputOptions)))
+
+    if (options.treeShaking) {
+      logger.debug('starting babel...')
+      const pkg = require('../helpers/modulePkg')(options.cwd)
+      const babelTranspiler = require('../helpers/babelTranspiler')
+      babelTranspiler.init(input, path.resolve(options.cwd, pkg.module))
+      let files = [input]
+      while (files.length) {
+        const from = files.shift()
+        const { dependencies, promises } = await babelTranspiler.run(from, options)
+        files.push(...dependencies)
+        writePromises.push(...promises)
+      }
+    }
+
     await Promise.all(writePromises)
-    console.log('finished writing.')
+    logger.log('finished writing.')
   } else {
-    options.debug && console.log({ input })
+    logger.debug({ input })
     let config = getWebpackConfig(input, options)
     if (options.config) {
       config = require(options.config)(config, options)
-      options.debug && console.log('webpack configuration', config)
+      logger.debug('webpack configuration', config)
       delete config.devServer
     }
     const stats = await asyncWebpack(config)
-    console.log(stats.toString({ colors: true, chunks: false, modules: false }))
+    logger.log(stats.toString({ colors: true, chunks: false, modules: false }))
     if (stats.hasErrors()) {
       throw Error('See webpack build errors above.')
     }
