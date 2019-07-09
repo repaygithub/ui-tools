@@ -2,15 +2,14 @@
 
 const build = require('./commands/build')
 const dev = require('./commands/dev')
+const logger = require('./helpers/logger')
 
 module.exports = repayScripts
 
 async function repayScripts(options) {
   const command = options.command
-  if (options.debug) {
-    console.log('running command ', command)
-    console.log(options)
-  }
+  logger.debug('running command ', command)
+  logger.debug(options)
   switch (command) {
     case 'build': {
       options.env = 'production'

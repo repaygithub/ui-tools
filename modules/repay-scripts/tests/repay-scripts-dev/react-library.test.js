@@ -36,4 +36,58 @@ describe('@repay/repay-scripts', () => {
     )
     expect(updatedContent).toMatchSnapshot()
   })
+
+  it('should watch the React library as esmodules with tree-shaking', async () => {
+    const test = new TestSetup('react-library')
+    // application to install and run library
+    const application = new TestSetup('react-application')
+
+    await Promise.all([test.setup(), application.setup()])
+
+    test.spawn('yarn', ['repay-scripts', 'dev', '--lib', '--tree-shaking', 'index.js'])
+    // some things we can try to run in parallel
+    await Promise.all([
+      test.waitForText('finished transpiling individual files'),
+      application.yarnAdd(test.tempDir),
+      application.updateFile('app.js'),
+      // needs config to resolve react for library
+      application.writeFile(
+        'repay-scripts.config.js',
+        `
+module.exports = function (config) {
+  config.resolve.alias.react = require.resolve('react')
+  return config
+}
+`
+      ),
+      test.exec('yarn link'),
+    ])
+
+    await application.exec('yarn link @repay/basic-library')
+    await test.updateFile('app.js')
+    await test.waitForText('updated files:')
+
+    application.spawn('yarn', [
+      'repay-scripts',
+      'dev',
+      '--babel-env',
+      'production',
+      '--config',
+      'repay-scripts.config.js',
+      '--port',
+      '9444',
+      'index.js',
+    ])
+
+    await application.waitForText('Compiled successfully')
+
+    // Spin up test application
+    const page = await test.getPage()
+    await page.goto('https://localhost:9444')
+    // wait for react-library className
+    await sleep(2)
+    const content = await page.$eval('.AppWrapper.Updated', el => el.parentElement.outerHTML)
+    expect(content).toMatchSnapshot()
+    await test.exec('yarn unlink')
+  })
 })

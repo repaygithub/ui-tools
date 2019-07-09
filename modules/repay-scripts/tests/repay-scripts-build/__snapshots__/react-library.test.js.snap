@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@repay/repay-scripts should build a React library 1`] = `"<div class=\\"AppWrapper\\">Rendered content</div>"`;
+exports[`@repay/repay-scripts should build the React library as commonjs 1`] = `"<div class=\\"AppWrapper\\">Rendered content</div>"`;
+
+exports[`@repay/repay-scripts should build the React library as esmodules 1`] = `"<div class=\\"app-root\\"><div class=\\"AppWrapper\\">Updated Text</div></div>"`;

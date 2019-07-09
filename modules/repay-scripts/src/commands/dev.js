@@ -1,26 +1,24 @@
 module.exports = dev
 
-const getRollupConfig = require('../configs/rollup')
-const getWebpackConfig = require('../configs/web')
 const path = require('path')
-const rollup = require('rollup')
-
-const webpack = require('webpack')
-const webpackDevServer = require('webpack-dev-server')
+const logger = require('../helpers/logger')
+const fs = require('fs')
 
 const HOST = '0.0.0.0'
 
 async function dev(options) {
-  options.debug && console.log('building dev environment...')
+  logger.debug('building dev environment...')
   const input = path.resolve(options.cwd, options.entry)
   const isLibrary = options.lib
   if (isLibrary) {
+    const rollup = require('rollup')
+    const getRollupConfig = require('../configs/rollup')
     let config = getRollupConfig(input, options)
     if (options.config) {
       config = require(options.config)(config, options)
-      options.debug && console.log('rollup configuration', config)
+      logger.debug('rollup configuration', config)
     }
-    options.debug && console.log('building library...')
+    logger.debug('building library...')
     let watcher = rollup.watch(config)
     watcher.on('event', event => {
       if (event.code === 'ERROR') {
@@ -32,7 +30,63 @@ async function dev(options) {
         process.exit(1)
       }
     })
+    if (options.treeShaking) {
+      logger.debug('starting babel...')
+      const pkg = require('../helpers/modulePkg')(options.cwd)
+      const babelTranspiler = require('../helpers/babelTranspiler')
+      babelTranspiler.init(input, path.resolve(options.cwd, pkg.module))
+      let files = [input]
+      const watchedFiles = new Set()
+      let isTranspiling = false
+      let isFirstCompile = true
+
+      function addToWatch(from) {
+        watchedFiles.add(from)
+        fs.watch(from, eventType => {
+          logger.debug(eventType, from)
+          files.push(from)
+          transpileFiles()
+        })
+      }
+
+      async function transpileFiles() {
+        // avoid starting parallel compilations
+        if (isTranspiling === true) {
+          return
+        }
+        isTranspiling = true
+        let writePromises = []
+        let touchedFiles = new Set()
+        while (files.length) {
+          const from = files.shift()
+          touchedFiles.add(from)
+          if (!watchedFiles.has(from)) {
+            addToWatch(from)
+          }
+          const { dependencies, promises } = await babelTranspiler.run(from, options)
+          files.push(...dependencies)
+          writePromises.push(...promises)
+        }
+        let wasFirstCompile = isFirstCompile
+        isFirstCompile = false
+        isTranspiling = false
+        await Promise.all(writePromises)
+        if (wasFirstCompile) {
+          logger.log('finished transpiling individual files')
+        } else {
+          logger.log('updated files:')
+          for (const f of touchedFiles) {
+            console.log(`\t${f}`)
+          }
+        }
+      }
+
+      await transpileFiles()
+    }
   } else {
+    const webpack = require('webpack')
+    const webpackDevServer = require('webpack-dev-server')
+    const getWebpackConfig = require('../configs/web')
     const PORT = options.port
     let config = getWebpackConfig(input, options)
     let serverConfig = {
@@ -51,7 +105,7 @@ async function dev(options) {
     if (options.config) {
       config.devServer = serverConfig
       config = require(options.config)(config, options)
-      options.debug && console.log('webpack configuration', config)
+      logger.debug('webpack configuration', config)
       serverConfig = config.devServer
       delete config.devServer
     }
@@ -62,9 +116,9 @@ async function dev(options) {
     // "invalid" is short for "bundle invalidated", it doesn't imply any errors
     compiler.hooks.invalid.tap('invalid', () => {
       if (isFirstCompile === false) {
-        console.log(`Compiling...`)
+        logger.log(`Compiling...`)
       } else {
-        console.log('\n\nChanges detected, recompiling...')
+        logger.log('\n\nChanges detected, recompiling...')
       }
     })
 
@@ -78,12 +132,12 @@ async function dev(options) {
 
       const isSuccessful = !statsData.errors.length && !statsData.warnings.length
       if (isSuccessful) {
-        options.debug && console.log(stats.toString({ all: true, warnings: false, errors: false }))
+        logger.debug(stats.toString({ all: true, warnings: false, errors: false }))
 
-        console.log('\nCompiled successfully!\n')
+        logger.log('\nCompiled successfully!\n')
       }
       if (isSuccessful && isFirstCompile) {
-        console.log(`You can now view your app in the browser at https://localhost:${PORT}/`)
+        logger.log(`You can now view your app in the browser at https://localhost:${PORT}/`)
       }
       isFirstCompile = false
 
@@ -94,25 +148,25 @@ async function dev(options) {
         if (statsData.errors.length > 1) {
           statsData.errors.length = 1
         }
-        console.log('\n*** Failed to compile. ***\n')
-        console.log(statsData.errors.join('\n\n'))
-        console.log('\n\n\tReview the above errors to fix the build.\n')
+        logger.log('\n*** Failed to compile. ***\n')
+        logger.log(statsData.errors.join('\n\n'))
+        logger.log('\n\n\tReview the above errors to fix the build.\n')
         return
       }
 
       // Show warnings if no errors were found.
       if (statsData.warnings.length) {
-        console.log('\nCompiled with warnings.\n')
-        console.log(statsData.warnings.join('\n\n'))
+        logger.log('\nCompiled with warnings.\n')
+        logger.log(statsData.warnings.join('\n\n'))
       }
     })
 
     const devServer = new webpackDevServer(compiler, serverConfig)
     devServer.listen(PORT, HOST, err => {
       if (err) {
-        return console.log(err)
+        return logger.log(err)
       }
-      console.log('Building web application...')
+      logger.log('Building web application...')
     })
     ;['SIGINT', 'SIGTERM'].forEach(function(sig) {
       process.on(sig, function() {
