@@ -1,5 +1,10 @@
 # Changelog
 
+## [@repay/scripts@v0.3.1](https://github.com/repaygithub/ui-tools/commit/ad3dbdb5b84b077707d8b9343dc4eac9c3b7bd8e)
+
+- fix(repay-scripts): only warn when tree-shaking enabled (#20) [32cbe18](https://github.com/repaygithub/ui-tools/commit/32cbe18ebfcdc41f98a2606d70f1d326b36528ac)
+- docs(repay-scripts): add documentation for tree-shaking [28f93c4](https://github.com/repaygithub/ui-tools/commit/28f93c49166de48f9b61419c0f7047eafadd3572)
+
 ## [@repay/scripts@v0.3.0](https://github.com/repaygithub/ui-tools/commit/34bf480783d47b25fbc53d3195366d2c6a55ce0e)
 
 - feat(repay-scripts): adds --tree-shaking option for libraries [1b09887](https://github.com/repaygithub/ui-tools/commit/1b09887e007e2fdc76f68b7dab83ddb35fc3b482)
