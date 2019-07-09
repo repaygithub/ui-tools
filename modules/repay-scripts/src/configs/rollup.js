@@ -13,7 +13,7 @@ const getBabelConfig = require('./babel')
 
 function getRollupConfig(input, { cwd, treeShaking }) {
   const pkg = require('../helpers/modulePkg')(cwd)
-  if (!pkg.hasOwnProperty('sideEffects')) {
+  if (treeShaking && !pkg.hasOwnProperty('sideEffects')) {
     logger.log('[WARN] when using the --tree-shaking option you should define the')
     logger.log('\t"sideEffects" property in your package.json')
     logger.log('\thttps://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free')
