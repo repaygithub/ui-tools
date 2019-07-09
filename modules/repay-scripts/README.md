@@ -1,6 +1,6 @@
 # `@repay/scripts`
 
-The CLI tools used for building and bundling javascript packages at REPAY.
+The CLI tools used for building and bundling javascript packages at REPAY. Uses the [`@repay/babel-preset`](../babel-preset/), overrides not currently available except through customizing the config.
 
 ## Usage
 
@@ -43,15 +43,28 @@ Commands:
                                application for local development
 
 Options:
-  --lib          is this a javascript library         [boolean] [default: false]
-  --babel-env    set the babel environment
+  --lib           is this a javascript library        [boolean] [default: false]
+  --babel-env     set the babel environment
                [string] [choices: "development", "test", "production"] [default:
                                                                    "production"]
-  --config, -c   path to override configuration         [string] [default: null]
-  --debug        adds extra logging for debugging purposes
+  --config, -c    path to override configuration        [string] [default: null]
+  --debug         adds extra logging for debugging purposes
                                                       [boolean] [default: false]
-  -h, --help     Show help                                             [boolean]
-  -v, --version  Show version number                                   [boolean]
+  --tree-shaking  enables treeshaking for libraries   [boolean] [default: false]
+  -h, --help      Show help                                            [boolean]
+  -v, --version   Show version number                                  [boolean]
+```
+
+### Using the `tree-shaking` option
+
+_Only applicable to libraries._
+
+Adding the `--tree-shaking` option will create a commonjs bundle normally, but then use [Babel](https://babeljs.io/docs/en/) directly instead of bundling the ES modules. This allows for more aggressive tree shaking or code splitting when the library is used for the front-end. Additionally, the library should implement the [`sideEffects`](https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free) property in it's package.json to allow bundlers to confidently remove unused files.
+
+Example:
+
+```sh
+repay-scripts build --tree-shaking --lib src/index.ts
 ```
 
 ### Using `config` option
@@ -89,7 +102,7 @@ repay-scripts dev --config rollup.config.js --lib src/index.ts
 module.exports = (config, options) => {
   // remove ESM build
   config.outputs.splice(0, 1);
-  // allways returns config
+  // always return config
   return config;
 };
 ```
@@ -107,9 +120,6 @@ module.exports = (baseConfig, options) => {
     // adds library bundles for cactus and react libraries
     baseConfig.optimization.splitChunks.cacheGroups = {
       cactus: {
-        // Doesn't include node_modules because of yarn workspaces
-        // symlinking. It normally should include node_modules like
-        // react below
         test: /[\\/]node_modules[\\/]cactus-/,
         name: "cactus",
         chunks: "all"
