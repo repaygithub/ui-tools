@@ -29,7 +29,7 @@ describe('@repay/repay-scripts', () => {
     await test.exec(`yarn repay-scripts build --lib index.js`)
     await Promise.all([application.yarnAdd(test.tempDir), application.updateFile('app.js')])
     await application.exec(`yarn repay-scripts build index.js`)
-    debugger
+
     // Spin up test application
     application.startServer()
     const page = await test.getPage()
