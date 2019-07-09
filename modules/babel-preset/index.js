@@ -17,8 +17,6 @@ module.exports = function babelPreset(api) {
         // Latest stable ECMAScript features
         require('@babel/preset-env').default,
         {
-          // We want Create React App to be IE 9 compatible until React itself
-          // no longer works with IE 9
           targets: {
             ie: 11,
           },
