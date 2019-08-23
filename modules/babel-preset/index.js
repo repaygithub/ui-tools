@@ -1,7 +1,8 @@
-module.exports = function babelPreset(api) {
+module.exports = function babelPreset(api, options = { polyfill: false, useHelpers: false }) {
   const isEnvProduction = api.env('production')
   const isEnvTest = api.env('test')
   const isEnvDevelopment = api.env('development') || (!isEnvProduction && !isEnvTest)
+
   return {
     presets: [
       isEnvTest && [
@@ -23,9 +24,10 @@ module.exports = function babelPreset(api) {
           // Users cannot override this behavior because this Babel
           // configuration is highly tuned for ES5 support
           ignoreBrowserslistConfig: true,
-          // Don't include core-js, users should import @babel/polyfill themselves
-          useBuiltIns: false,
-          // Do not transform modules to CJS
+          // polyfills based on usage, otherwise assumes polyfills are provided
+          ...(options.polyfill ? { corejs: 3, useBuiltIns: 'usage' } : { useBuiltIns: false }),
+          // useBuiltIns: false,
+          // Do not transform modules to CJS to allow code-splitting at bundling
           modules: false,
           // Exclude transforms that make all code slower
           exclude: ['transform-typeof-symbol'],
@@ -51,6 +53,19 @@ module.exports = function babelPreset(api) {
       ],
     ].filter(Boolean),
     plugins: [
+      (isEnvProduction || isEnvDevelopment) && [
+        require('@babel/plugin-transform-runtime'),
+        {
+          // these polyfills are provided by @babel/preset-env or babel-polyfill
+          corejs: false,
+          // provides async support when auto polyfill is requested
+          regenerator: options.polyfill,
+          // avoids inlining helpers like _extend for smaller code size
+          helpers: options.useHelpers,
+          // smaller code size because no es module interop required
+          useESModules: false,
+        },
+      ],
       // Necessary to include regardless of the environment because
       // in practice some other transforms (such as object-rest-spread)
       // don't work without it: https://github.com/babel/babel/issues/7215
