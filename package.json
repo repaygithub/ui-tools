@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@repay/eslint-config": "./modules/eslint-config",
-    "eslint": "^5.15.3",
-    "prettier": "^1.16.4"
+    "eslint": "~6.1.0",
+    "prettier": "^1.18.2"
   }
 }
