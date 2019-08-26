@@ -62,7 +62,7 @@ module.exports = function babelPreset(api, options = { polyfill: false, useHelpe
           // avoids inlining helpers like _extend for smaller code size
           helpers: options.useHelpers,
           // smaller code size because no es module interop required
-          useESModules: false,
+          useESModules: true,
         },
       ],
       // Necessary to include regardless of the environment because
