@@ -11,7 +11,7 @@
 - chore(): upgrade dependencies [a59081e](https://github.com/repaygithub/ui-tools/commit/a59081e1ce36e3eea4f5fbe44c1e3dc30654927f)
   - 🚨 **BREAKING**
 
-## [@repay/babel-preset@v0.3.0]()
+## [@repay/babel-preset@v0.3.0](https://github.com/repaygithub/ui-tools/commit/91a43e017f3eaf4e9aaab88237437bbb734c9e75)
 
 - feat(babel-preset): use es modules in transforms [d8c39e7](https://github.com/repaygithub/ui-tools/commit/d8c39e7efde9f5c8adb4893430c1a78e171c3e48)
 - style(babel-preset): remove commented code [bdc4b81](https://github.com/repaygithub/ui-tools/commit/bdc4b81a55cada78c006bff099c06544c230cb11)
