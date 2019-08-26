@@ -1,5 +1,24 @@
 # Changelog
 
+## @repay/eslint-config@next
+
+- chore(): upgrade dependencies for security [cc0c191](https://github.com/repaygithub/ui-tools/commit/cc0c1915119b35051b5a2f47558cdb8d15bb5eca)
+- chore(): upgrade dependencies [a59081e](https://github.com/repaygithub/ui-tools/commit/a59081e1ce36e3eea4f5fbe44c1e3dc30654927f)
+  - 🚨 **BREAKING**
+
+## @repay/scripts@next
+
+- chore(): upgrade dependencies [a59081e](https://github.com/repaygithub/ui-tools/commit/a59081e1ce36e3eea4f5fbe44c1e3dc30654927f)
+  - 🚨 **BREAKING**
+
+## [@repay/babel-preset@v0.3.0]()
+
+- feat(babel-preset): use es modules in transforms [d8c39e7](https://github.com/repaygithub/ui-tools/commit/d8c39e7efde9f5c8adb4893430c1a78e171c3e48)
+- style(babel-preset): remove commented code [bdc4b81](https://github.com/repaygithub/ui-tools/commit/bdc4b81a55cada78c006bff099c06544c230cb11)
+- chore(): upgrade dependencies [a59081e](https://github.com/repaygithub/ui-tools/commit/a59081e1ce36e3eea4f5fbe44c1e3dc30654927f)
+  - 🚨 **BREAKING**
+- feat(babel-preset): add polyfill and useHelpers options [6b8231f](https://github.com/repaygithub/ui-tools/commit/6b8231fd1a3a0e0bdb4ea99789d81e33728710c6)
+
 ## [@repay/scripts@v0.3.1](https://github.com/repaygithub/ui-tools/commit/ad3dbdb5b84b077707d8b9343dc4eac9c3b7bd8e)
 
 - fix(repay-scripts): only warn when tree-shaking enabled (#20) [32cbe18](https://github.com/repaygithub/ui-tools/commit/32cbe18ebfcdc41f98a2606d70f1d326b36528ac)
