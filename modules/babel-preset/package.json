@@ -1,6 +1,6 @@
 {
   "name": "@repay/babel-preset",
-  "version": "0.2.0",
+  "version": "0.3.0-next.0",
   "description": "Babel preset for front end applications",
   "main": "index.js",
   "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/babel-preset",
@@ -9,17 +9,20 @@
     "test": "echo no tests to run for @repay/babel-preset"
   },
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-destructuring": "^7.3.2",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/plugin-transform-destructuring": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
-    "babel-plugin-dynamic-import-node": "^2.2.0"
+    "babel-plugin-dynamic-import-node": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4"
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "core-js": "^3.2.1"
   },
   "peerDependencies": {
     "@babel/core": "^7.3.4"
