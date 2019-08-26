@@ -22,5 +22,8 @@
     "@repay/eslint-config": "./modules/eslint-config",
     "eslint": "~6.1.0",
     "prettier": "^1.18.2"
+  },
+  "resolutions": {
+    "**/eslint-utils": "^1.4.1"
   }
 }
