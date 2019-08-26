@@ -26,7 +26,6 @@ module.exports = function babelPreset(api, options = { polyfill: false, useHelpe
           ignoreBrowserslistConfig: true,
           // polyfills based on usage, otherwise assumes polyfills are provided
           ...(options.polyfill ? { corejs: 3, useBuiltIns: 'usage' } : { useBuiltIns: false }),
-          // useBuiltIns: false,
           // Do not transform modules to CJS to allow code-splitting at bundling
           modules: false,
           // Exclude transforms that make all code slower
