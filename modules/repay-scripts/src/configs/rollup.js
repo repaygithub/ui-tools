@@ -11,7 +11,7 @@ const rollupSourceMaps = require('rollup-plugin-sourcemaps')
 const rollupFilesize = require('rollup-plugin-filesize')
 const getBabelConfig = require('./babel')
 
-function getRollupConfig(input, { cwd, treeShaking }) {
+function getRollupConfig(input, { cwd, treeShaking, babelEnv }) {
   const pkg = require('../helpers/modulePkg')(cwd)
   if (treeShaking && !pkg.hasOwnProperty('sideEffects')) {
     logger.log('[WARN] when using the --tree-shaking option you should define the')
@@ -53,6 +53,7 @@ function getRollupConfig(input, { cwd, treeShaking }) {
       rollupBabel({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs'],
         babelrc: false,
+        runtimeHelpers: babelEnv !== 'test',
         ...getBabelConfig(),
       }),
       rollupCleanup(),
