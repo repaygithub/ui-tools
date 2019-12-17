@@ -26,7 +26,7 @@ function getRollupConfig(input, { cwd, treeShaking }) {
   )
   return {
     input,
-    external: id => externalDeps.includes(id),
+    external: id => externalDeps.some(name => id.startsWith(name)),
     output: [
       pkg.module &&
         !treeShaking && {
