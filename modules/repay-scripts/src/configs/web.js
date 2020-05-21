@@ -24,8 +24,16 @@ function getWebpackConfig(input, { cwd, env, port }) {
     module: {
       rules: [
         {
+          test: /\.m?(j|t)sx?$/,
+          include: /node_modules.*@fluent/,
+          use: {
+            loader: require.resolve('babel-loader'),
+            options: getBabelConfig(),
+          },
+        },
+        {
           test: /\.(j|t)sx?$/,
-          exclude: /node_modules/,
+          exclude: /node_modules\/(?!@fluent)/,
           use: {
             loader: require.resolve('babel-loader'),
             options: getBabelConfig(),
