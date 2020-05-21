@@ -16,15 +16,23 @@
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
     "fmt": "yarn lint --fix",
     "test": "yarn lint && yarn ws run test",
-    "test:ci": "yarn test"
+    "test:ci": "yarn test",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "@repay/eslint-config": "./modules/eslint-config",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "3.2.0",
     "eslint": "~6.1.0",
     "prettier": "^1.18.2"
   },
   "resolutions": {
     "**/eslint-utils": "^1.4.1",
     "**/set-value": "2.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
