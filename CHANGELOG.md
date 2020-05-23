@@ -5,6 +5,11 @@
 - chore(): upgrade dependencies for security [cc0c191](https://github.com/repaygithub/ui-tools/commit/cc0c1915119b35051b5a2f47558cdb8d15bb5eca)
 - chore(): upgrade dependencies [a59081e](https://github.com/repaygithub/ui-tools/commit/a59081e1ce36e3eea4f5fbe44c1e3dc30654927f)
 
+## [@repay/scripts@v0.4.0](https://github.com/repaygithub/ui-tools/commit/1b89c4c03d678e3fadbf62880ebd11f385e16aad)
+
+- feat(repay-scripts): pass all Fluent modules through Babel by default [ce3df35](https://github.com/repaygithub/ui-tools/commit/ce3df35fd87e8de0641c207e2a1fa1d48469b5c6)
+  - 🧨 BREAKING: During Webpack builds (non-lib), all @fluent node_modules will be transpiled by Babel by default.
+
 ## [@repay/scripts@v0.3.2](https://github.com/repaygithub/ui-tools/commit/2a9ce3b271310a31862c72445f26c988fd24b9eb)
 
 - chore: upgrade dependencies [da4b94a](https://github.com/repaygithub/ui-tools/commit/da4b94a64846821b9d6d7d4fb74d48a8b31517ac)
