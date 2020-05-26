@@ -120,7 +120,8 @@ async function build(options) {
     logger.debug({ input })
     let config = getWebpackConfig(input, options)
     if (options.config) {
-      config = require(options.config)(config, options)
+      const configFromOptions = require(options.config)
+      config = await configFromOptions(config, options)
       logger.debug('webpack configuration', config)
       delete config.devServer
     }
