@@ -40,6 +40,22 @@ function getWebpackConfig(input, { cwd, env, port }) {
           },
         },
         {
+          test: /\.css$/,
+          use: [
+            {
+              loader: 'style-loader',
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                modules: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+          ],
+        },
+        {
           test: /\.(png|jpe?g|gif|svg)$/i,
           use: {
             loader: require.resolve('file-loader'),
@@ -47,6 +63,10 @@ function getWebpackConfig(input, { cwd, env, port }) {
               name: '[name].[ext]?[hash]',
             },
           },
+        },
+        {
+          test: /\.ftl$/,
+          use: 'raw-loader',
         },
       ],
     },
