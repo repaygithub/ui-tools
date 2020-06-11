@@ -12,7 +12,8 @@ async function repayScripts(options) {
   logger.debug(options)
   switch (command) {
     case 'build': {
-      options.env = 'production'
+      const isWatch = options.watch
+      options.env = isWatch ? 'development' : 'production'
       await build(options)
       break
     }

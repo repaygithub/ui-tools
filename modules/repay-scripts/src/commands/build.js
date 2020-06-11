@@ -5,7 +5,6 @@ const util = require('util')
 const rollup = require('rollup')
 
 const webpack = require('webpack')
-const asyncWebpack = util.promisify(webpack)
 const getRollupConfig = require('../configs/rollup')
 const getWebpackConfig = require('../configs/web')
 const logger = require('../helpers/logger')
@@ -125,7 +124,15 @@ async function build(options) {
       logger.debug('webpack configuration', config)
       delete config.devServer
     }
-    const stats = await asyncWebpack(config)
+    const compiler = webpack(config)
+    let stats
+    if (options.watch) {
+      const asyncWebpack = util.promisify(compiler.watch).bind(compiler)
+      stats = await asyncWebpack({})
+    } else {
+      const asyncWebpack = util.promisify(compiler.run).bind(compiler)
+      stats = await asyncWebpack()
+    }
     logger.log(stats.toString({ colors: true, chunks: false, modules: false }))
     if (stats.hasErrors()) {
       throw Error('See webpack build errors above.')
