@@ -104,7 +104,8 @@ async function dev(options) {
     }
     if (options.config) {
       config.devServer = serverConfig
-      config = require(options.config)(config, options)
+      const configFromOptions = require(options.config)
+      config = await configFromOptions(config, options)
       logger.debug('webpack configuration', config)
       serverConfig = config.devServer
       delete config.devServer
