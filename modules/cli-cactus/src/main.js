@@ -6,6 +6,7 @@ import ncp from 'ncp'
 import path from 'path'
 import execa from 'execa'
 import Listr from 'listr'
+import { execArgv } from 'process'
 
 const access = promisify(fs.access)
 const copy = promisify(ncp)
@@ -62,7 +63,12 @@ export async function createProject(options) {
     },
     {
       title: 'Install dependencies',
-      task: async () => await execa('yarn', ['install']),
+      task: async () => await execa('yarn', { cwd: options.targetDirectory }),
+    },
+    {
+      title: 'Install peer dependencies',
+      task: async () =>
+        await execa('yarn', ['repay-eslint', 'install'], { cwd: options.targetDirectory }),
     },
   ])
 

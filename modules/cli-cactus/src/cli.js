@@ -5,34 +5,21 @@ import inquirer from 'inquirer'
 const parseArgs = rowArgs => {
   const args = arg(
     {
-      '--install': Boolean,
       '--git': Boolean,
       '-g': '--git',
-      '--yes': Boolean,
-      '-i': '--install',
-      '-y': '--yes',
     },
     {
       args: rowArgs.slice(2),
     }
   )
   return {
-    skipPrompts: args['--yes'] || false,
-    runInstall: args['--install'] || false,
+    targetDirectory: args._[0] || 'my-app',
     git: args['--git'] || false,
-    template: args._[0],
   }
 }
 
 async function promptForMissingOptions(options) {
   const defaultTemplate = 'JavaScript'
-  if (options.skipPrompts) {
-    return {
-      ...options,
-      template: options.template || defaultTemplate,
-    }
-  }
-
   const questions = []
   if (!options.template) {
     questions.push({

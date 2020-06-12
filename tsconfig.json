@@ -3,6 +3,7 @@
     { "path": "./modules/babel-preset" },
     { "path": "./modules/eslint-config" },
     { "path": "./modules/repay-scripts" },
-    { "path": "./modules/testcafe" }
+    { "path": "./modules/testcafe" },
+    { "path": "./modules/cli-cactus" }
   ]
 }

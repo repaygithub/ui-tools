@@ -4,8 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "repay-scripts dev ./src/index.js",
-    "build": "repay-scripts build src/index.js"
+    "start": "repay-scripts dev --config webpack.config.js -p 3435 src/index.jsx",
+    "build": "repay-scripts build src/index.jsx --config webpack.config.js",
+    "lint": "eslint \"**/*.{js,jsx}\"",
+    "fmt": "yarn lint --fix"
   },
   "keywords": [],
   "author": "",
