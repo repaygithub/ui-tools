@@ -43,14 +43,13 @@ function getWebpackConfig(input, { cwd, env, port }) {
           test: /\.css$/,
           use: [
             {
-              loader: 'style-loader',
+              loader: require.resolve('style-loader'),
             },
             {
-              loader: 'css-loader',
+              loader: require.resolve('css-loader'),
               options: {
                 sourceMap: true,
-                modules: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+                modules: { localIdentName: '[name]__[local]___[hash:base64:5]' },
               },
             },
           ],
