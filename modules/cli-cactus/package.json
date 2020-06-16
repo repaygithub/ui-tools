@@ -4,7 +4,7 @@
   "description": "A CLI to bootstrap a cactus project",
   "author": "Nicolas Simmonds <nsimmonds@repay.com>",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "bin": {
     "create-app": "bin/create-app"
   },
@@ -13,8 +13,7 @@
   },
   "files": [
     "bin/",
-    "src/",
-    "webpack.js"
+    "src/"
   ],
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"
@@ -35,16 +34,9 @@
     "chalk": "^4.1.0",
     "esm": "^3.2.25",
     "execa": "^4.0.2",
+    "hygen": "^5.0.3",
     "inquirer": "^7.1.0",
     "listr": "^0.14.3",
-    "ncp": "^2.0.0",
-    "webpack": "^4.43.0",
-    "webpack-dev-server": "^3.11.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "ncp": "^2.0.0"
   }
 }

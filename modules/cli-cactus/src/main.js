@@ -1,20 +1,20 @@
-import { promisify } from 'util'
-
 import chalk from 'chalk'
-import fs from 'fs'
-import ncp from 'ncp'
 import path from 'path'
 import execa from 'execa'
 import Listr from 'listr'
-import { execArgv } from 'process'
 
-const access = promisify(fs.access)
-const copy = promisify(ncp)
+const hygenFiles = async options => {
+  console.log(options.templateDir)
 
-async function copyTemplateFiles(options) {
-  return copy(options.templateDirectory, options.targetDirectory, {
-    clobber: false,
-  })
+  await execa.command(
+    `hygen templates ${options.template.toLowerCase()} --name ${
+      options.targetDirectory
+    } --directory ${process.cwd()}`,
+    {
+      cwd: options.templateDir,
+      shell: true,
+    }
+  )
 }
 
 async function initGit(options) {
@@ -28,33 +28,14 @@ async function initGit(options) {
 }
 
 export async function createProject(options) {
-  options = {
-    ...options,
-    targetDirectory: options.targetDirectory || process.cwd(),
-  }
-
   const currentFileUrl = import.meta.url
-  const templateDir = path.resolve(
-    new URL(currentFileUrl).pathname,
-    '../templates',
-    options.template.toLowerCase()
-  )
-  options.templateDirectory = templateDir
-
-  try {
-    await access(templateDir, fs.constants.R_OK)
-  } catch (err) {
-    console.error('%s Invalid template name', chalk.red.bold('ERROR'))
-    process.exit(1)
-  }
-
-  console.log('Copy project files')
-  await copyTemplateFiles(options)
+  const templateDir = path.resolve(new URL(currentFileUrl).pathname, '../../')
+  options.templateDir = templateDir
 
   const tasks = new Listr([
     {
       title: 'Copy project files',
-      task: () => copyTemplateFiles(options),
+      task: () => hygenFiles(options),
     },
     {
       title: 'Initialize git',
@@ -74,5 +55,9 @@ export async function createProject(options) {
 
   await tasks.run()
   console.log('%s Project ready', chalk.green.bold('DONE'))
+  const folder = options.targetDirectory.split(/[/]+/).pop()
+  console.log('cd %s', chalk.blue.bold(folder))
+  console.log('yarn start')
+
   return true
 }

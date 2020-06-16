@@ -13,14 +13,29 @@ const parseArgs = rowArgs => {
     }
   )
   return {
-    targetDirectory: args._[0] || 'my-app',
+    targetDirectory: args._[0],
     git: args['--git'] || false,
   }
+}
+
+const validateName = async input => {
+  if (['/', '\\'].some(el => input.includes(el)) || !input) {
+    return 'Please provide a valid name'
+  }
+  return true
 }
 
 async function promptForMissingOptions(options) {
   const defaultTemplate = 'JavaScript'
   const questions = []
+  if (!options.targetDirectory) {
+    questions.push({
+      type: 'input',
+      name: 'targetDirectory',
+      message: 'Please provide a name for your app',
+      validate: e => validateName(e),
+    })
+  }
   if (!options.template) {
     questions.push({
       type: 'list',
@@ -44,6 +59,7 @@ async function promptForMissingOptions(options) {
     ...options,
     template: options.template || answers.template,
     git: options.git || answers.git,
+    targetDirectory: answers.targetDirectory || options.targetDirectory,
   }
 }
 

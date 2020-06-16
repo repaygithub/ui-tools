@@ -1,3 +1,6 @@
+---
+to: <%=directory%>/<%=name%>/src/index.html
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>

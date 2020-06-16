@@ -1,3 +1,6 @@
+---
+to: <%=directory%>/<%=name%>/webpack.config.js
+---
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = (config, options) => {
   config.plugins[0] = new HtmlWebpackPlugin({
