@@ -1,9 +1,11 @@
 # Changelog
 
-## @repay/eslint-config@next
+## [@repay/eslint-config@v2.0.0](https://github.com/repaygithub/ui-tools/commit/d13f67a14439253b9261edef9704171269aa5e0f)
 
-- chore(): upgrade dependencies for security [cc0c191](https://github.com/repaygithub/ui-tools/commit/cc0c1915119b35051b5a2f47558cdb8d15bb5eca)
-- chore(): upgrade dependencies [a59081e](https://github.com/repaygithub/ui-tools/commit/a59081e1ce36e3eea4f5fbe44c1e3dc30654927f)
+- feat(eslint-config): upgrade Prettier to v2 [490289d](https://github.com/repaygithub/ui-tools/commit/490289d22c3500208b1b2245d37d2a1d41c7498f)
+  - 🧨 BREAKING: Peer dependency of @repay/eslint-config is now >=2.0.0.  This version has a few
+syntax changes.  The most notable one is that single-argument arrow functions will now have parens
+around the argument.
 
 ## [@repay/scripts@v0.4.0](https://github.com/repaygithub/ui-tools/commit/1b89c4c03d678e3fadbf62880ebd11f385e16aad)
 
