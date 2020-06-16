@@ -3,7 +3,7 @@
 ## [@repay/eslint-config@v2.0.0](https://github.com/repaygithub/ui-tools/commit/d13f67a14439253b9261edef9704171269aa5e0f)
 
 - feat(eslint-config): upgrade Prettier to v2 [490289d](https://github.com/repaygithub/ui-tools/commit/490289d22c3500208b1b2245d37d2a1d41c7498f)
-  - 🧨 BREAKING: Peer dependency of @repay/eslint-config is now >=2.0.0.  This version has a few
+  - 🧨 BREAKING: Peer dependency of eslint is now >=2.0.0.  This version has a few
 syntax changes.  The most notable one is that single-argument arrow functions will now have parens
 around the argument.
 
