@@ -7,7 +7,7 @@ const hygenFiles = async options => {
   console.log(options.templateDir)
 
   await execa.command(
-    `hygen templates ${options.template.toLowerCase()} --name ${
+    `npx hygen templates ${options.template.toLowerCase()} --name ${
       options.targetDirectory
     } --directory ${process.cwd()}`,
     {
