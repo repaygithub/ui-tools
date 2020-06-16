@@ -98,7 +98,7 @@ async function build(options) {
     logger.debug('starting rollup...')
     const bundle = await rollup.rollup(pick(config, inputOptions))
     logger.debug('finished bundling, staring rollup write...')
-    let writePromises = config.output.map(out => bundle.write(pick(out, outputOptions)))
+    let writePromises = config.output.map((out) => bundle.write(pick(out, outputOptions)))
 
     if (options.treeShaking) {
       logger.debug('starting babel...')

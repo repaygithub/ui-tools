@@ -4,8 +4,8 @@ const React = require('react')
 
 beforeEach(() => jest.setTimeout(1000 * 60 * 5))
 
-const sleep = seconds => {
-  return new Promise(resolve => {
+const sleep = (seconds) => {
+  return new Promise((resolve) => {
     setTimeout(resolve, seconds * 1000)
   })
 }
@@ -86,7 +86,7 @@ module.exports = function (config) {
     await page.goto('https://localhost:9444')
     // wait for react-library className
     await sleep(2)
-    const content = await page.$eval('.AppWrapper.Updated', el => el.parentElement.outerHTML)
+    const content = await page.$eval('.AppWrapper.Updated', (el) => el.parentElement.outerHTML)
     expect(content).toMatchSnapshot()
     await test.exec('yarn unlink')
   })

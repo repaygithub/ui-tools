@@ -50,7 +50,7 @@ function cli(cwd) {
     'build <entry>',
     'build a javascript library or front-end application',
     () => {},
-    argv => repayScripts(parseToConfig(argv))
+    (argv) => repayScripts(parseToConfig(argv))
   )
 
   parser.command(
@@ -65,7 +65,7 @@ function cli(cwd) {
         requiresArgs: true,
       })
     },
-    argv => repayScripts(parseToConfig(argv))
+    (argv) => repayScripts(parseToConfig(argv))
   )
 
   return parser

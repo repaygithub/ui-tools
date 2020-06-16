@@ -20,7 +20,7 @@ async function dev(options) {
     }
     logger.debug('building library...')
     let watcher = rollup.watch(config)
-    watcher.on('event', event => {
+    watcher.on('event', (event) => {
       if (event.code === 'ERROR') {
         console.error('Error generating bundle')
         console.error(event.error)
@@ -42,7 +42,7 @@ async function dev(options) {
 
       function addToWatch(from) {
         watchedFiles.add(from)
-        fs.watch(from, eventType => {
+        fs.watch(from, (eventType) => {
           logger.debug(eventType, from)
           files.push(from)
           transpileFiles()
@@ -122,7 +122,7 @@ async function dev(options) {
       }
     })
 
-    compiler.hooks.done.tap('done', async stats => {
+    compiler.hooks.done.tap('done', async (stats) => {
       // We have switched off the default Webpack output in WebpackDevServer
       const statsData = stats.toJson({
         all: false,
@@ -162,14 +162,14 @@ async function dev(options) {
     })
 
     const devServer = new webpackDevServer(compiler, serverConfig)
-    devServer.listen(PORT, HOST, err => {
+    devServer.listen(PORT, HOST, (err) => {
       if (err) {
         return logger.log(err)
       }
       logger.log('Building web application...')
     })
-    ;['SIGINT', 'SIGTERM'].forEach(function(sig) {
-      process.on(sig, function() {
+    ;['SIGINT', 'SIGTERM'].forEach(function (sig) {
+      process.on(sig, function () {
         devServer.close(() => {
           process.exit()
         })
