@@ -55,7 +55,7 @@ class TestSetup {
   }
 
   _dataUpdate() {
-    this._listeners.forEach(func => {
+    this._listeners.forEach((func) => {
       func(this._data)
     })
   }
@@ -80,7 +80,7 @@ class TestSetup {
       Array.prototype.push.apply(this._data, args)
       this._dataUpdate()
     }
-    this._childProcess.stdout.on('data', d => this._data.push(d.toString()))
+    this._childProcess.stdout.on('data', (d) => this._data.push(d.toString()))
     return this._childProcess
   }
 
@@ -120,7 +120,7 @@ class TestSetup {
           })
           this._childProcess.on('error', () => reject())
           psTree(this._childProcess.pid, (err, children) => {
-            children.forEach(c => {
+            children.forEach((c) => {
               try {
                 process.kill(c.PID, 'SIGKILL')
               } catch (e) {
@@ -135,8 +135,8 @@ class TestSetup {
   }
 
   waitForText(text, count = 1) {
-    return new Promise(resolve => {
-      const wasTextSeen = data => {
+    return new Promise((resolve) => {
+      const wasTextSeen = (data) => {
         let found = 0
         for (let i = 0; i < data.length; ++i) {
           const datum = data[i]
@@ -154,7 +154,7 @@ class TestSetup {
         if (wasTextSeen(this._data)) {
           resolve()
         } else {
-          const resolver = data => {
+          const resolver = (data) => {
             if (wasTextSeen(data)) {
               this.unsubscribe(resolver)
               resolve()

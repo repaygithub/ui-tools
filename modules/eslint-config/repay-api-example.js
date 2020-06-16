@@ -35,9 +35,9 @@ function getField({ fieldType, input, type, placeholder, disabled, options }) {
   )
 }
 
-const renderOptions = options => {
+const renderOptions = (options) => {
   if (options) {
-    return options.map(option => (
+    return options.map((option) => (
       <option key={option.value} value={option.value}>
         {option.name}
       </option>

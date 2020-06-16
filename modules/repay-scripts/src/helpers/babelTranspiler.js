@@ -35,7 +35,7 @@ module.exports = {
         let depPath = path.resolve(from.replace(path.basename(from), ''), source)
         let ext = path.extname(source)
         if (!ext) {
-          ext = ['.ts', '.tsx', '.js', '.jsx'].find(e => fs.existsSync(depPath + e))
+          ext = ['.ts', '.tsx', '.js', '.jsx'].find((e) => fs.existsSync(depPath + e))
         }
         depPath = depPath + ext
         if (depPath.includes('placeholder')) {

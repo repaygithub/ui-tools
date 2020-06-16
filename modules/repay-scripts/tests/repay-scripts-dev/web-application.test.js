@@ -19,7 +19,7 @@ describe('@repay/repay-scripts', () => {
     await test.waitForText('Compiled successfully')
     const page = await test.getPage()
     await page.goto('https://localhost:9696')
-    const content = await page.$eval('.app-root', el => el.outerHTML)
+    const content = await page.$eval('.app-root', (el) => el.outerHTML)
     expect(content).toMatchSnapshot()
   })
 })

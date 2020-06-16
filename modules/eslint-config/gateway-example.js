@@ -27,7 +27,7 @@ class StatusForm extends Component {
   }
 
   getStatus() {
-    getStatus().then(response => {
+    getStatus().then((response) => {
       if (response.statusCode == 200) {
         this.setState({
           repayStatus: response.result,
@@ -44,7 +44,7 @@ class StatusForm extends Component {
       <div>
         <h2>Scheduled Maintenance</h2>
         {upcomingOrdered
-          ? upcomingOrdered.map(item => {
+          ? upcomingOrdered.map((item) => {
               return (
                 <div className="panel" style={{ width: '800px' }} key={`parent-${item.id}`}>
                   <div className="panel-heading">{item.name}</div>
@@ -62,7 +62,7 @@ class StatusForm extends Component {
                           <tr>
                             <td style={{ fontWeight: 'bold' }}>Components</td>
                             <td>
-                              {item.componentsAffected.map(component => {
+                              {item.componentsAffected.map((component) => {
                                 return <div key={`component-${component.id}`}>{component.name}</div>
                               })}
                             </td>
@@ -70,7 +70,7 @@ class StatusForm extends Component {
                           <tr>
                             <td style={{ fontWeight: 'bold' }}>Locations</td>
                             <td>
-                              {item.containersAffected.map(location => {
+                              {item.containersAffected.map((location) => {
                                 return <div key={`location-${location.id}`}>{location.name}</div>
                               })}
                             </td>
@@ -78,7 +78,7 @@ class StatusForm extends Component {
                           <tr>
                             <td style={{ fontWeight: 'bold' }}>Description</td>
                             <td>
-                              {item.messages.map(message => {
+                              {item.messages.map((message) => {
                                 return <div key={`message-${messageId++}`}>{message.details}</div>
                               })}
                             </td>

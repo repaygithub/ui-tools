@@ -26,7 +26,7 @@ function getRollupConfig(input, { cwd, treeShaking, babelEnv }) {
   )
   return {
     input,
-    external: id => externalDeps.some(name => id.startsWith(name)),
+    external: (id) => externalDeps.some((name) => id.startsWith(name)),
     output: [
       pkg.module &&
         !treeShaking && {

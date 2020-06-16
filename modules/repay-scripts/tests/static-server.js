@@ -32,7 +32,7 @@ function startStaticServer({ directory, port }) {
   const notFoundPath = path.resolve(directory, './404.html')
 
   const server = http
-    .createServer(function(request, response) {
+    .createServer(function (request, response) {
       let url = request.url
       let filePath = path.join(directory, url)
       if (isForbidden(filePath)) {
@@ -47,15 +47,15 @@ function startStaticServer({ directory, port }) {
       let contentType = mimeTypes[extname] || 'application/octet-stream'
 
       fs.readFile(filePath)
-        .then(content => {
+        .then((content) => {
           response.writeHead(200, { 'Content-Type': contentType })
           response.end(content, 'utf-8')
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.code === 'ENOENT') {
             fs.readFile(notFoundPath)
               .catch(() => 'Not Found')
-              .then(content => {
+              .then((content) => {
                 response.writeHead(404, { 'Content-Type': mimeTypes['.html'] })
                 response.end(content, 'utf-8')
               })
@@ -71,7 +71,7 @@ function startStaticServer({ directory, port }) {
     server,
     close() {
       return new Promise((resolve, reject) => {
-        server.close(error => {
+        server.close((error) => {
           if (error) {
             reject(error)
           } else {

@@ -35,7 +35,7 @@ describe('@repay/repay-scripts', () => {
     const page = await test.getPage()
     await page.goto('http://localhost:8100')
     // wait for react-library className
-    const content = await page.$eval('.AppWrapper', el => el.parentElement.outerHTML)
+    const content = await page.$eval('.AppWrapper', (el) => el.parentElement.outerHTML)
     expect(content).toMatchSnapshot()
   })
 
@@ -55,7 +55,7 @@ describe('@repay/repay-scripts', () => {
     const page = await test.getPage()
     await page.goto('http://localhost:8100')
     // wait for react-library className
-    const content = await page.$eval('.AppWrapper', el => el.parentElement.outerHTML)
+    const content = await page.$eval('.AppWrapper', (el) => el.parentElement.outerHTML)
     expect(content).toContain('Updated Text')
   })
 })
