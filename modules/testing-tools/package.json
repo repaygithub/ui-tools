@@ -1,0 +1,31 @@
+{
+  "name": "@repay/testing-tools",
+  "version": "0.0.1",
+  "description": "Tools to help with testing front-end applications",
+  "main": "src/index.js",
+  "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/testing-tools",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "tdd": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js": "babel-jest"
+    },
+    "testRegex": "tests/.*\\.test\\.js",
+    "verbose": true,
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "json-summary"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  },
+  "dependencies": {
+    "testcafe": "^1.8.6"
+  }
+}
