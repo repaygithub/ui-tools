@@ -1,11 +1,9 @@
 module.exports = build
 
 const path = require('path')
-const util = require('util')
 const rollup = require('rollup')
 
 const webpack = require('webpack')
-const asyncWebpack = util.promisify(webpack)
 const getRollupConfig = require('../configs/rollup')
 const getWebpackConfig = require('../configs/web')
 const logger = require('../helpers/logger')
@@ -83,6 +81,13 @@ const pick = (object, keys) =>
     return mem
   }, {})
 
+const handleWebpackOutput = (err, stats) => {
+  logger.log(stats.toString({ colors: true, chunks: false, modules: false }))
+  if (stats.hasErrors()) {
+    throw Error('See webpack build errors above.')
+  }
+}
+
 async function build(options) {
   logger.log('building...')
   const input = path.resolve(options.cwd, options.entry)
@@ -125,10 +130,11 @@ async function build(options) {
       logger.debug('webpack configuration', config)
       delete config.devServer
     }
-    const stats = await asyncWebpack(config)
-    logger.log(stats.toString({ colors: true, chunks: false, modules: false }))
-    if (stats.hasErrors()) {
-      throw Error('See webpack build errors above.')
+    const compiler = webpack(config)
+    if (options.watch) {
+      compiler.watch({}, handleWebpackOutput)
+    } else {
+      compiler.run(handleWebpackOutput)
     }
   }
 }
