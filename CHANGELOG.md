@@ -1,5 +1,15 @@
 # Changelog
 
+## [@repay/scripts@v0.5.0](https://github.com/repaygithub/ui-tools/commit/022ba0873cd8714629000c0a354ae6fc16ff6238)
+
+- feat(repay-scripts): add loaders for CSS and FTL files to default Webpack config [4a03515](https://github.com/repaygithub/ui-tools/commit/4a035158bce1f5844037440652572762e6d9a0e7)
+  - 🧨 BREAKING: CSS and FTL files will now be processed through loaders in the default Webpack
+config
+- feat(repay-scripts): add --watch arg to build command [d11de27](https://github.com/repaygithub/ui-tools/commit/d11de2713fd8a8869f55011682b1c92554583862)
+- feat(repay-scripts): add ability to use async config functions in dev command [e1ef183](https://github.com/repaygithub/ui-tools/commit/e1ef1838f71922ebe62727ff133e96fb200a79e3)
+- fix(repay-scripts): fix path to css/style loaders and use new css loader API [d57fd74](https://github.com/repaygithub/ui-tools/commit/d57fd74e4a0d9b5367862feb2349bbfe8fbaa6f9)
+
+
 ## [@repay/eslint-config@v2.0.0](https://github.com/repaygithub/ui-tools/commit/d13f67a14439253b9261edef9704171269aa5e0f)
 
 - feat(eslint-config): upgrade Prettier to v2 [490289d](https://github.com/repaygithub/ui-tools/commit/490289d22c3500208b1b2245d37d2a1d41c7498f)
