@@ -19,9 +19,9 @@ to: <%=directory%>/<%=name%>/package.json
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@repay/eslint-config": "^1.3.0",
+    "@repay/eslint-config": "^2.0.0",
     "eslint": "^7.2.0",
-    "@repay/scripts": "0.4.1",
+    "@repay/scripts": "0.5.0",
     "prettier": "^2.0.5"
   }
 }

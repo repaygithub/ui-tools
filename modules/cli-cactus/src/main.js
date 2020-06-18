@@ -1,18 +1,21 @@
 import chalk from 'chalk'
-import path from 'path'
 import execa from 'execa'
 import Listr from 'listr'
+import path from 'path'
 
 const hygenFiles = async options => {
-  console.log(options.templateDir)
-
   await execa.command(
     `npx hygen templates ${options.template.toLowerCase()} --name ${
       options.targetDirectory
     } --directory ${process.cwd()}`,
     {
       cwd: options.templateDir,
-      shell: true,
+    }
+  )
+  await execa.command(
+    `npx hygen templates shared --name ${options.targetDirectory} --directory ${process.cwd()}`,
+    {
+      cwd: options.templateDir,
     }
   )
 }
@@ -47,7 +50,7 @@ export async function createProject(options) {
       task: async () => await execa('yarn', { cwd: options.targetDirectory }),
     },
     {
-      title: 'Install peer dependencies',
+      title: 'Initialize eslint config and dependencies',
       task: async () =>
         await execa('yarn', ['repay-eslint', 'install'], { cwd: options.targetDirectory }),
     },

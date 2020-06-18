@@ -7,6 +7,8 @@ const parseArgs = rowArgs => {
     {
       '--git': Boolean,
       '-g': '--git',
+      '--javascript': Boolean,
+      '--typescript': Boolean,
     },
     {
       args: rowArgs.slice(2),
@@ -15,12 +17,23 @@ const parseArgs = rowArgs => {
   return {
     targetDirectory: args._[0],
     git: args['--git'] || false,
+    template: getTemplateName(args),
   }
 }
 
-const validateName = async input => {
-  if (['/', '\\'].some(el => input.includes(el)) || !input) {
-    return 'Please provide a valid name'
+const getTemplateName = val => {
+  if (val['--typescript']) {
+    return 'typescript'
+  } else if (val['--javascript']) {
+    return 'javascript'
+  } else return false
+}
+
+const validateName = input => {
+  if (!input) {
+    return false
+  } else if (['/', '\\'].some(el => input.includes(el)) || !input) {
+    return false
   }
   return true
 }
@@ -28,7 +41,7 @@ const validateName = async input => {
 async function promptForMissingOptions(options) {
   const defaultTemplate = 'JavaScript'
   const questions = []
-  if (!options.targetDirectory) {
+  if (!validateName(options.targetDirectory)) {
     questions.push({
       type: 'input',
       name: 'targetDirectory',

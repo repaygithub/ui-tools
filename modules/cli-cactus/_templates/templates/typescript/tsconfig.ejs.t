@@ -6,7 +6,6 @@ to: <%=directory%>/<%=name%>/tsconfig.json
     "lib": ["esnext", "dom","dom.iterable"],
     "strict": true,
     "jsx": "react",
-    "declaration": true,
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
