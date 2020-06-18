@@ -44,13 +44,18 @@ function cli(cwd) {
       description: 'enables treeshaking for libraries',
       default: false,
     },
+    watch: {
+      type: 'boolean',
+      description: 'applies to "build" only - watches files and rebuilds on change',
+      default: false,
+    },
   })
 
   parser.command(
     'build <entry>',
     'build a javascript library or front-end application',
     () => {},
-    argv => repayScripts(parseToConfig(argv))
+    (argv) => repayScripts(parseToConfig(argv))
   )
 
   parser.command(
@@ -65,7 +70,7 @@ function cli(cwd) {
         requiresArgs: true,
       })
     },
-    argv => repayScripts(parseToConfig(argv))
+    (argv) => repayScripts(parseToConfig(argv))
   )
 
   return parser
@@ -74,6 +79,7 @@ function cli(cwd) {
 function parseToConfig(argv) {
   const cwd = process.cwd()
   let config = argv.config
+  const command = argv._[0]
 
   if (argv.config !== null) {
     const configPath = path.resolve(argv.config)
@@ -86,6 +92,10 @@ function parseToConfig(argv) {
 
   if (!argv.lib && argv['tree-shaking']) {
     logger.log('--tree-shaking is only applied on libraries')
+  }
+
+  if (command !== 'build' && argv.watch) {
+    logger.log('--watch is only valid on the build command')
   }
 
   if (argv['babel-env']) {
@@ -104,5 +114,6 @@ function parseToConfig(argv) {
     entry: argv.entry,
     lib: argv.lib,
     treeShaking: argv['tree-shaking'],
+    watch: argv.watch,
   }
 }
