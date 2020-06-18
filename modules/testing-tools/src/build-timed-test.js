@@ -4,13 +4,14 @@ const convertMilliseconds = require('./utils/convert-milliseconds')
 const buildTimedTest = options => {
   const timedTest = (testName, testFunc) => {
     const timedTestFunc = wrapTestFunc(testName, testFunc)
-    const testInstance = test(testName, timedTestFunc)
+    let testInstance = test
     if (options && options.before) {
-      testInstance.before(options.before)
+      testInstance = testInstance.before(options.before)
     }
     if (options && options.after) {
-      testInstance.after(options.after)
+      testInstance = testInstance.after(options.after)
     }
+    testInstance(testName, timedTestFunc)
   }
   return timedTest
 }
