@@ -1,7 +1,7 @@
 const { performance } = require('perf_hooks')
 const convertMilliseconds = require('./utils/convert-milliseconds')
 
-const buildTimedTest = options => {
+const buildTimedTest = (options) => {
   const timedTest = (testName, testFunc) => {
     const timedTestFunc = wrapTestFunc(testName, testFunc)
     let testInstance = test
@@ -17,7 +17,7 @@ const buildTimedTest = options => {
 }
 
 const wrapTestFunc = (testName, testFunc) => {
-  return async t => {
+  return async (t) => {
     const t0 = performance.now()
     await testFunc(t)
     const t1 = performance.now()

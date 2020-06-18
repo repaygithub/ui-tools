@@ -1,4 +1,4 @@
-module.exports = milliseconds => {
+module.exports = (milliseconds) => {
   // Hopefully there aren't any tests that are taking longer than an hour :)
   let minutes = Math.floor(milliseconds / 60000)
   let seconds = parseInt(((milliseconds % 60000) / 1000).toFixed(0))
