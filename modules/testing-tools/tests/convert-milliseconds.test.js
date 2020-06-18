@@ -24,4 +24,9 @@ describe('Millisecond to minutes/seconds converter', () => {
     const result = convertMilliseconds(100000)
     expect(result).toEqual('1:40')
   })
+
+  test('should yield 5:00', () => {
+    const result = convertMilliseconds(299900)
+    expect(result).toEqual('5:00')
+  })
 })
