@@ -3,7 +3,7 @@ import execa from 'execa'
 import Listr from 'listr'
 import path from 'path'
 
-const hygenFiles = async options => {
+const hygenFiles = async (options) => {
   await execa.command(
     `npx hygen templates ${options.template.toLowerCase()} --name ${
       options.targetDirectory

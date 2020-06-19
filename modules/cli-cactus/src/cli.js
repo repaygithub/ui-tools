@@ -2,7 +2,7 @@ import { createProject } from './main'
 import arg from 'arg'
 import inquirer from 'inquirer'
 
-const parseArgs = rowArgs => {
+const parseArgs = (rowArgs) => {
   const args = arg(
     {
       '--git': Boolean,
@@ -21,7 +21,7 @@ const parseArgs = rowArgs => {
   }
 }
 
-const getTemplateName = val => {
+const getTemplateName = (val) => {
   if (val['--typescript']) {
     return 'typescript'
   } else if (val['--javascript']) {
@@ -29,10 +29,10 @@ const getTemplateName = val => {
   } else return false
 }
 
-const validateName = input => {
+const validateName = (input) => {
   if (!input) {
     return false
-  } else if (['/', '\\'].some(el => input.includes(el)) || !input) {
+  } else if (['/', '\\'].some((el) => input.includes(el)) || !input) {
     return false
   }
   return true
@@ -46,7 +46,7 @@ async function promptForMissingOptions(options) {
       type: 'input',
       name: 'targetDirectory',
       message: 'Please provide a name for your app',
-      validate: e => validateName(e),
+      validate: (e) => validateName(e),
     })
   }
   if (!options.template) {
@@ -76,7 +76,7 @@ async function promptForMissingOptions(options) {
   }
 }
 
-export const cli = async args => {
+export const cli = async (args) => {
   let options = parseArgs(args)
   options = await promptForMissingOptions(options)
   await createProject(options)
