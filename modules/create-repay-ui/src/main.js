@@ -4,18 +4,17 @@ import Listr from 'listr'
 import path from 'path'
 
 const hygenFiles = async (options) => {
+  const { template, targetDirectory, templateDir } = options
   await execa.command(
-    `npx hygen templates ${options.template.toLowerCase()} --name ${
-      options.targetDirectory
-    } --directory ${process.cwd()}`,
+    `npx hygen templates ${template.toLowerCase()} --name ${targetDirectory} --directory ${process.cwd()}`,
     {
-      cwd: options.templateDir,
+      cwd: templateDir,
     }
   )
   await execa.command(
-    `npx hygen templates shared --name ${options.targetDirectory} --directory ${process.cwd()}`,
+    `npx hygen templates shared --name ${targetDirectory} --directory ${process.cwd()}`,
     {
-      cwd: options.templateDir,
+      cwd: templateDir,
     }
   )
 }
@@ -52,7 +51,9 @@ export async function createProject(options) {
     {
       title: 'Initialize eslint config and dependencies',
       task: async () =>
-        await execa('yarn', ['repay-eslint', 'install'], { cwd: options.targetDirectory }),
+        await execa('yarn', ['repay-eslint', 'install'], {
+          cwd: options.targetDirectory,
+        }),
     },
   ])
 
