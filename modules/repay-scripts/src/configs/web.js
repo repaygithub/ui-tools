@@ -6,7 +6,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const getBabelConfig = require('./babel')
 
-function getWebpackConfig(input, { cwd, env, port }) {
+function getWebpackConfig(input, { cwd, env, port, template }) {
   const isEnvProduction = env === 'production'
   const isEnvDevelopment = !isEnvProduction
   return {
@@ -70,10 +70,17 @@ function getWebpackConfig(input, { cwd, env, port }) {
       ],
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Prototype',
-        meta: { viewport: 'width=device-width, height=device-height, initial-scale=1' },
-      }),
+      new HtmlWebpackPlugin(
+        template
+          ? {
+              title: 'Prototype',
+              template,
+            }
+          : {
+              title: 'Prototype',
+              meta: { viewport: 'width=device-width, height=device-height, initial-scale=1' },
+            }
+      ),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       isEnvProduction && new webpack.HashedModuleIdsPlugin(),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
