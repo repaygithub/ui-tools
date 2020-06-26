@@ -54,7 +54,7 @@ function cli(cwd) {
       alias: 't',
       description:
         'applies to front-end apps only - passes custom index.html template to html-webpack-plugin',
-      default: false,
+      default: 'src/index.html',
       requiresArg: true,
     },
   })
