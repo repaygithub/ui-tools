@@ -35,13 +35,13 @@ describe('@repay/repay-scripts', () => {
       '--port',
       '9696',
       '-t',
-      'src/index.html',
+      'template.html',
     ])
     await test.waitForText('Compiled successfully')
     const page = await test.getPage()
     await page.goto('https://localhost:9696')
     const content = await page.$eval("head > meta[name='viewport']", (el) => el.content)
-    expect(content).toBe('test')
+    expect(content).toBe('custom-location')
   })
 
   it('should build a web application for local development using a custom index.html found in the default location', async () => {
