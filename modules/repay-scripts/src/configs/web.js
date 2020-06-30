@@ -1,14 +1,16 @@
 module.exports = getWebpackConfig
 
 const path = require('path')
+const fs = require('fs')
 
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const getBabelConfig = require('./babel')
 
-function getWebpackConfig(input, { cwd, env, port }) {
+function getWebpackConfig(input, { cwd, env, port, template }) {
   const isEnvProduction = env === 'production'
   const isEnvDevelopment = !isEnvProduction
+  const templateExists = fs.existsSync(path.join(process.cwd(), template))
   return {
     mode: isEnvProduction ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
@@ -72,7 +74,10 @@ function getWebpackConfig(input, { cwd, env, port }) {
     plugins: [
       new HtmlWebpackPlugin({
         title: 'Prototype',
-        meta: { viewport: 'width=device-width, height=device-height, initial-scale=1' },
+        meta: templateExists
+          ? {}
+          : { viewport: 'width=device-width, height=device-height, initial-scale=1' },
+        template: templateExists ? template : 'auto',
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       isEnvProduction && new webpack.HashedModuleIdsPlugin(),

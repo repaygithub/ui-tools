@@ -49,6 +49,14 @@ function cli(cwd) {
       description: 'applies to "build" only - watches files and rebuilds on change',
       default: false,
     },
+    'html-template': {
+      type: 'string',
+      alias: 't',
+      description:
+        'applies to front-end apps only - passes custom index.html template to html-webpack-plugin',
+      default: 'src/index.html',
+      requiresArg: true,
+    },
   })
 
   parser.command(
@@ -94,6 +102,10 @@ function parseToConfig(argv) {
     logger.log('--tree-shaking is only applied on libraries')
   }
 
+  if (argv.lib && argv['html-template']) {
+    logger.log('--html-template is only applicable to web applications')
+  }
+
   if (command !== 'build' && argv.watch) {
     logger.log('--watch is only valid on the build command')
   }
@@ -115,5 +127,6 @@ function parseToConfig(argv) {
     lib: argv.lib,
     treeShaking: argv['tree-shaking'],
     watch: argv.watch,
+    template: argv['html-template'],
   }
 }
