@@ -1,5 +1,13 @@
 # Changelog
 
+## [@repay/scripts@v1.0.0](https://github.com/repaygithub/ui-tools/commit/58393c088810ed03c229c67402bb12d711fd26c4)
+
+- chore(repay-scripts): upgrade html-webpack-plugin to 4.3.0 [0b031cc](https://github.com/repaygithub/ui-tools/commit/0b031cc57b29105bd135ed79bd8d3c6ecbbea7f1)
+- feat(repay-scripts): add cli arg to pass custom html template [197bf82](https://github.com/repaygithub/ui-tools/commit/197bf8236e03f4f8d008de0f276369c6740af86f)
+- feat(repay-scripts): default html template to src/index.html [eda534c](https://github.com/repaygithub/ui-tools/commit/eda534c02b4dd8da4aa55b85ed7fa453c2dda6b4)
+- docs(repay-scripts): update docs to include info about the html-template arg [ece372e](https://github.com/repaygithub/ui-tools/commit/ece372e5c9891fbe57fba6c6f1f3f9680fbbde17)
+
+
 ## [@repay/scripts@v0.5.0](https://github.com/repaygithub/ui-tools/commit/022ba0873cd8714629000c0a354ae6fc16ff6238)
 
 - feat(repay-scripts): add loaders for CSS and FTL files to default Webpack config [4a03515](https://github.com/repaygithub/ui-tools/commit/4a035158bce1f5844037440652572762e6d9a0e7)
