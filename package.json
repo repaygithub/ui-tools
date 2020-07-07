@@ -23,7 +23,7 @@
     "@repay/eslint-config": "./modules/eslint-config",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "3.2.0",
-    "eslint": "~6.1.0",
+    "eslint": "^7.4.0",
     "prettier": "^2.0.5"
   },
   "resolutions": {

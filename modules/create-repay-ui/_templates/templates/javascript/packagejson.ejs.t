@@ -20,7 +20,7 @@ to: <%=directory%>/<%=name%>/package.json
   },
   "devDependencies": {
     "@repay/eslint-config": "^2.0.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.4.0",
     "@repay/scripts": "0.5.0",
     "prettier": "^2.0.5"
   }
