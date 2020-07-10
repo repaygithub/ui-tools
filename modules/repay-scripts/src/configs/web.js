@@ -11,12 +11,17 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
   const isEnvProduction = env === 'production'
   const isEnvDevelopment = !isEnvProduction
   const templateExists = fs.existsSync(path.join(process.cwd(), template))
+  const polyfilledInput = [require.resolve('core-js/stable'), input]
   return {
     mode: isEnvProduction ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
     entry: isEnvProduction
-      ? input
-      : [`webpack-dev-server/client?http://localhost:${port}/`, `webpack/hot/dev-server`, input],
+      ? polyfilledInput
+      : [
+          `webpack-dev-server/client?http://localhost:${port}/`,
+          `webpack/hot/dev-server`,
+          ...polyfilledInput,
+        ],
     output: {
       path: path.resolve(cwd, 'dist'),
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
