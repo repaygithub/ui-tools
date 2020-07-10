@@ -41,3 +41,11 @@ Add the preset to your .babelrc or equivalent
   ```
 
 - Object rest spread (e.g. `let obj = {...props}`)
+
+## Polyfills
+
+There are two options you can pass to control polyfills:
+
+- `coreJsPolyfill` (default: `false`): When this option is `true`, the [`useBuiltIns: 'usage'`](https://babeljs.io/docs/en/babel-preset-env#usebuiltins-usage) option will be passed into `@babel/preset-env` to automatically
+add in only the necessary CoreJS polyfills needed.
+- `regeneratorPolyfill` (default: `false`): When this option is `true`, the [`regenerator: true`](https://babeljs.io/docs/en/babel-plugin-transform-runtime#regenerator) option will be passed into the `@babel/plugin-transform-runtime` plugin.
