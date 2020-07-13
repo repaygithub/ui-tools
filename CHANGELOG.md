@@ -1,5 +1,11 @@
 # Changelog
 
+## [@repay/eslint-config@v2.1.0](https://github.com/repaygithub/ui-tools/commit/5d09d99b8a020a732fd235a7eb96e3acba76eb32)
+
+- build(eslint-config): upgrade eslint [74b6ad6](https://github.com/repaygithub/ui-tools/commit/74b6ad69b12d669e923856899e5cb0abfb7a997e)
+- build(eslint-config): remove prettierrc [d85197d](https://github.com/repaygithub/ui-tools/commit/d85197d10aa8f970490902d112446c6d5d82049e)
+- fix(eslint-config): upgrade babel-eslint to avoid no-unused-vars bug [2dcf074](https://github.com/repaygithub/ui-tools/commit/2dcf074f3d9120dcc1e416ec8b51469c2ebf4206)
+
 ## [@repay/scripts@v1.0.0](https://github.com/repaygithub/ui-tools/commit/58393c088810ed03c229c67402bb12d711fd26c4)
 
 - chore(repay-scripts): upgrade html-webpack-plugin to 4.3.0 [0b031cc](https://github.com/repaygithub/ui-tools/commit/0b031cc57b29105bd135ed79bd8d3c6ecbbea7f1)
