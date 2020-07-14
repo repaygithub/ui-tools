@@ -1,7 +1,6 @@
-import React from 'react'
-
-import DatePicker from 'react-datepicker'
 import moment from 'moment'
+import React from 'react'
+import DatePicker from 'react-datepicker'
 import Toggle from 'react-toggle'
 
 function getField({ fieldType, input, type, placeholder, disabled, options }) {

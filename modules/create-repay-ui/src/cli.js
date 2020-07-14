@@ -1,6 +1,7 @@
-import { createProject } from './main'
 import arg from 'arg'
 import inquirer from 'inquirer'
+
+import { createProject } from './main'
 
 const parseArgs = (rowArgs) => {
   const args = arg(

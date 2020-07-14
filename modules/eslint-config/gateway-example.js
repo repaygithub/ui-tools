@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-
 import { reverse } from 'lodash'
 import moment from 'moment'
+import React, { Component } from 'react'
 
 import { getStatus } from '../resources/statusResource'
 
