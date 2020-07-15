@@ -43,16 +43,22 @@ Commands:
                                application for local development
 
 Options:
-  --lib           is this a javascript library        [boolean] [default: false]
-  --babel-env     set the babel environment
+  --lib                is this a javascript library   [boolean] [default: false]
+  --babel-env          set the babel environment
                [string] [choices: "development", "test", "production"] [default:
                                                                    "production"]
-  --config, -c    path to override configuration        [string] [default: null]
-  --debug         adds extra logging for debugging purposes
+  --config, -c         path to override configuration   [string] [default: null]
+  --debug              adds extra logging for debugging purposes
                                                       [boolean] [default: false]
-  --tree-shaking  enables treeshaking for libraries   [boolean] [default: false]
-  -h, --help      Show help                                            [boolean]
-  -v, --version   Show version number                                  [boolean]
+  --tree-shaking       enables treeshaking for libraries
+                                                      [boolean] [default: false]
+  --watch              applies to "build" only - watches files and rebuilds on
+                       change                         [boolean] [default: false]
+  --html-template, -t  applies to front-end apps only - passes custom index.html
+                       template to html-webpack-plugin
+                                            [string] [default: "src/index.html"]
+  -h, --help           Show help                                       [boolean]
+  -v, --version        Show version number                             [boolean]
 ```
 
 ### Using the `tree-shaking` option
@@ -105,6 +111,27 @@ module.exports = (config, options) => {
   // always return config
   return config;
 };
+```
+
+### Using the `html-template` option
+
+The `html-template` option is used to pass a custom HTML template to `html-webpack-plugin` if you need to include some customized configuration to your HTML.
+This argument is only applicable to web applications -- not libraries. If no value is specified for this arg, the script will search for an `index.html` file under
+the `src/` solder of your project and use that if one is found. If no custom HTML template is located or provided, a default template will be generated.
+
+#### Example HTML Template
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+  </body>
+</html>
 ```
 
 ### Optimizing Bundles

@@ -1,20 +1,27 @@
 module.exports = getWebpackConfig
 
 const path = require('path')
+const fs = require('fs')
 
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const getBabelConfig = require('./babel')
 
-function getWebpackConfig(input, { cwd, env, port }) {
+function getWebpackConfig(input, { cwd, env, port, template }) {
   const isEnvProduction = env === 'production'
   const isEnvDevelopment = !isEnvProduction
+  const templateExists = fs.existsSync(path.join(process.cwd(), template))
+  const polyfilledInput = [require.resolve('core-js/stable'), input]
   return {
     mode: isEnvProduction ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
     entry: isEnvProduction
-      ? input
-      : [`webpack-dev-server/client?http://localhost:${port}/`, `webpack/hot/dev-server`, input],
+      ? polyfilledInput
+      : [
+          `webpack-dev-server/client?http://localhost:${port}/`,
+          `webpack/hot/dev-server`,
+          ...polyfilledInput,
+        ],
     output: {
       path: path.resolve(cwd, 'dist'),
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
@@ -72,7 +79,10 @@ function getWebpackConfig(input, { cwd, env, port }) {
     plugins: [
       new HtmlWebpackPlugin({
         title: 'Prototype',
-        meta: { viewport: 'width=device-width, height=device-height, initial-scale=1' },
+        meta: templateExists
+          ? {}
+          : { viewport: 'width=device-width, height=device-height, initial-scale=1' },
+        template: templateExists ? template : 'auto',
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       isEnvProduction && new webpack.HashedModuleIdsPlugin(),

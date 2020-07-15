@@ -20,18 +20,6 @@ if (args.includes('install')) {
     console.log('\n.eslintrc already exists in the root directory, delete or re-run with `--force`')
   }
 
-  // add .prettierrc
-  const prettierConfig = fs.readFileSync(path.join(__dirname, './.prettierrc.template'))
-  const prettierrcPath = path.join(cwd, '.prettierrc')
-  if (isForce || !fs.existsSync(prettierrcPath)) {
-    fs.writeFileSync(prettierrcPath, prettierConfig)
-  } else {
-    filesExisting = true
-    console.log(
-      '\n.prettierrc already exists in the root directory, delete or re-run with `--force`'
-    )
-  }
-
   // install peer dependencies
   const pkg = require('./package.json')
   const peerDeps = Object.keys(pkg.peerDependencies).join(' ')

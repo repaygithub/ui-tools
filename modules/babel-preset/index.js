@@ -1,4 +1,7 @@
-module.exports = function babelPreset(api, options = { polyfill: false, useHelpers: false }) {
+module.exports = function babelPreset(
+  api,
+  options = { coreJsPolyfill: false, regeneratorPolyfill: false, useHelpers: false }
+) {
   const isEnvProduction = api.env('production')
   const isEnvTest = api.env('test')
   const isEnvDevelopment = api.env('development') || (!isEnvProduction && !isEnvTest)
@@ -25,7 +28,9 @@ module.exports = function babelPreset(api, options = { polyfill: false, useHelpe
           // configuration is highly tuned for ES5 support
           ignoreBrowserslistConfig: true,
           // polyfills based on usage, otherwise assumes polyfills are provided
-          ...(options.polyfill ? { corejs: 3, useBuiltIns: 'usage' } : { useBuiltIns: false }),
+          ...(options.coreJsPolyfill
+            ? { corejs: 3, useBuiltIns: 'usage' }
+            : { useBuiltIns: false }),
           // Do not transform modules to CJS to allow code-splitting at bundling
           modules: false,
           // Exclude transforms that make all code slower
@@ -58,7 +63,7 @@ module.exports = function babelPreset(api, options = { polyfill: false, useHelpe
           // these polyfills are provided by @babel/preset-env or babel-polyfill
           corejs: false,
           // provides async support when auto polyfill is requested
-          regenerator: options.polyfill,
+          regenerator: options.regeneratorPolyfill,
           // avoids inlining helpers like _extend for smaller code size
           helpers: options.useHelpers,
           // smaller code size because no es module interop required
