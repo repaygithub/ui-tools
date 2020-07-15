@@ -7,8 +7,8 @@ to: <%=directory%>/<%=name%>/package.json
   "main": "src/index.js",
   "name": "<%=name%>",
   "scripts": {
-    "start": "repay-scripts dev --config webpack.config.js -p 3435 src/index.jsx",
-    "build": "repay-scripts build src/index.jsx --config webpack.config.js",
+    "start": "repay-scripts dev -p 3435 src/index.jsx",
+    "build": "repay-scripts build src/index.jsx",
     "lint": "eslint \"**/*.{js,jsx}\"",
     "fmt": "yarn lint --fix"
   },
@@ -21,7 +21,7 @@ to: <%=directory%>/<%=name%>/package.json
   "devDependencies": {
     "@repay/eslint-config": "^2.0.0",
     "eslint": "^7.2.0",
-    "@repay/scripts": "0.5.0",
+    "@repay/scripts": "1.0.0",
     "prettier": "^2.0.5"
   }
 }
