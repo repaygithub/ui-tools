@@ -7,8 +7,8 @@ to: <%=directory%>/<%=name%>/package.json
   "main": "src/index.js",
   "name": "<%=name%>",
   "scripts": {
-    "start": "repay-scripts dev --config webpack.config.js -p 3435 src/index.tsx",
-    "build": "repay-scripts build src/index.tsx --config webpack.config.js",
+    "start": "repay-scripts dev -p 3435 src/index.tsx",
+    "build": "repay-scripts build src/index.tsx",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
     "fmt": "yarn lint --fix",
     "test:types": "tsc -p ./tsconfig.json --noEmit"
@@ -27,7 +27,7 @@ to: <%=directory%>/<%=name%>/package.json
     "@typescript-eslint/parser": "^3.6.0",
     "@repay/eslint-config": "^2.0.0",
     "eslint": "^7.4.0",
-    "@repay/scripts": "0.5.0",
+    "@repay/scripts": "1.0.0",
     "prettier": "^2.0.5"
   }
 }
