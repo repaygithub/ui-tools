@@ -18,17 +18,10 @@ describe('@repay/repay-scripts', () => {
     test.spawn('yarn', ['repay-scripts', 'dev', '--lib', 'index.js'])
     await test.waitForText(pkg.module)
     await test.yarnAdd('react')
-    const { App } = require(test.tempDir)
-    const content = ReactDomServer.renderToStaticMarkup(
-      React.createElement(App, {}, 'Rendered content')
-    )
-    expect(content).toMatchSnapshot()
 
     await test.updateFile('app.js')
     await test.waitForText(pkg.module, 2)
     await sleep(0.5)
-
-    jest.resetModules()
 
     const { App: UpdatedApp } = require(test.tempDir)
     const updatedContent = ReactDomServer.renderToStaticMarkup(

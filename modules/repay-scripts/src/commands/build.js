@@ -30,9 +30,7 @@ const inputOptions = [
   'treeshake',
 
   // experimental
-  'chunkGroupingSize',
   'experimentalCacheExpiry',
-  'experimentalOptimizeChunks',
   'experimentalTopLevelAwait',
   'perf',
 ]
