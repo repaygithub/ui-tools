@@ -1,5 +1,13 @@
 # Changelog
 
+## [@repay/babel-preset@v1.0.0](https://github.com/repaygithub/ui-tools/commit/a4093c1766b4a59b5dc19a1b2a9d84072f4853dc)
+
+- fix(babel-preset): properly specify peer dependencies [6649eb9](https://github.com/repaygithub/ui-tools/commit/6649eb9b19f509342cbbd2c41916d86a323c7780)
+- feat(babel-preset): split up polyfill option into coreJsPolyfill and regeneratorPolyfill [190f331](https://github.com/repaygithub/ui-tools/commit/190f3313ca86a0b68cef0cf28fb69ba9a9ce526c)
+  - 🧨 BREAKING:The polyfill option has been replaced by coreJsPolyfill and regeneratorPolyfill.  Set both to true to mimic setting the previous polyfill option to true.
+- chore(babel-preset): upgrade babel plugins and packages to latest version [430b727](https://github.com/repaygithub/ui-tools/commit/430b72777b1bdda4c37dd4bd50d9c338cf694988)
+
+
 ## [@repay/eslint-config@v2.1.0](https://github.com/repaygithub/ui-tools/commit/5d09d99b8a020a732fd235a7eb96e3acba76eb32)
 
 - build(eslint-config): upgrade eslint [74b6ad6](https://github.com/repaygithub/ui-tools/commit/74b6ad69b12d669e923856899e5cb0abfb7a997e)
