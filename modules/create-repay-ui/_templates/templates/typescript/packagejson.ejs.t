@@ -25,7 +25,7 @@ to: <%=directory%>/<%=name%>/package.json
     "@types/react-dom": "^16.9.2",
     "typescript": "^3.7.2",
     "@typescript-eslint/parser": "^3.6.0",
-    "@repay/eslint-config": "^2.0.0",
+    "@repay/eslint-config": "^3.0.0",
     "eslint": "^7.4.0",
     "@repay/scripts": "^2.0.0",
     "prettier": "^2.0.5"
