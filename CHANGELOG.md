@@ -1,10 +1,26 @@
 # Changelog
 
+## [@repay/scripts@v2.0.0](https://github.com/repaygithub/ui-tools/commit/cc578296b43ecb41bea67669218dd3312e9140e8)
+
+- fix(repay-scripts): add in missing peer dependencies for babel preset [aeba71f](https://github.com/repaygithub/ui-tools/commit/aeba71f125392d48d65bc61faa5a5c04e6a541d2)
+- feat(repay-scripts): manually add CoreJS polyfills and use automatic regenerator polyfills [e4240b1](https://github.com/repaygithub/ui-tools/commit/e4240b138a002bbb6fc44b8a1677f1de5af63929)
+  - 🧨 BREAKING: Polyfills for IE11 are now automatically added to all bundles behind the scenes
+- chore(repay-scripts): remove unused svgo dependencies [f0ed1a9](https://github.com/repaygithub/ui-tools/commit/f0ed1a9c33c5dbac3f58ad8e98586cd46454cf29)
+- chore(repay-scripts): upgrade babel dependencies to latest version [4b63775](https://github.com/repaygithub/ui-tools/commit/4b6377554c5549de8b0f90ed09659463a74ac1da)
+- chore(repay-scripts): update dev dependencies [6debc56](https://github.com/repaygithub/ui-tools/commit/6debc56d8181c819c9a8f82f2044a11cf021cdcc)
+- chore(repay-scripts): upgrade webpack loaders [2b231d5](https://github.com/repaygithub/ui-tools/commit/2b231d5cf2f2d3d0335a1f4ee5355b6c8d05171f)
+- chore(repay-scripts): upgrade rollup and rollup plugins [7cef28f](https://github.com/repaygithub/ui-tools/commit/7cef28feeb7b459979611bd1f5a1c740634cbd33)
+  - 🧨 BREAKING: Rollup was upgraded from v1 to v2, which could affect any custom Rollup configs
+- chore(repay-scripts): upgrade webpack and wepback-dev-server [534c7c2](https://github.com/repaygithub/ui-tools/commit/534c7c28668919491be7737598c1a070330ee78d)
+- chore(repay-scripts): upgrade yargs [c18b6a5](https://github.com/repaygithub/ui-tools/commit/c18b6a57e2574cd5aef222e2382e18632fe9032b)
+- chore(repay-scripts): upgrade babel-preset dependency [319a930](https://github.com/repaygithub/ui-tools/commit/319a9300b3ff0eb904f1d07b06d95050607c5016)
+
+
 ## [@repay/babel-preset@v1.0.0](https://github.com/repaygithub/ui-tools/commit/a4093c1766b4a59b5dc19a1b2a9d84072f4853dc)
 
 - fix(babel-preset): properly specify peer dependencies [6649eb9](https://github.com/repaygithub/ui-tools/commit/6649eb9b19f509342cbbd2c41916d86a323c7780)
 - feat(babel-preset): split up polyfill option into coreJsPolyfill and regeneratorPolyfill [190f331](https://github.com/repaygithub/ui-tools/commit/190f3313ca86a0b68cef0cf28fb69ba9a9ce526c)
-  - 🧨 BREAKING:The polyfill option has been replaced by coreJsPolyfill and regeneratorPolyfill.  Set both to true to mimic setting the previous polyfill option to true.
+  - 🧨 BREAKING: The polyfill option has been replaced by coreJsPolyfill and regeneratorPolyfill.  Set both to true to mimic setting the previous polyfill option to true.
 - chore(babel-preset): upgrade babel plugins and packages to latest version [430b727](https://github.com/repaygithub/ui-tools/commit/430b72777b1bdda4c37dd4bd50d9c338cf694988)
 
 
