@@ -18,7 +18,8 @@ to: <%=directory%>/<%=name%>/package.json
   "license": "MIT",
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@types/react": "^16.9.5",
