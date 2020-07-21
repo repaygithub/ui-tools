@@ -1,5 +1,14 @@
 # Changelog
 
+## [@repay/eslint-config@v3.0.0](https://github.com/repaygithub/ui-tools/commit/8c546f590098f46a9f6f21affe7a377a8e493e71)
+
+- chore(eslint-config): remove unused Babel dependencies [50b422f](https://github.com/repaygithub/ui-tools/pull/45/commits/50b422f9f451e08bc8d0232f6e4030075fe97b49)
+- chore(eslint-config): upgrade react eslint plugins [4fa7d5c](https://github.com/repaygithub/ui-tools/pull/45/commits/4fa7d5c7797b4b6cd620691231e42cc0b9f33663)
+- feat(eslint-config): change to new import sort plugin [f4cd412](https://github.com/repaygithub/ui-tools/pull/45/commits/f4cd412bbc80d2cbe11e88c5531dd2695e3bc0dd)
+  - 🧨 BREAKING: We swapped out import sort plugins, so the linter's required import order has
+changed
+
+
 ## [@repay/scripts@v2.0.0](https://github.com/repaygithub/ui-tools/commit/cc578296b43ecb41bea67669218dd3312e9140e8)
 
 - fix(repay-scripts): add in missing peer dependencies for babel preset [aeba71f](https://github.com/repaygithub/ui-tools/commit/aeba71f125392d48d65bc61faa5a5c04e6a541d2)
