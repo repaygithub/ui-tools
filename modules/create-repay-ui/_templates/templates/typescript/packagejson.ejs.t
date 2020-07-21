@@ -27,7 +27,7 @@ to: <%=directory%>/<%=name%>/package.json
     "@typescript-eslint/parser": "^3.6.0",
     "@repay/eslint-config": "^2.0.0",
     "eslint": "^7.4.0",
-    "@repay/scripts": "1.0.0",
+    "@repay/scripts": "^2.0.0",
     "prettier": "^2.0.5"
   }
 }
