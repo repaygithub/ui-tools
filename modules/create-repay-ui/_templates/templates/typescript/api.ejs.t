@@ -4,18 +4,18 @@ to: <%=directory%>/<%=name%>/src/helpers/api.ts
 
 import * as axios from 'axios'
 
-const BASE_URL = 'httpa"//www.repay.com'
+const BASE_URL = 'https://www.repay.com'
 
 type User = {name: string, id: string}
 
 const getHeaders = () => {
-    const authHeader = localStorage.getItem('authToken')
-    return authHeader ?  { Authorization: `Bearer: ${authHeader}`} : {}
+  const authHeader = localStorage.getItem('authToken')
+  return authHeader ?  { Authorization: `Bearer: ${authHeader}` } : {}
 }
 
 const apiClient = axios.create({
-    baseURL: BASE_URL,
-    headers: getHeaders(),
+  baseURL: BASE_URL,
+  headers: getHeaders(),
 })
 
 // To add extra logic to each request and/or response, use

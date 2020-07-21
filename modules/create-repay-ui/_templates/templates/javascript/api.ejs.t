@@ -4,16 +4,16 @@ to: <%=directory%>/<%=name%>/src/helpers/api.js
 
 import * as axios from 'axios'
 
-const BASE_URL = 'httpa"//www.repay.com'
+const BASE_URL = 'https://www.repay.com'
 
 const getHeaders = () => {
-    const authHeader = localStorage.getItem('authToken')
-    return authHeader ?  { Authorization: `Bearer: ${authHeader}`} : {}
+  const authHeader = localStorage.getItem('authToken')
+  return authHeader ? { Authorization: `Bearer: ${authHeader}` } : {}
 }
 
 const apiClient = axios.create({
-    baseURL: BASE_URL,
-    headers: getHeaders(),
+  baseURL: BASE_URL,
+  headers: getHeaders(),
 })
 
 // To add extra logic to each request and/or response, use
@@ -25,4 +25,6 @@ export const getUser = async (userId) => apiClient.get(`/users/${userId}`)
 
 export const createUser = async (newUser) => apiClient.post('/users', newUser)
 
-export const updateUser = async (userId, updatedUser) => apiClient.put(`/users/${userId}`, updatedUser)
+export const updateUser = async (userId, updatedUser) =>
+  apiClient.put(`/users/${userId}`, updatedUser)
+
