@@ -24,6 +24,7 @@ to: <%=directory%>/<%=name%>/package.json
     "@repay/eslint-config": "^3.0.0",
     "eslint": "^7.4.0",
     "@repay/scripts": "^2.0.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "styled-components": "^5.1.1"
   }
 }

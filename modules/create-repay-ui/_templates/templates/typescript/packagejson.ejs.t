@@ -32,7 +32,7 @@ to: <%=directory%>/<%=name%>/package.json
     "eslint": "^7.4.0",
     "@repay/scripts": "^2.0.0",
     "prettier": "^2.0.5",
-    "typescript": "^3.7.2"
-
+    "typescript": "^3.7.2",
+    "styled-components": "^5.1.1"
   }
 }
