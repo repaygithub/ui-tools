@@ -29,4 +29,3 @@ export const createUser = async (newUser: User) => apiClient.post('/users', newU
 
 export const updateUser = async (userId: string, updatedUser: User) =>
   apiClient.put(`/users/${userId}`, updatedUser)
-
