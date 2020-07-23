@@ -17,7 +17,8 @@ to: <%=directory%>/<%=name%>/package.json
   "dependencies": {
     "@reach/router": "1.3.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@repay/eslint-config": "^3.0.0",

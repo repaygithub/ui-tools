@@ -18,7 +18,8 @@ to: <%=directory%>/<%=name%>/package.json
   "dependencies": {
     "@reach/router": "1.3.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@repay/eslint-config": "^3.0.0",
@@ -27,8 +28,11 @@ to: <%=directory%>/<%=name%>/package.json
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.2",
     "@typescript-eslint/parser": "^3.6.0",
+    "@repay/eslint-config": "^3.0.0",
+    "eslint": "^7.4.0",
+    "@repay/scripts": "^2.0.0",
     "prettier": "^2.0.5",
     "typescript": "^3.7.2",
-    "eslint": "^7.4.0"
+
   }
 }
