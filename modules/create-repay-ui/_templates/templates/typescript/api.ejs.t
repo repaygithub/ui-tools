@@ -2,15 +2,15 @@
 to: <%=directory%>/<%=name%>/src/helpers/api.ts
 ---
 
-import * as axios from 'axios'
+import axios from 'axios'
 
 const BASE_URL = 'https://www.repay.com'
 
-type User = {name: string, id: string}
+type User = { name: string; id: string }
 
 const getHeaders = () => {
   const authHeader = localStorage.getItem('authToken')
-  return authHeader ?  { Authorization: `Bearer: ${authHeader}` } : {}
+  return authHeader ? { Authorization: `Bearer: ${authHeader}` } : {}
 }
 
 const apiClient = axios.create({
@@ -27,4 +27,6 @@ export const getUser = async (userId: string) => apiClient.get(`/users/${userId}
 
 export const createUser = async (newUser: User) => apiClient.post('/users', newUser)
 
-export const updateUser = async (userId: string, updatedUser: User) => apiClient.put(`/users/${userId}`, updatedUser)
+export const updateUser = async (userId: string, updatedUser: User) =>
+  apiClient.put(`/users/${userId}`, updatedUser)
+

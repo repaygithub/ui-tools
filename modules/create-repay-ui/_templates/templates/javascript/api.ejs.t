@@ -2,7 +2,7 @@
 to: <%=directory%>/<%=name%>/src/helpers/api.js
 ---
 
-import * as axios from 'axios'
+import axios from 'axios'
 
 const BASE_URL = 'https://www.repay.com'
 
@@ -27,4 +27,3 @@ export const createUser = async (newUser) => apiClient.post('/users', newUser)
 
 export const updateUser = async (userId, updatedUser) =>
   apiClient.put(`/users/${userId}`, updatedUser)
-
