@@ -12,7 +12,7 @@ const hygenFiles = async (options) => {
     }
   )
   await execa.command(
-    `npx hygen templates shared --name ${targetDirectory} --directory ${process.cwd()}`,
+    `npx hygen templates shared --name ${targetDirectory} --directory ${process.cwd()} --type ${template.toLowerCase()}`,
     {
       cwd: templateDir,
     }
