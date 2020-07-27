@@ -6,9 +6,9 @@ The eslint-config used at REPAY.
 
 To use this configuration you will need to follow three steps:
 
-1. install this package via your package manager of choice  
+1. install this package via your package manager of choice
    `yarn add -D @repay/eslint-config eslint`
-1. install the peer dependencies and configurations  
+1. install the peer dependencies and configurations
    `yarn repay-eslint install`
 
 To run the linter you should add a "script" to the root `package.json` such as:
@@ -23,6 +23,36 @@ To run the linter you should add a "script" to the root `package.json` such as:
 ```
 
 You will then be able to run the linter using the command: `yarn lint`. Adding the `--fix` argument will auto fix any issues which can be listed as `yarn fmt` above.
+
+## Configuring .eslintrc
+
+You may want to extend from `@repay/eslint-config` in your project's `.eslintrc` file so that you can make project-specific adjustments.
+
+### JS Project
+
+```
+// .eslintrc
+{
+  "extends": ["@repay/eslint-config"],
+  "overrides": [{
+    // override any linting rules here
+  }]
+}
+```
+
+### TS Project
+
+```
+// .eslintrc
+{
+  "extends": ["@repay/eslint-config/ts"],
+  "overrides": [{
+    // override any linting rules here
+  }]
+}
+```
+
+If you are configuring this eslint in a TypeScript project, we recommend that you follow the `typescript-eslint` guidelines for linting with type information found [here](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/TYPED_LINTING.md).
 
 ## Design Principles
 
