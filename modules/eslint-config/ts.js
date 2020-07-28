@@ -17,11 +17,21 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier', 'react', 'react-hooks', 'simple-import-sort'],
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
+    'prettier/react',
     'prettier/@typescript-eslint',
   ],
+  env: {
+    es6: true,
+    node: true,
+    browser: true,
+    commonjs: true,
+    jest: true,
+  },
   rules: {
-    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+    ],
     'no-undef': 'error',
     'constructor-super': 'error',
     'no-this-before-super': 'error',
