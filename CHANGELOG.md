@@ -1,5 +1,18 @@
 # Changelog
 
+## [@repay/create-ui@v0.0.2](https://github.com/repaygithub/ui-tools/commit/3c98a3679016466cefd1b381e0e2512f10e30026)
+
+- feat(create-repay-ui): create-ui now uses the latest version of repay-scripts. removed
+webpack.config file [d2798a6](https://github.com/repaygithub/ui-tools/commit/d2798a6e059b9b3b2aee9d0486934e7d3a23a393)
+- chore(create-repay-ui): upgrade execa and inquirer [252105f](https://github.com/repaygithub/ui-tools/commit/252105f8a0e44ad9fb50cbfef4aec1d9d54cc186)
+- feat(create-repay-ui): implemented reach-router in create-ui [5cbf62c](https://github.com/repaygithub/ui-tools/commit/5cbf62c768cdcaacaead829e0b900548ee9baf00)
+- chore(create-repay-ui): upgrade @repay/scripts [3ad0036](https://github.com/repaygithub/ui-tools/commit/3ad00364526bb0ba5157f421046849a22a2b0874)
+- chore(create-repay-ui): upgrade eslint config [11bfd11](https://github.com/repaygithub/ui-tools/commit/11bfd11e6c73b0f50c323b09cdafc75e4eccfbbd)
+- feat(create-repay-ui): implemented request api utility for create-repay-ui [9a1c0ed](https://github.com/repaygithub/ui-tools/commit/9a1c0ed4b8023943ffabebf94eb44ceba3ee53b2)
+- chore(create-repay-ui): added styled-components [7fecd23](https://github.com/repaygithub/ui-tools/commit/7fecd23a8c695959e7a51b4fd58653e2100d123c)
+- fix(create-repay-ui): added @repay/cactus-web to package.json [5690468](https://github.com/repaygithub/ui-tools/commit/569046851d56839d76780a8e42b0343d6b29df98)
+
+
 ## [@repay/eslint-config@v3.0.0](https://github.com/repaygithub/ui-tools/commit/8c546f590098f46a9f6f21affe7a377a8e493e71)
 
 - chore(eslint-config): remove unused Babel dependencies [50b422f](https://github.com/repaygithub/ui-tools/pull/45/commits/50b422f9f451e08bc8d0232f6e4030075fe97b49)
