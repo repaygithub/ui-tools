@@ -1,5 +1,10 @@
 # Changelog
 
+## [@repay/create-ui@v0.0.3](https://github.com/repaygithub/ui-tools/commit/111ae6b371c5b16e82016e1935ae5095528ab0a4)
+
+- fix(create-repay-ui): add _templates folder to published package [f14416c](https://github.com/repaygithub/ui-tools/commit/f14416c36f572db959cdbe5f6c11251a2dc42362)
+
+
 ## [@repay/create-ui@v0.0.2](https://github.com/repaygithub/ui-tools/commit/3c98a3679016466cefd1b381e0e2512f10e30026)
 
 - feat(create-repay-ui): create-ui now uses the latest version of repay-scripts. removed
