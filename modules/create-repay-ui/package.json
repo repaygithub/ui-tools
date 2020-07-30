@@ -1,6 +1,6 @@
 {
   "name": "@repay/create-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A CLI to bootstrap a cactus project",
   "license": "MIT",
   "main": "src/main.js",
