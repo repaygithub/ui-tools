@@ -1,5 +1,12 @@
 # Changelog
 
+## [@repay/eslint-config@v3.1.0](https://github.com/repaygithub/ui-tools/commit/3797641e014ef6f568956e40c97df6974b49df1a)
+
+- feat(eslint-config): Add TS eslint config [2c4696b](https://github.com/repaygithub/ui-tools/pull/50/commits/2c4696b436fce9c521fc05c9c5e545274f7b0a2f)
+- docs(eslint-config): Add documentation for extending our config for both JS & TS versions[8d288ec](https://github.com/repaygithub/ui-tools/pull/50/commits/8d288ec5932c4d8c654b3e776a19582151908943)
+- fix(eslint-config): Add env, update plugins & rules [d2ecff5](https://github.com/repaygithub/ui-tools/pull/50/commits/d2ecff5b5425465567c020f811833ead9643fde3)
+
+
 ## [@repay/create-ui@v0.0.3](https://github.com/repaygithub/ui-tools/commit/111ae6b371c5b16e82016e1935ae5095528ab0a4)
 
 - fix(create-repay-ui): add _templates folder to published package [f14416c](https://github.com/repaygithub/ui-tools/commit/f14416c36f572db959cdbe5f6c11251a2dc42362)
