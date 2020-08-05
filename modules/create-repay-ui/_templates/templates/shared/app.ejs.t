@@ -14,12 +14,12 @@ const LazyUsers = lazy(() => import('./components/Users'))
 const App = () => (
   <StyleProvider>
     <Suspense fallback={<Loading />}>
-      <Router>
-        <Layout default>
+      <Layout>
+        <Router>
           <LazyUsers path="users" />
           <LazyHome path="/" />
-        </Layout>
-      </Router>
+        </Router>
+      </Layout>
     </Suspense>
   </StyleProvider>
 )
