@@ -11,7 +11,20 @@ to: <%=directory%>/<%=name%>/package.json
     "build": "repay-scripts build src/index.tsx",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
     "fmt": "yarn lint --fix",
-    "test:types": "tsc -p ./tsconfig.json --noEmit"
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "\\.ftl$": "jest-raw-loader",
+      "^.+\\.[jt]sx?$": "babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/__setup__/setup.ts"
+    ]
   },
   "keywords": [],
   "license": "MIT",
@@ -24,16 +37,20 @@ to: <%=directory%>/<%=name%>/package.json
   },
   "devDependencies": {
     "@repay/eslint-config": "^3.0.0",
-    "@repay/scripts": "2.0.0",
+    "@repay/scripts": "^2.0.0",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.3",
     "@types/reach__router": "^1.3.5",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.2",
     "@typescript-eslint/parser": "^3.6.0",
-    "@repay/eslint-config": "^3.0.0",
-    "eslint": "^7.4.0",
-    "@repay/scripts": "^2.0.0",
+    "babel-jest": "26.2.2",
+    "eslint": "^7.6.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.2.2",
+    "jest-raw-loader": "1.0.1",
     "prettier": "^2.0.5",
-    "typescript": "^3.7.2",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "typescript": "^3.7.2"
   }
 }
