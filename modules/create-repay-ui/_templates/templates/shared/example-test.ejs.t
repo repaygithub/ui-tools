@@ -8,13 +8,13 @@ import * as React from 'react'
 import Home from '../../src/components/Home'
 
 describe('Test case 1', () => {
-  test('Can render the Home component', () => {
-    const { container } = render(
+  test('Home page text is visible', () => {
+    const { getByText } = render(
       <StyleProvider>
         <Home />
       </StyleProvider>
     )
 
-    expect(container).toMatchSnapshot()
+    expect(getByText('This is the Home Page')).toBeVisible()
   })
 })

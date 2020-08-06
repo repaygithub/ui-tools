@@ -13,19 +13,6 @@ to: <%=directory%>/<%=name%>/package.json
     "fmt": "yarn lint --fix",
     "test": "jest"
   },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "\\.ftl$": "jest-raw-loader",
-      "^.+\\.[jt]sx?$": "babel-jest"
-    },
-    "setupFilesAfterEnv": [
-      "<rootDir>/tests/__setup__/setup.ts"
-    ]
-  },
   "keywords": [],
   "license": "MIT",
   "dependencies": {
@@ -36,6 +23,8 @@ to: <%=directory%>/<%=name%>/package.json
     "@repay/cactus-web": "^0.9.1"
   },
   "devDependencies": {
+    "@babel/core": "7.11.1",
+    "@repay/babel-preset": "1.0.0",
     "@repay/eslint-config": "^3.0.0",
     "@repay/scripts": "^2.0.0",
     "@testing-library/jest-dom": "^5.11.2",
