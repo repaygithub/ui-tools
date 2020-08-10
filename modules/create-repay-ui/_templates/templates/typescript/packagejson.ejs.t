@@ -11,6 +11,7 @@ to: <%=directory%>/<%=name%>/package.json
     "build": "repay-scripts build src/index.tsx",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
     "fmt": "yarn lint --fix",
+    "test:types": "tsc -p ./tsconfig.json --noEmit",
     "test": "jest"
   },
   "keywords": [],
