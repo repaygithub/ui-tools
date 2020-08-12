@@ -20,7 +20,7 @@ to: <%=directory%>/<%=name%>/package.json
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "axios": "^0.19.2",
-    "@repay/cactus-web": "^0.9.1"
+    "@repay/cactus-web": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
