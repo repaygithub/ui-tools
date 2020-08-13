@@ -17,15 +17,18 @@ to: <%=directory%>/<%=name%>/package.json
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@reach/router": "1.3.4",
+    "@reach/router": "^1.3.4",
+    "@repay/cactus-web": "^1.1.2",
+    "axios": "^0.19.2",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "axios": "^0.19.2",
-    "@repay/cactus-web": "^1.1.2"
+    "react-is": "^16.13.1",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.11.1",
-    "@repay/babel-preset": "1.0.0",
+    "@babel/core": "^7.11.1",
+    "@repay/babel-preset": "^1.0.0",
     "@repay/eslint-config": "^3.0.0",
     "@repay/scripts": "^2.0.0",
     "@testing-library/jest-dom": "^5.11.2",
@@ -33,14 +36,15 @@ to: <%=directory%>/<%=name%>/package.json
     "@types/reach__router": "^1.3.5",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.2",
+    "@types/styled-components": "^5.1.2",
+    "@types/styled-system": "^5.1.10",
     "@typescript-eslint/parser": "^3.6.0",
-    "babel-jest": "26.2.2",
+    "babel-jest": "^26.3.0",
     "eslint": "^7.6.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.2.2",
-    "jest-raw-loader": "1.0.1",
+    "jest-raw-loader": "^1.0.1",
     "prettier": "^2.0.5",
-    "styled-components": "^4.4.1",
     "typescript": "^3.7.2"
   }
 }
