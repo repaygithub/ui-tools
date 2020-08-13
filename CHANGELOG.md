@@ -1,5 +1,15 @@
 # Changelog
 
+## [@repay/create-ui@v0.1.0](https://github.com/repaygithub/ui-tools/commit/d766030eb4514671b501fb1d28d1a724d6922f3c)
+
+- feat(create-repay-ui): implement javascript testing tool in for the generated apps [4db044f](https://github.com/repaygithub/ui-tools/commit/4db044f1e65b603c523e05fcfb21fc78c6b829e9)
+- feat(create-repay-ui): change jest config to its own file [58fae13](https://github.com/repaygithub/ui-tools/commit/58fae13a431a0263591f3435b3348a7d16b026e6)
+- feat(create-repay-ui): implementation of the Layout Component [20669db](https://github.com/repaygithub/ui-tools/commit/20669db3a04573ca8e2e351f096dd1aa04335c9c)
+- chore(create-repay-ui): upgrade Styled Components to v5 and add missing peer dependencies [f2ed965](https://github.com/repaygithub/ui-tools/commit/f2ed96552f154e653dc8e089ad44576d782d9095)
+- feat(create-repay-ui): add global styles and replace loading text with spinner [f7533e2](https://github.com/repaygithub/ui-tools/commit/f7533e23fca778758a652014c29ff5e82ba5ea84)
+- feat(create-repay-ui): use Cactus components in home page [efcf361](https://github.com/repaygithub/ui-tools/commit/efcf3619e25bc3653d87c9575734fed0657d0614)
+
+
 ## [@repay/eslint-config@v3.1.0](https://github.com/repaygithub/ui-tools/commit/3797641e014ef6f568956e40c97df6974b49df1a)
 
 - feat(eslint-config): Add TS eslint config [2c4696b](https://github.com/repaygithub/ui-tools/pull/50/commits/2c4696b436fce9c521fc05c9c5e545274f7b0a2f)
