@@ -1,5 +1,10 @@
 # Changelog
 
+## [@repay/create-ui@v0.1.1](https://github.com/repaygithub/ui-tools/commit/339849bed832247ae88691e0a1e3ba484230c06b)
+
+- feat(create-repay-ui): upgrade @repay/cactus-web to v2 [951a5f9](https://github.com/repaygithub/ui-tools/commit/951a5f947e23e81049dcad70cc834fdc417b06ca)
+
+
 ## [@repay/create-ui@v0.1.0](https://github.com/repaygithub/ui-tools/commit/d766030eb4514671b501fb1d28d1a724d6922f3c)
 
 - feat(create-repay-ui): implement javascript testing tool in for the generated apps [4db044f](https://github.com/repaygithub/ui-tools/commit/4db044f1e65b603c523e05fcfb21fc78c6b829e9)
