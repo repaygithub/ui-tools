@@ -1,12 +1,11 @@
 ---
 to: <%=directory%>/<%=name%>/src/components/Layout.tsx
 ---
-
-import { Link, RouteComponentProps } from '@reach/router'
 import { MenuBar } from '@repay/cactus-web'
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 
-interface LayoutProps extends RouteComponentProps {
+interface LayoutProps {
   chidlren?: React.ReactNode
 }
 

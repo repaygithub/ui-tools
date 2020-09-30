@@ -2,9 +2,9 @@
 to: <%=directory%>/<%=name%>/src/components/Layout.jsx
 ---
 
-import { Link } from '@reach/router'
 import { MenuBar } from '@repay/cactus-web'
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 
 const Layout = ({ children }) => {
   return (

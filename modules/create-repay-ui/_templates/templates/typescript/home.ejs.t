@@ -1,11 +1,11 @@
 ---
 to: <%=directory%>/<%=name%>/src/components/Home.tsx
 ---
-import { Link as RouterLink, RouteComponentProps } from '@reach/router'
 import { Card, Flex, Link, Text } from '@repay/cactus-web'
 import React from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 
-const Home: React.FC<RouteComponentProps> = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <h1>This is the Home Page</h1>
