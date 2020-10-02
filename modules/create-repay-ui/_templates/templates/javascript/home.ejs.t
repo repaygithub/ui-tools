@@ -1,9 +1,9 @@
 ---
 to: <%=directory%>/<%=name%>/src/components/Home.jsx
 ---
-import { Link as RouterLink } from '@reach/router'
 import { Card, Flex, Link, Text } from '@repay/cactus-web'
 import React from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 
 const Home = () => {
   return (

@@ -1,9 +1,9 @@
 ---
 to: "<%=directory%>/<%=name%>/src/<%=type === 'typescript' ? 'App.tsx' : 'App.jsx' %>"
 ---
-import { Router } from '@reach/router'
 import { Spinner, StyleProvider } from '@repay/cactus-web'
 import React, { lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Layout from './components/Layout'
 
@@ -13,12 +13,18 @@ const LazyUsers = lazy(() => import('./components/Users'))
 const App = () => (
   <StyleProvider global>
     <Suspense fallback={<Spinner />}>
-      <Layout>
-        <Router>
-          <LazyUsers path="users" />
-          <LazyHome path="/" />
-        </Router>
-      </Layout>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route path="/users">
+              <LazyUsers />
+            </Route>
+            <Route path="/">
+              <LazyHome />
+            </Route>
+          </Switch>
+        </Layout>
+      </Router>
     </Suspense>
   </StyleProvider>
 )

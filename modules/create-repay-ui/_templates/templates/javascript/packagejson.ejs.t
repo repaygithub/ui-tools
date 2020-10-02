@@ -16,8 +16,8 @@ to: <%=directory%>/<%=name%>/package.json
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@reach/router": "^1.3.4",
     "@repay/cactus-web": "^2.0.0",
+    "react-router-dom": "^5.2.0",
     "axios": "^0.19.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
