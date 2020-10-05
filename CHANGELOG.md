@@ -1,4 +1,7 @@
-# Changelog
+# This repo-wide changelog is deprecated as of 10/5/2020.
+
+## For newer updates, see individual changelogs inside package folders (`/modules/<package name>`) or the release notes in GitHub.
+
 
 ## [@repay/create-ui@v0.1.1](https://github.com/repaygithub/ui-tools/commit/339849bed832247ae88691e0a1e3ba484230c06b)
 
