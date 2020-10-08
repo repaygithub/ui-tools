@@ -17,9 +17,9 @@ to: <%=directory%>/<%=name%>/package.json
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@repay/cactus-web": "^2.0.0",
+    "@repay/cactus-web": "^3.1.0",
     "react-router-dom": "^5.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -32,7 +32,7 @@ to: <%=directory%>/<%=name%>/package.json
     "@repay/eslint-config": "^3.0.0",
     "@repay/scripts": "^2.0.0",
     "@testing-library/jest-dom": "^5.11.2",
-    "@testing-library/react": "^10.4.3",
+    "@testing-library/react": "^11.0.4",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.2",
     "@types/styled-components": "^5.1.2",
@@ -45,6 +45,6 @@ to: <%=directory%>/<%=name%>/package.json
     "jest": "^26.2.2",
     "jest-raw-loader": "^1.0.1",
     "prettier": "^2.0.5",
-    "typescript": "^3.7.2"
+    "typescript": "^4.0.3"
   }
 }
