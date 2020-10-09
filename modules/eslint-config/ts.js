@@ -4,7 +4,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
@@ -32,7 +31,6 @@ module.exports = {
       'error',
       { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
     ],
-    'no-undef': 'error',
     'constructor-super': 'error',
     'no-this-before-super': 'error',
     'no-duplicate-case': 'error',
