@@ -1,6 +1,6 @@
 'use strict'
 
-const factory = require('yargs/yargs')
+const factory = require('yargs')
 const repayScripts = require('./repay-scripts')
 const fs = require('fs')
 const path = require('path')
