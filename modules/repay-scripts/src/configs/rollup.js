@@ -3,9 +3,9 @@ module.exports = getRollupConfig
 const path = require('path')
 const logger = require('../helpers/logger')
 
-const rollupResolve = require('rollup-plugin-node-resolve')
-const rollupCommonjs = require('rollup-plugin-commonjs')
-const rollupBabel = require('rollup-plugin-babel')
+const { nodeResolve: rollupResolve } = require('@rollup/plugin-node-resolve')
+const rollupCommonjs = require('@rollup/plugin-commonjs')
+const { babel: rollupBabel } = require('@rollup/plugin-babel')
 const rollupCleanup = require('rollup-plugin-cleanup')
 const rollupSourceMaps = require('rollup-plugin-sourcemaps')
 const rollupFilesize = require('rollup-plugin-filesize')
@@ -38,6 +38,7 @@ function getRollupConfig(input, { cwd, treeShaking, babelEnv }) {
         file: path.resolve(cwd, pkg.main),
         format: 'cjs',
         sourcemap: true,
+        exports: 'named',
       },
     ].filter(Boolean),
     plugins: [
@@ -46,14 +47,11 @@ function getRollupConfig(input, { cwd, treeShaking, babelEnv }) {
       }),
       rollupCommonjs({
         include: 'node_modules/**',
-        namedExports: {
-          'react-is': ['isForwardRef'],
-        },
       }),
       rollupBabel({
+        babelHelpers: babelEnv === 'test' ? 'bundled' : 'runtime',
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs'],
         babelrc: false,
-        runtimeHelpers: babelEnv !== 'test',
         ...getBabelConfig(),
       }),
       rollupCleanup(),
