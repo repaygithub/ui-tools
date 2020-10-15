@@ -1,3 +1,22 @@
+# v0.3.0 (Thu Oct 15 2020)
+
+#### 🚀 Enhancement
+
+- Add new Layout components to generated app [#64](https://github.com/repaygithub/ui-tools/pull/64)
+([@Dhalton](https://github.com/Dhalton))
+
+#### 🔩 Dependency Updates
+
+- Upgrade `inquirer` and remove `ncp` [#63](https://github.com/repaygithub/ui-tools/pull/63)
+([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 2
+
+- Dhalton Huber ([@Dhalton](https://github.com/Dhalton))
+- Mike Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v0.2.1 (Fri Oct 09 2020)
 
 #### 🔩 Dependency Updates
