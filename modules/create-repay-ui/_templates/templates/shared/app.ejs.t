@@ -5,16 +5,16 @@ import { Spinner, StyleProvider } from '@repay/cactus-web'
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Layout from './components/Layout'
+import AppLayout from './components/AppLayout'
 
 const LazyHome = lazy(() => import('./components/Home'))
 const LazyUsers = lazy(() => import('./components/Users'))
 
 const App = () => (
   <StyleProvider global>
-    <Suspense fallback={<Spinner />}>
-      <Router>
-        <Layout>
+    <Router>
+      <AppLayout>
+        <Suspense fallback={<Spinner />}>
           <Switch>
             <Route path="/users">
               <LazyUsers />
@@ -23,9 +23,9 @@ const App = () => (
               <LazyHome />
             </Route>
           </Switch>
-        </Layout>
-      </Router>
-    </Suspense>
+        </Suspense>
+      </AppLayout>
+    </Router>
   </StyleProvider>
 )
 
