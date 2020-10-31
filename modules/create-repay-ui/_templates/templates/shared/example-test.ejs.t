@@ -4,6 +4,7 @@ to: "<%=directory%>/<%=name%>/tests/<%=type === 'typescript' ? 'Home.test.tsx' :
 import { StyleProvider } from '@repay/cactus-web'
 import { render } from '@testing-library/react'
 import * as React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 
 import Home from '../src/components/Home'
 
@@ -11,7 +12,9 @@ describe('Test case 1', () => {
   test('Home page text is visible', () => {
     const { getByText } = render(
       <StyleProvider>
-        <Home />
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
       </StyleProvider>
     )
 
