@@ -11,7 +11,9 @@ let filesExisting = false
 
 if (args.includes('install')) {
   // add .eslintrc
-  const eslintConfig = fs.readFileSync(path.join(__dirname, './.eslintrc.template'))
+  const eslintConfig = args.includes('--ts')
+    ? fs.readFileSync(path.join(__dirname, './.eslintrcts.template'))
+    : fs.readFileSync(path.join(__dirname, './.eslintrc.template'))
   const eslintPath = path.join(cwd, '.eslintrc')
   if (isForce || !fs.existsSync(eslintPath)) {
     fs.writeFileSync(eslintPath, eslintConfig)
