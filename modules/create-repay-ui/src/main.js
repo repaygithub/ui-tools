@@ -51,9 +51,17 @@ export async function createProject(options) {
     {
       title: 'Initialize eslint config and dependencies',
       task: async () =>
-        await execa('yarn', ['repay-eslint', 'install'], {
-          cwd: options.targetDirectory,
-        }),
+        await execa(
+          'yarn',
+          [
+            'repay-eslint',
+            'install',
+            `${options.template.toLowerCase() === 'typescript' && '--ts'}`,
+          ],
+          {
+            cwd: options.targetDirectory,
+          }
+        ),
     },
   ])
 

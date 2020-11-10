@@ -10,7 +10,7 @@ import AppLayout from './components/AppLayout'
 const LazyHome = lazy(() => import('./components/Home'))
 const LazyUsers = lazy(() => import('./components/Users'))
 
-const App = () => (
+const App<%= type === 'typescript' ? ': React.FC' : '' %> = () => (
   <StyleProvider global>
     <Router>
       <AppLayout>

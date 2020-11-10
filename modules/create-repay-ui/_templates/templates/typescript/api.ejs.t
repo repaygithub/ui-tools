@@ -2,7 +2,7 @@
 to: <%=directory%>/<%=name%>/src/helpers/api.ts
 ---
 
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 const BASE_URL = 'https://www.repay.com'
 
@@ -21,11 +21,15 @@ const apiClient = axios.create({
 // To add extra logic to each request and/or response, use
 // axios incerceptors https://github.com/axios/axios#interceptors
 
-export const getUsers = async () => apiClient.get('/users')
+export const getUsers = async (): Promise<AxiosResponse<unknown>> => apiClient.get('/users')
 
-export const getUser = async (userId: string) => apiClient.get(`/users/${userId}`)
+export const getUser = async (userId: string): Promise<AxiosResponse<unknown>> =>
+  apiClient.get(`/users/${userId}`)
 
-export const createUser = async (newUser: User) => apiClient.post('/users', newUser)
+export const createUser = async (newUser: User): Promise<AxiosResponse<unknown>> =>
+  apiClient.post('/users', newUser)
 
-export const updateUser = async (userId: string, updatedUser: User) =>
-  apiClient.put(`/users/${userId}`, updatedUser)
+export const updateUser = async (
+  userId: string,
+  updatedUser: User
+): Promise<AxiosResponse<unknown>> => apiClient.put(`/users/${userId}`, updatedUser)
