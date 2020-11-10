@@ -12,7 +12,10 @@
         "**/*.test.[jt]s*",
         "**/__snapshots__/**",
         "**/__image_snapshots__/**",
-        "**/CHANGELOG.md"
+        "**/CHANGELOG.md",
+        "**/.eslintrc",
+        "**/.eslintignore",
+        "**/.gitignore"
       ]
     }
   }
