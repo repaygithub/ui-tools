@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "modules/*"
+  ],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "**/tests/**",
+        "**/*.test.[jt]s*",
+        "**/__snapshots__/**",
+        "**/__image_snapshots__/**",
+        "**/CHANGELOG.md"
+      ]
+    }
+  }
+}
