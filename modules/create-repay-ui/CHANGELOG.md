@@ -1,3 +1,22 @@
+# v0.4.0 (Wed Nov 11 2020)
+
+#### 🚀 Enhancement
+
+- Add TypeScript-specific ESLint config to generated TypeScript apps
+ [#66](https://github.com/repaygithub/ui-tools/pull/66) ([@NicolasSimmonds](https://github.com/NicolasSimmonds))
+
+#### 🐛 Bug Fix
+
+- Fix broken tests in generated apps [#65](https://github.com/repaygithub/ui-tools/pull/65)
+([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 2
+
+- Nicolas Simmonds ([@NicolasSimmonds](https://github.com/NicolasSimmonds))
+- Mike Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v0.3.0 (Thu Oct 15 2020)
 
 #### 🚀 Enhancement
