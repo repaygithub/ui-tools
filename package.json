@@ -17,7 +17,8 @@
     "fmt": "yarn lint --fix",
     "test": "yarn lint && yarn ws run test",
     "test:ci": "yarn test",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release": "lerna publish --no-private --registry https://registry.yarnpkg.com"
   },
   "devDependencies": {
     "@repay/eslint-config": "./modules/eslint-config",
