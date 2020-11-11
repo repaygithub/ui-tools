@@ -15,9 +15,6 @@
     "src/",
     "_templates"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/repaygithub/ui-tools/tree/master/modules/cli-cactus"
