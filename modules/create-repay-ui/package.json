@@ -1,6 +1,6 @@
 {
   "name": "@repay/create-ui",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A CLI to bootstrap a cactus project",
   "license": "MIT",
   "main": "src/main.js",
@@ -15,9 +15,6 @@
     "src/",
     "_templates"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/repaygithub/ui-tools/tree/master/modules/cli-cactus"
