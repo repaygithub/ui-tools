@@ -10,21 +10,23 @@ Command Line Interface that may be used to run end-to-end tests.
 
 ### `run-ete-tests`
 
-The `run-ete-tests` command will run through your project's TestCafe test suite using the browsers you provide with little setup.
+The `run-ete-tests` command will run through your project's TestCafe test suite using the browsers you provide with little setup. TestCafe configuration such as the test source code, assertion & 
+selector timeouts, client scripts, and test browsers can be configured via the CLI, while any extra configuration can be done through a [.testcaferc.json](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html) config file.
 
 ### Options
 
-| Option                | Alias | Required (y\n) | Description                                                                 |
-| --------------------- | ----- | -------------- | --------------------------------------------------------------------------- |
-| --src                 | -s    | n              | The glob path pattern to your end-to-end test files.                        |
-| --assertionTimeout    | -at   | n              | The timeout (in milliseconds) for TestCafe assertions. Defaults to 15000.   |
-| --selectorTimeout     | -st   | n              | The timeout (in milliseconds) for TestCafe selectors. Defaults to 15000.    |
-| --fixture             | -f    | n              | A specific fixture to run tests for.                                        |
+| Option                | Alias | Required (y\n) | Description                                                                                    |
+| --------------------- | ----- | -------------- | ---------------------------------------------------------------------------------------------- |
+| --src                 | -s    | n              | The glob path pattern to your end-to-end test files.                                           |
+| --assertionTimeout    | -at   | n              | The timeout (in milliseconds) for TestCafe assertions. Defaults to 15000.                      |
+| --selectorTimeout     | -st   | n              | The timeout (in milliseconds) for TestCafe selectors. Defaults to 15000.                       |
+| --fixture             | -f    | n              | A specific fixture to run tests for.                                                           |
+| --clientScript        | -cs   | n              | Paths to any custom client scripts/polyfills that need to be loaded in to the TestCafe runner. |
 | --browser             | -b    | y              | Browsers to run tests through. Browserstack browsers are supported via [testcafe-browser-provider-browserstack](https://github.com/DevExpress/testcafe-browser-provider-browserstack). |
 
 ### Example Usage
 
-`testing-tools run-ete-tests --src tests/**/*.test.ts -at 20000 -st 20000 --browser chrome --browser browserstack:IE@11:Windows 10`
+`testing-tools run-ete-tests --src tests/**/*.test.ts -at 20000 -st 20000 --browser chrome --browser browserstack:IE@11:Windows 10 --clientScript ./client-scripts/polyfill.js`
 
 # JavaScript Functions
 
