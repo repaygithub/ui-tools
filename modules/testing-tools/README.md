@@ -31,7 +31,36 @@ selector timeouts, client scripts, and test browsers can be configured via the C
 # JavaScript Functions
 
 Exported JS helpers that you can use in your test code
-### `buildTimedTest`
+
+## `runEteTests`
+
+The `runEteTests` function is the exported JS function used in the CLI `run-ete-tests` command. This allows you to configure and run your tests programmatically instead of through the command line.
+
+This function accepts an object with the following attributes:
+
+| Name             | Required (y/n) | Type     | Description                                                                                    |
+| ---------------- | -------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| src              | n              | string   | The glob path pattern to your end-to-end test files.                                           |
+| assertionTimeout | n              | number   | The timeout (in milliseconds) for TestCafe assertions. Defaults to 15000.                      |
+| selectorTimeout  | n              | number   | The timeout (in milliseconds) for TestCafe selectors. Defaults to 15000.                       |
+| fixture          | n              | string   | A specific fixture to run tests for.                                                           |
+| clientScripts    | n              | [string] | Paths to any custom client scripts/polyfills that need to be loaded in to the TestCafe runner. |
+| browsers         | n              | [string] | Browsers to run tests through. Browserstack browsers are supported via [testcafe-browser-provider-browserstack](https://github.com/DevExpress/testcafe-browser-provider-browserstack). |
+
+## Example Usage
+
+```js
+import { runEteTests } form '@repay/testing-tools'
+
+runEteTests({
+  src: 'tests/**/*.test.ts',
+  assertionTimeout: 20000,
+  selectorTimeout: 20000,
+  clientScripts: ['./client-scripts/polyfill.js'],
+  browsers: ['chrome', 'browserstack:IE@11:Windows 10'],
+})
+```
+## `buildTimedTest`
 
 The `buildTimedTest` function is a wrapper for TestCafe that records the time that a given test takes to complete
 and logs the time taken in the console, to help track an application's performance.
@@ -43,7 +72,7 @@ This function accepts one object argument with the following properties:
 | before | n              | A function to be called before the test runs, usually to do some setup operations        |
 | after  | n              | A function to be called after the test completes, usually to to some teardown operations |
 
-### Example Usage
+## Example Usage
 
 ```js
 import { buildTimedTest } from '@repay/testing-tools'
