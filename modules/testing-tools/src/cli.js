@@ -34,13 +34,6 @@ const parseArgs = (rawArgs) => {
 export default async (args) => {
   let opts = parseArgs(args)
   if (opts.command === 'run-ete-tests') {
-    await runEteTests(
-      opts.browsers,
-      opts.src,
-      opts.assertionTimeout,
-      opts.selectorTimeout,
-      opts.fixture,
-      opts.clientScripts
-    )
+    await runEteTests(opts)
   }
 }

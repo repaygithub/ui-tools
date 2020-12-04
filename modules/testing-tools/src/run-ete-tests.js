@@ -39,14 +39,14 @@ const runIndividualTest = async (
   }
 }
 
-const runEteTests = async (
+const runEteTests = async ({
   browsers,
   src,
   assertionTimeout = 15000,
   selectorTimeout = 15000,
   fixture,
-  clientScripts
-) => {
+  clientScripts = [],
+}) => {
   for (const browser of browsers) {
     await runIndividualTest(browser, src, assertionTimeout, selectorTimeout, fixture, clientScripts)
   }
