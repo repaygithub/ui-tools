@@ -17,6 +17,7 @@
     "fmt": "yarn lint --fix",
     "test": "yarn lint && yarn ws run test",
     "test:ci": "yarn test",
+    "test:sonar": "yarn w @repay/testing-tools test --coverage",
     "commit": "git-cz",
     "release": "yarn install --registry https://registry.yarnpkg.com && lerna publish --no-private --registry https://registry.yarnpkg.com"
   },
