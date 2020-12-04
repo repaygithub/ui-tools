@@ -52,7 +52,7 @@ This function accepts an object with the following attributes:
 ```js
 import { runEteTests } form '@repay/testing-tools'
 
-runEteTests({
+await runEteTests({
   src: 'tests/**/*.test.ts',
   assertionTimeout: 20000,
   selectorTimeout: 20000,
