@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "arg": "^5.0.0",
-    "commander": "^6.2.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "testcafe-browser-provider-browserstack": "^1.13.1"
