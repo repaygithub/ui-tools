@@ -15,6 +15,8 @@ const parseArgs = (rawArgs) => {
       '-f': '--fixture',
       '--browser': [String],
       '-b': '--browser',
+      '--clientScript': [String],
+      '-cs': '--clientScript',
     },
     { args: rawArgs.slice(2) }
   )
@@ -25,6 +27,7 @@ const parseArgs = (rawArgs) => {
     selectorTimeout: args['--selectorTimeout'],
     fixture: args['--fixture'],
     browsers: args['--browser'],
+    clientScripts: args['--clientScript'],
   }
 }
 
@@ -36,7 +39,8 @@ export default async (args) => {
       opts.src,
       opts.assertionTimeout,
       opts.selectorTimeout,
-      opts.fixture
+      opts.fixture,
+      opts.clientScripts
     )
   }
 }
