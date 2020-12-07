@@ -29,7 +29,8 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.js"
-    ]
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
   },
   "dependencies": {
     "arg": "^5.0.0",
@@ -38,6 +39,8 @@
     "testcafe-browser-provider-browserstack": "^1.13.1"
   },
   "devDependencies": {
+    "jest": "^26.5.2",
+    "jest-sonar-reporter": "^2.0.0",
     "testcafe": "^1.9.4"
   },
   "peerDependencies": {

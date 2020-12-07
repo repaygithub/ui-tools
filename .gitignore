@@ -2,6 +2,7 @@
 *.log
 **/dist
 **/coverage
+**/test-report.xml
 .cache
 .DS_Store
 
