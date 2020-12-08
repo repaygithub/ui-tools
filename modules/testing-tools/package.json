@@ -5,6 +5,13 @@
   "main": "src/index.js",
   "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/testing-tools",
   "license": "MIT",
+  "bin": {
+    "testing-tools": "bin/testing-tools"
+  },
+  "keywords": [
+    "cli",
+    "testing-tools"
+  ],
   "scripts": {
     "test": "jest",
     "tdd": "jest --watch"
@@ -25,12 +32,18 @@
     ],
     "testResultsProcessor": "jest-sonar-reporter"
   },
+  "dependencies": {
+    "arg": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "testcafe-browser-provider-browserstack": "^1.13.1"
+  },
   "devDependencies": {
     "jest": "^26.5.2",
     "jest-sonar-reporter": "^2.0.0",
     "testcafe": "^1.9.4"
   },
   "peerDependencies": {
-    "testcafe": "^1.0.0"
+    "testcafe": "^1.9.4"
   }
 }
