@@ -19,7 +19,7 @@
     "test:ci": "yarn test",
     "test:sonar": "yarn w @repay/testing-tools test --coverage",
     "commit": "git-cz",
-    "release": "yarn install --registry https://registry.yarnpkg.com && lerna publish --no-private --registry https://registry.yarnpkg.com"
+    "release": "npm login && yarn install --registry https://registry.yarnpkg.com && lerna publish --no-private --registry https://registry.yarnpkg.com"
   },
   "devDependencies": {
     "@repay/eslint-config": "./modules/eslint-config",
