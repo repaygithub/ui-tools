@@ -17,7 +17,7 @@ to: <%=directory%>/<%=name%>/package.json
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@repay/cactus-web": "^3.1.0",
+    "@repay/cactus-web": "^4.3.0",
     "react-router-dom": "^5.2.0",
     "axios": "^0.20.0",
     "prop-types": "^15.7.2",
@@ -28,9 +28,9 @@ to: <%=directory%>/<%=name%>/package.json
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
-    "@repay/babel-preset": "^1.0.0",
-    "@repay/eslint-config": "^3.0.0",
-    "@repay/scripts": "^2.0.0",
+    "@repay/babel-preset": "^1.0.1",
+    "@repay/eslint-config": "^3.2.0",
+    "@repay/scripts": "^2.0.1",
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^11.0.4",
     "@types/react": "^16.9.5",

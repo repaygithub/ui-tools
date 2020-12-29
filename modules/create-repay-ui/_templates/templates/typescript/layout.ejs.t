@@ -16,10 +16,16 @@ interface AppLayoutProps {
 const AppLayout: React.FunctionComponent<AppLayoutProps> = ({ children }) => {
   return (
     <Layout>
-      <BrandBar userMenuText="Hershell Jewess" logo={LOGO}>
-        <BrandBar.UserMenuItem onSelect={() => undefined}>Settings</BrandBar.UserMenuItem>
-        <BrandBar.UserMenuItem onSelect={() => undefined}>Logout</BrandBar.UserMenuItem>
-      </BrandBar>
+      <BrandBar logo={LOGO}>
+          <BrandBar.UserMenu label="Hershell Jewess">
+            <BrandBar.UserMenuItem onSelect={() => undefined}>
+              Settings
+            </BrandBar.UserMenuItem>
+            <BrandBar.UserMenuItem onSelect={() => undefined}>
+              Logout
+            </BrandBar.UserMenuItem>
+          </BrandBar.UserMenu>
+        </BrandBar>
       <MenuBar>
         <MenuBar.Item as={Link} to="/">
           Home Page
