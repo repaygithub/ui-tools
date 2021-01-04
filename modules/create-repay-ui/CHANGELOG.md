@@ -1,3 +1,16 @@
+# v0.4.1 (Mon Jan 04 2021)
+
+#### 🔩 Dependency Updates
+
+- Upgrade `@repay/cactus-web` to v4 and upgrade minor/patch versions for other REPAY
+packages [#73](https://github.com/repaygithub/ui-tools/pull/73) ([@NicolasSimmonds](https://github.com/NicolasSimmonds))
+
+#### Authors: 1
+
+- Nicolas Simmonds ([@NicolasSimmonds](https://github.com/NicolasSimmonds))
+
+---
+
 # v0.4.0 (Wed Nov 11 2020)
 
 #### 🚀 Enhancement
