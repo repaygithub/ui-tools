@@ -27,14 +27,14 @@
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest -c ./tests/jest.config.js --runInBand"
   },
   "dependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/runtime": "^7.11.2",
+    "@babel/core": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
     "@repay/babel-preset": "^1.0.1",
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "babel-loader": "^8.1.0",
-    "core-js": "^3.6.4",
+    "core-js": "^3.8.2",
     "css-loader": "^4.3.0",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
