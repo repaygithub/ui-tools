@@ -53,9 +53,9 @@
   },
   "devDependencies": {
     "fs-extra": "^9.0.1",
-    "jest": "^26.5.2",
+    "jest": "^26.6.3",
     "ps-tree": "^1.2.0",
-    "puppeteer": "^5.3.1",
+    "puppeteer": "^5.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "tempy": "^0.7.1"
