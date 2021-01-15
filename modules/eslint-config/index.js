@@ -53,6 +53,6 @@ module.exports = {
     'react/jsx-no-duplicate-props': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
   },
 }
