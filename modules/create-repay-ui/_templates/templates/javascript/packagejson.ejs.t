@@ -18,11 +18,11 @@ to: <%=directory%>/<%=name%>/package.json
   "dependencies": {
     "@repay/cactus-web": "^4.3.0",
     "react-router-dom": "^5.2.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

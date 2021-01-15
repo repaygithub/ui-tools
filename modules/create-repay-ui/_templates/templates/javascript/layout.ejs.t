@@ -12,14 +12,10 @@ const LOGO =
 const AppLayout = ({ children }) => {
   return (
     <Layout>
-     <BrandBar logo={LOGO}>
+      <BrandBar logo={LOGO}>
         <BrandBar.UserMenu label="Hershell Jewess">
-          <BrandBar.UserMenuItem onSelect={() => undefined}>
-            Settings
-          </BrandBar.UserMenuItem>
-          <BrandBar.UserMenuItem onSelect={() => undefined}>
-            Logout
-          </BrandBar.UserMenuItem>
+          <BrandBar.UserMenuItem onSelect={() => undefined}>Settings</BrandBar.UserMenuItem>
+          <BrandBar.UserMenuItem onSelect={() => undefined}>Logout</BrandBar.UserMenuItem>
         </BrandBar.UserMenu>
       </BrandBar>
       <MenuBar>
