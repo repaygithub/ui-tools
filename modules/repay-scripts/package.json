@@ -46,7 +46,7 @@
     "style-loader": "^2.0.0",
     "webpack": "^4.44.2",
     "webpack-dev-server": "^3.11.2",
-    "yargs": "^16.0.3"
+    "yargs": "^16.2.0"
   },
   "bugs": {
     "url": "https://github.com/repaygithub/ui-tools/issues"
