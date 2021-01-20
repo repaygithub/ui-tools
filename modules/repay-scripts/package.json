@@ -27,37 +27,37 @@
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest -c ./tests/jest.config.js --runInBand"
   },
   "dependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/runtime": "^7.11.2",
+    "@babel/core": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
     "@repay/babel-preset": "^1.0.1",
-    "@rollup/plugin-babel": "^5.2.1",
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "babel-loader": "^8.1.0",
-    "core-js": "^3.6.4",
-    "css-loader": "^4.3.0",
-    "file-loader": "^6.1.1",
-    "html-webpack-plugin": "^4.5.0",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.8.2",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.1",
     "raw-loader": "^4.0.2",
-    "rollup": "^2.29.0",
+    "rollup": "^2.36.1",
     "rollup-plugin-cleanup": "^3.2.1",
-    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.2",
-    "webpack-dev-server": "^3.11.0",
-    "yargs": "^16.0.3"
+    "webpack-dev-server": "^3.11.2",
+    "yargs": "^16.2.0"
   },
   "bugs": {
     "url": "https://github.com/repaygithub/ui-tools/issues"
   },
   "devDependencies": {
     "fs-extra": "^9.0.1",
-    "jest": "^26.5.2",
+    "jest": "^26.6.3",
     "ps-tree": "^1.2.0",
-    "puppeteer": "^5.3.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "tempy": "^0.7.1"
+    "puppeteer": "^5.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tempy": "^1.0.0"
   }
 }
