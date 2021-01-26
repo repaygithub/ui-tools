@@ -1,3 +1,15 @@
+# v0.4.2 (Tue Jan 26 2021)
+
+#### 🔩 Dependency Updates
+
+- Upgrade `arg` and `execa` [#74](https://github.com/repaygithub/ui-tools/pull/74) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- [@mikesoltow](https://github.com/mikesoltow)
+
+---
+
 # v0.4.1 (Mon Jan 04 2021)
 
 #### 🔩 Dependency Updates
