@@ -3,6 +3,7 @@
 #### 💥 Breaking Change
 
 - Upgrade ESLint plugins [#74](https://github.com/repaygithub/ui-tools/pull/74) ([@mikesoltow](https://github.com/mikesoltow))
+  - `simple-import-sort/sort` rule has been renamed to `simple-import-sort/imports`
 
 #### Authors: 1
 
