@@ -1,3 +1,15 @@
+# v0.4.3 (Mon Feb 15 2021)
+
+#### 🐛 Bug Fix
+
+- Fix directory structure of unit tests [#75](https://github.com/repaygithub/ui-tools/pull/75) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- Michael Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v0.4.2 (Tue Jan 26 2021)
 
 #### 🔩 Dependency Updates
