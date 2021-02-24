@@ -76,8 +76,8 @@ class TestSetup {
   spawn(command, args) {
     this._childProcess = spawn(command, args, { cwd: this.tempDir })
     this._data = []
-    this._data.push = (...args) => {
-      Array.prototype.push.apply(this._data, args)
+    this._data.push = (...pushArgs) => {
+      Array.prototype.push.apply(this._data, pushArgs)
       this._dataUpdate()
     }
     this._childProcess.stdout.on('data', (d) => this._data.push(d.toString()))
