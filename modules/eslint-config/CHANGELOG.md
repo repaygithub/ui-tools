@@ -3,6 +3,8 @@
 #### 💥 Breaking Change
 
 - Migrate to new Babel parser [#76](https://github.com/repaygithub/ui-tools/pull/76) ([@mikesoltow](https://github.com/mikesoltow))
+  - `@babel/core` is now a peer dependency
+  - Your app must now include a [Babel config file](https://babeljs.io/docs/en/config-files) to run ESLint
 
 #### Authors: 1
 
