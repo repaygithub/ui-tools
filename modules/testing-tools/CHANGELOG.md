@@ -1,3 +1,15 @@
+# v0.1.2 (Wed Feb 24 2021)
+
+#### 🔩 Dependency Updates
+
+- Upgrade Jest SonarQube reporter [#76](https://github.com/repaygithub/ui-tools/pull/76) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- [@mikesoltow](https://github.com/mikesoltow)
+
+---
+
 # v0.1.1 (Tue Jan 26 2021)
 
 #### 🔩 Dependency Updates
