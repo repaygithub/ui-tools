@@ -1,3 +1,15 @@
+# v5.0.0 (Wed Feb 24 2021)
+
+#### 💥 Breaking Change
+
+- Migrate to new Babel parser [#76](https://github.com/repaygithub/ui-tools/pull/76) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- [@mikesoltow](https://github.com/mikesoltow)
+
+---
+
 # v4.0.0 (Tue Jan 26 2021)
 
 #### 💥 Breaking Change
