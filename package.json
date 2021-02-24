@@ -23,6 +23,7 @@
     "scan:blackduck": "bash scripts/blackduck.sh babel-preset && bash scripts/blackduck.sh create-repay-ui && bash scripts/blackduck.sh eslint-config && bash scripts/blackduck.sh repay-scripts && bash scripts/blackduck.sh testing-tools"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
     "@repay/eslint-config": "./modules/eslint-config",
     "commitizen": "^4.2.2",
     "cz-conventional-changelog": "3.3.0",

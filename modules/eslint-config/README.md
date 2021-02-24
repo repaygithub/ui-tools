@@ -10,6 +10,8 @@ To use this configuration you will need to follow three steps:
    `yarn add -D @repay/eslint-config eslint`
 1. install the peer dependencies and configurations
    `yarn repay-eslint install`
+1. Ensure that your project has a Babel config file so that the included parser knows
+   how to interpret your code.
 
 To run the linter you should add a "script" to the root `package.json` such as:
 
