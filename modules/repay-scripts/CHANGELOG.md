@@ -1,3 +1,15 @@
+# v2.0.3 (Thu Feb 25 2021)
+
+#### 🏠 Internal
+
+- Fix SonarQube code smells [#77](https://github.com/repaygithub/ui-tools/pull/77) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 1
+
+- Dhalton Huber ([@Dhalton](https://github.com/Dhalton))
+
+---
+
 # v2.0.2 (Tue Jan 26 2021)
 
 #### 🔩 Dependency Updates
