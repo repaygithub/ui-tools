@@ -89,6 +89,15 @@ module.exports = function babelPreset(
       // addes dynamic import syntax
       require('@babel/plugin-syntax-dynamic-import').default,
       isEnvTest && require('babel-plugin-dynamic-import-node').default,
+      [
+        require('babel-plugin-styled-components').default,
+        {
+          "displayName": true,
+          "ssr": false,
+          "fileName": false,
+          "pure": true,
+        }
+      ]
     ].filter(Boolean),
   }
 }
