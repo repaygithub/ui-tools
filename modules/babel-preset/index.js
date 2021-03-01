@@ -92,12 +92,12 @@ module.exports = function babelPreset(
       [
         require('babel-plugin-styled-components').default,
         {
-          "displayName": true,
-          "ssr": false,
-          "fileName": false,
-          "pure": true,
-        }
-      ]
+          displayName: true,
+          ssr: false,
+          fileName: false,
+          pure: true,
+        },
+      ],
     ].filter(Boolean),
   }
 }
