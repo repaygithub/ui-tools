@@ -1,3 +1,15 @@
+# v0.5.0 (Tue Mar 09 2021)
+
+#### 🚀 Enhancement
+
+- Upgrade to latest major versions of @repay/cactus-web and @repay/eslint-config in generated app [#79](https://github.com/repaygithub/ui-tools/pull/79) ([@daniloPenaR](https://github.com/daniloPenaR))
+
+#### Authors: 1
+
+- Danilo Peña ([@daniloPenaR](https://github.com/daniloPenaR))
+
+---
+
 # v0.4.3 (Mon Feb 15 2021)
 
 #### 🐛 Bug Fix
