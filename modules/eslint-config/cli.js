@@ -4,6 +4,8 @@ const path = require('path')
 const fs = require('fs')
 const { execSync } = require('child_process')
 
+// NOTE: please take care during any future edits that the "args" variable is inherently
+// unsafe.  Do not use any values directly without first sanitzing them.
 const args = [...process.argv].slice(2)
 const cwd = process.cwd()
 const isForce = args.includes('--force')
