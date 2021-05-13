@@ -19,7 +19,6 @@
     "test:ci": "yarn test",
     "test:sonar": "yarn w @repay/testing-tools test --coverage",
     "commit": "git-cz",
-    "release": "npm login && yarn install --registry https://registry.yarnpkg.com && lerna publish --no-private --registry https://registry.yarnpkg.com",
     "scan:blackduck": "bash scripts/blackduck.sh babel-preset && bash scripts/blackduck.sh eslint-config && bash scripts/blackduck.sh repay-scripts && bash scripts/blackduck.sh testing-tools"
   },
   "devDependencies": {
@@ -28,7 +27,6 @@
     "commitizen": "^4.2.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.17.0",
-    "lerna": "^3.22.1",
     "prettier": "^2.2.1"
   },
   "config": {
