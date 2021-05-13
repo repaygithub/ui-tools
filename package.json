@@ -20,7 +20,7 @@
     "test:sonar": "yarn w @repay/testing-tools test --coverage",
     "commit": "git-cz",
     "release": "npm login && yarn install --registry https://registry.yarnpkg.com && lerna publish --no-private --registry https://registry.yarnpkg.com",
-    "scan:blackduck": "bash scripts/blackduck.sh babel-preset && bash scripts/blackduck.sh create-repay-ui && bash scripts/blackduck.sh eslint-config && bash scripts/blackduck.sh repay-scripts && bash scripts/blackduck.sh testing-tools"
+    "scan:blackduck": "bash scripts/blackduck.sh babel-preset && bash scripts/blackduck.sh eslint-config && bash scripts/blackduck.sh repay-scripts && bash scripts/blackduck.sh testing-tools"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
