@@ -12,7 +12,7 @@ module.exports = {
       version: '>=16.8.3',
     },
   },
-  extends: ['prettier', 'prettier/react'],
+  extends: ['prettier'],
   plugins: ['prettier', 'react', 'react-hooks', 'simple-import-sort'],
   env: {
     es6: true,
