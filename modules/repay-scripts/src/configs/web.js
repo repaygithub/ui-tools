@@ -27,12 +27,15 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
       chunkFilename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`,
       publicPath: '/',
+      assetModuleFilename: '[name].[contenthash][ext][query]',
     },
+    target: ['web', 'es5'],
     module: {
       rules: [
         {
           test: /\.m?(j|t)sx?$/,
           include: /node_modules.*@fluent/,
+          type: 'javascript/auto',
           use: {
             loader: require.resolve('babel-loader'),
             options: getBabelConfig(),
@@ -63,16 +66,11 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
         },
         {
           test: /\.(png|jpe?g|gif|svg)$/i,
-          use: {
-            loader: require.resolve('file-loader'),
-            options: {
-              name: '[name].[ext]?[hash]',
-            },
-          },
+          type: 'asset/resource',
         },
         {
           test: /\.ftl$/,
-          use: 'raw-loader',
+          type: 'asset/source',
         },
       ],
     },
@@ -84,8 +82,7 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
           : { viewport: 'width=device-width, height=device-height, initial-scale=1' },
         template: templateExists ? template : 'auto',
       }),
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      isEnvProduction && new webpack.HashedModuleIdsPlugin(),
+      new webpack.IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ }),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
     resolve: {
