@@ -1,3 +1,15 @@
+# v5.0.1 (Wed May 26 2021)
+
+#### 🔩 Dependency Updates
+
+- Upgrade ESLint plugins [#87](https://github.com/repaygithub/ui-tools/pull/87) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- Michael Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v5.0.0 (Wed Feb 24 2021)
 
 #### 💥 Breaking Change
