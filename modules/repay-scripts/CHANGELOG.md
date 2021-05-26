@@ -3,6 +3,7 @@
 #### 💥 Breaking Change
 
 - Upgrade Webpack to v5; upgrade Babel and Rollup plugins [#87](https://github.com/repaygithub/ui-tools/pull/87) ([@mikesoltow](https://github.com/mikesoltow))
+  - **BREAKING:** Custom Webpack configs may have to be updated to comply with Webpack v5.  See [Wepack's migration guide](https://webpack.js.org/migrate/5/) for more info
 
 #### Authors: 1
 
