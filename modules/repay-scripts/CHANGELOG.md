@@ -1,3 +1,15 @@
+# v3.0.0 (Wed May 26 2021)
+
+#### 💥 Breaking Change
+
+- Upgrade Webpack to v5; upgrade Babel and Rollup plugins [#87](https://github.com/repaygithub/ui-tools/pull/87) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- Michael Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v2.1.0 (Wed Mar 03 2021)
 
 #### 🚀 Enhancement
