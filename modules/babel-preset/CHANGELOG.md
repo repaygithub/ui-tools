@@ -1,3 +1,15 @@
+# v1.1.1 (Wed May 26 2021)
+
+#### 🔩 Dependency Updates
+
+- Upgrade Babel plugins [#87](https://github.com/repaygithub/ui-tools/pull/87) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- Michael Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v1.1.0 (Wed Mar 03 2021)
 
 #### 🚀 Enhancement
