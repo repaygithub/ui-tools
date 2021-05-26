@@ -1,3 +1,15 @@
+# v0.1.3 (Wed May 26 2021)
+
+#### 🔩 Dependency Updates
+
+- Upgrade dotenv [#87](https://github.com/repaygithub/ui-tools/pull/87) ([@mikesoltow](https://github.com/mikesoltow))
+
+#### Authors: 1
+
+- Michael Soltow ([@mikesoltow](https://github.com/mikesoltow))
+
+---
+
 # v0.1.2 (Wed Feb 24 2021)
 
 #### 🔩 Dependency Updates
