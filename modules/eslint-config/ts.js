@@ -14,11 +14,7 @@ module.exports = {
     },
   },
   plugins: ['@typescript-eslint', 'prettier', 'react', 'react-hooks', 'simple-import-sort'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'prettier/react',
-    'prettier/@typescript-eslint',
-  ],
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
   env: {
     es6: true,
     node: true,

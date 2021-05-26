@@ -79,13 +79,6 @@ const pick = (object, keys) =>
     return mem
   }, {})
 
-const handleWebpackOutput = (err, stats) => {
-  logger.log(stats.toString({ colors: true, chunks: false, modules: false }))
-  if (stats.hasErrors()) {
-    throw Error('See webpack build errors above.')
-  }
-}
-
 async function build(options) {
   logger.log('building...')
   const input = path.resolve(options.cwd, options.entry)
@@ -129,6 +122,15 @@ async function build(options) {
       delete config.devServer
     }
     const compiler = webpack(config)
+
+    const handleWebpackOutput = (err, stats) => {
+      compiler.close(() => {})
+      logger.log(stats.toString({ colors: true, chunks: false, modules: false }))
+      if (stats.hasErrors()) {
+        throw Error('See webpack build errors above.')
+      }
+    }
+
     if (options.watch) {
       compiler.watch({}, handleWebpackOutput)
     } else {
