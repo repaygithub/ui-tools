@@ -46,7 +46,7 @@
     "dotenv": "^9.0.2"
   },
   "devDependencies": {
-    "jest": "^26.6.3",
+    "jest": "^27.2.4",
     "jest-sonar": "^0.2.12",
     "testcafe": "^1.14.2"
   },
