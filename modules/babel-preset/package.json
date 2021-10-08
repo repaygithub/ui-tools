@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/runtime": "^7.14.0",
-    "core-js": "^3.12.1"
+    "core-js": "^3.18.2"
   },
   "peerDependencies": {
     "@babel/core": "^7.3.4",
