@@ -22,7 +22,7 @@
     "scan:blackduck": "bash scripts/blackduck.sh babel-preset && bash scripts/blackduck.sh eslint-config && bash scripts/blackduck.sh repay-scripts && bash scripts/blackduck.sh testing-tools"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
+    "@babel/core": "^7.15.8",
     "@repay/eslint-config": "./modules/eslint-config",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",

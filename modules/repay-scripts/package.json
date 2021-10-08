@@ -27,8 +27,8 @@
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest -c ./tests/jest.config.js --runInBand"
   },
   "dependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/runtime": "^7.14.0",
+    "@babel/core": "^7.15.8",
+    "@babel/runtime": "^7.15.4",
     "@babel/traverse": "^7.15.4",
     "@babel/types": "^7.15.6",
     "@repay/babel-preset": "^1.1.1",
