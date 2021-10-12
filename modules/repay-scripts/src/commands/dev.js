@@ -6,6 +6,11 @@ const fs = require('fs')
 
 const HOST = '0.0.0.0'
 
+const startServer = async (server) => {
+  await server.start()
+  logger.log('Building web application...')
+}
+
 async function dev(options) {
   logger.debug('building dev environment...')
   const input = path.resolve(options.cwd, options.entry)
@@ -91,6 +96,7 @@ async function dev(options) {
     let config = getWebpackConfig(input, options)
     let serverConfig = {
       port: PORT,
+      host: HOST,
       hot: true,
       https: true,
       historyApiFallback: true,
@@ -105,19 +111,6 @@ async function dev(options) {
         publicPath: '/',
       },
     }
-    /* let serverConfig = {
-      port: PORT,
-      clientLogLevel: 'error',
-      contentBase: 'dist',
-      quiet: true,
-      compress: true,
-      hot: true,
-      inline: true,
-      overlay: true,
-      https: true,
-      historyApiFallback: true,
-      publicPath: '/',
-    } */
     if (options.config) {
       config.devServer = serverConfig
       const configFromOptions = require(options.config)
@@ -178,16 +171,12 @@ async function dev(options) {
       }
     })
 
-    const devServer = new webpackDevServer(compiler, serverConfig)
-    devServer.listen(PORT, HOST, (err) => {
-      if (err) {
-        return logger.log(err)
-      }
-      logger.log('Building web application...')
-    })
+    const devServer = new webpackDevServer(serverConfig, compiler)
+
+    startServer(devServer)
     ;['SIGINT', 'SIGTERM'].forEach(function (sig) {
-      process.on(sig, function () {
-        devServer.close(() => {
+      process.on(sig, async function () {
+        await devServer.stop(() => {
           process.exit()
         })
       })

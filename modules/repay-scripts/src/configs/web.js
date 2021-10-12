@@ -9,7 +9,6 @@ const getBabelConfig = require('./babel')
 
 function getWebpackConfig(input, { cwd, env, port, template }) {
   const isEnvProduction = env === 'production'
-  const isEnvDevelopment = !isEnvProduction
   const templateExists = fs.existsSync(path.join(process.cwd(), template))
   const polyfilledInput = [require.resolve('core-js/stable'), input]
   return {
