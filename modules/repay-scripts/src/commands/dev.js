@@ -91,6 +91,22 @@ async function dev(options) {
     let config = getWebpackConfig(input, options)
     let serverConfig = {
       port: PORT,
+      hot: true,
+      https: true,
+      historyApiFallback: true,
+      client: {
+        logging: 'error',
+        overlay: true,
+      },
+      static: {
+        directory: 'dist',
+      },
+      devMiddleware: {
+        publicPath: '/',
+      },
+    }
+    /* let serverConfig = {
+      port: PORT,
       clientLogLevel: 'error',
       contentBase: 'dist',
       quiet: true,
@@ -101,7 +117,7 @@ async function dev(options) {
       https: true,
       historyApiFallback: true,
       publicPath: '/',
-    }
+    } */
     if (options.config) {
       config.devServer = serverConfig
       const configFromOptions = require(options.config)

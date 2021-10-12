@@ -17,11 +17,7 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
     devtool: 'cheap-module-source-map',
     entry: isEnvProduction
       ? polyfilledInput
-      : [
-          `webpack-dev-server/client?http://localhost:${port}/`,
-          `webpack/hot/dev-server`,
-          ...polyfilledInput,
-        ],
+      : [`webpack-dev-server/client?http://localhost:${port}/`, ...polyfilledInput],
     output: {
       path: path.resolve(cwd, 'dist'),
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
@@ -83,7 +79,6 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
         template: templateExists ? template : 'auto',
       }),
       new webpack.IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ }),
-      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
     resolve: {
       modules: ['node_modules'],
