@@ -91,5 +91,8 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
       // available to add cacheGroups to separate big libraries into bundles
       splitChunks: {},
     },
+    performance: {
+      hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
+    },
   }
 }
