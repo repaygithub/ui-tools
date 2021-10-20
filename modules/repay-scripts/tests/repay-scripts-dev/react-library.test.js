@@ -2,8 +2,6 @@ const TestSetup = require('../test-setup')
 const ReactDomServer = require('react-dom/server')
 const React = require('react')
 
-beforeEach(() => jest.setTimeout(1000 * 60 * 5))
-
 const sleep = (seconds) => {
   return new Promise((resolve) => {
     setTimeout(resolve, seconds * 1000)

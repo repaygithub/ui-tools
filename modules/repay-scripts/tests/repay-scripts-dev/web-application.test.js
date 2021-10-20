@@ -1,7 +1,5 @@
 const TestSetup = require('../test-setup')
 
-beforeEach(() => jest.setTimeout(1000 * 60 * 5))
-
 describe('@repay/repay-scripts', () => {
   it('should build a web application for local development', async () => {
     const test = new TestSetup('web-application')
