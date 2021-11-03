@@ -9,7 +9,6 @@ const getBabelConfig = require('./babel')
 
 function getWebpackConfig(input, { cwd, env, port, template }) {
   const isEnvProduction = env === 'production'
-  const isEnvDevelopment = !isEnvProduction
   const templateExists = fs.existsSync(path.join(process.cwd(), template))
   const polyfilledInput = [require.resolve('core-js/stable'), input]
   return {
@@ -17,11 +16,7 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
     devtool: 'cheap-module-source-map',
     entry: isEnvProduction
       ? polyfilledInput
-      : [
-          `webpack-dev-server/client?http://localhost:${port}/`,
-          `webpack/hot/dev-server`,
-          ...polyfilledInput,
-        ],
+      : [`webpack-dev-server/client?http://localhost:${port}/`, ...polyfilledInput],
     output: {
       path: path.resolve(cwd, 'dist'),
       filename: `[name].${isEnvProduction ? '[contenthash]' : 'bundle'}.js`, // add contenthash for production build
@@ -83,7 +78,6 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
         template: templateExists ? template : 'auto',
       }),
       new webpack.IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ }),
-      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
     resolve: {
       modules: ['node_modules'],
@@ -96,6 +90,9 @@ function getWebpackConfig(input, { cwd, env, port, template }) {
       runtimeChunk: 'single',
       // available to add cacheGroups to separate big libraries into bundles
       splitChunks: {},
+    },
+    performance: {
+      hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
     },
   }
 }
