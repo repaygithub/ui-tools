@@ -1,6 +1,6 @@
 {
   "name": "@repay/scripts",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "a build tool for developing front-end applications at REPAY",
   "author": "JamesNimlos <jnimlos@repay.com>",
   "homepage": "https://github.com/repaygithub/repay-ui#readme",
@@ -31,7 +31,7 @@
     "@babel/runtime": "^7.15.4",
     "@babel/traverse": "^7.15.4",
     "@babel/types": "^7.15.6",
-    "@repay/babel-preset": "^1.1.1",
+    "@repay/babel-preset": "^1.1.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
