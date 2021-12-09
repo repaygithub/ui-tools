@@ -13,6 +13,21 @@
 
 ---
 
+# v3.0.1 (Thu Dec 09 2021)
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump dns-packet from 1.3.1 to 1.3.4 [#90](https://github.com/repaygithub/ui-tools/pull/90) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump path-parse from 1.0.6 to 1.0.7 [#92](https://github.com/repaygithub/ui-tools/pull/92) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Upgrade project dependencies [#96](https://github.com/repaygithub/ui-tools/pull/96) ([@daniloPenaR](https://github.com/daniloPenaR))
+
+#### Authors: 2
+
+- [@daniloPenaR](https://github.com/daniloPenaR)
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v3.0.0 (Wed May 26 2021)
 
 #### 💥 Breaking Change
