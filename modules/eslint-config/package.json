@@ -1,6 +1,6 @@
 {
   "name": "@repay/eslint-config",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "eslint configuration from REPAY",
   "main": "index.js",
   "bin": {
