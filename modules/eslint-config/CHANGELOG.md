@@ -1,3 +1,15 @@
+# v5.0.3 (Fri Dec 10 2021)
+
+#### 🔩 Dependency Updates
+
+- Add TypeScript linting packages that were removed back [#98](https://github.com/repaygithub/ui-tools/pull/98) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 1
+
+- [@Dhalton](https://github.com/Dhalton)
+
+---
+
 # v5.0.2 (Thu Dec 09 2021)
 
 #### 🔩 Dependency Updates
