@@ -21,6 +21,7 @@
       "^.+\\.js": "babel-jest"
     },
     "testRegex": "tests/.*\\.test\\.js",
+    "setupFilesAfterEnv": ["./tests/setup.js"],
     "verbose": true,
     "coverageReporters": [
       "lcov",
