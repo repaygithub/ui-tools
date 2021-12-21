@@ -1,3 +1,15 @@
+# v0.1.5 (Tue Dec 21 2021)
+
+#### 🐛 Bug Fix
+
+- Add testcafe-browser-provider-browserstack back to this package [#100](https://github.com/repaygithub/ui-tools/pull/100) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 1
+
+- Dhalton Huber ([@Dhalton](https://github.com/Dhalton))
+
+---
+
 # v0.1.4 (Thu Dec 09 2021)
 
 #### 🔩 Dependency Updates
