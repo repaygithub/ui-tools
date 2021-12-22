@@ -24,9 +24,7 @@ beforeEach(() => {
 describe('Timed Test Builder', () => {
   test('should call before', async () => {
     global.test = getMockTest('0:00')
-    const beforeFn = jest.fn(async () => {
-      // do nothing
-    })
+    const beforeFn = jest.fn()
     const runTest = buildTimedTest({ before: beforeFn })
     await runTest('Test-ception', async () => {
       // do nothing
@@ -35,9 +33,7 @@ describe('Timed Test Builder', () => {
   })
   test('should call after', async () => {
     global.test = getMockTest('0:00')
-    const afterFn = jest.fn(async () => {
-      // do nothing
-    })
+    const afterFn = jest.fn()
     const runTest = buildTimedTest({ after: afterFn })
     await runTest('Test-ception', async () => {
       // do nothing
@@ -47,9 +43,7 @@ describe('Timed Test Builder', () => {
   test('should call test function', async () => {
     global.test = getMockTest('0:00')
     const runTest = buildTimedTest()
-    const testFn = jest.fn(async () => {
-      // do nothing
-    })
+    const testFn = jest.fn()
     await runTest('Test-ception', testFn)
     expect(testFn).toHaveBeenCalled()
   })
@@ -57,9 +51,7 @@ describe('Timed Test Builder', () => {
     global.test = getMockTest('0:02')
     performance.now = jest.fn().mockReturnValueOnce(0).mockReturnValueOnce(2000)
     const runTest = buildTimedTest()
-    const testFn = jest.fn(async () => {
-      // do nothing
-    })
+    const testFn = jest.fn()
     await runTest('Test-ception', testFn)
   })
 })
