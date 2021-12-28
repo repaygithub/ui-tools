@@ -1,0 +1,87 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ui-tools
+  description: A collection of generic tooling packages used for front-end development
+  tags:
+    - javascript
+  annotations:
+    backstage.io/view-url: https://github.com/repaygithub/ui-tools/tree/master/.backstage/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/repaygithub/ui-tools/edit/master/.backstage/catalog-info.yaml
+spec:
+  owner: group:ui-team
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: babel-preset
+  description: A plug-and-play babel preset used for projects at REPAY
+  tags:
+    - javascript
+  annotations:
+    backstage.io/view-url: https://github.com/repaygithub/ui-tools/tree/master/.backstage/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/repaygithub/ui-tools/edit/master/.backstage/catalog-info.yaml
+    backstage.io/source-location: url:https://github.com/repaygithub/ui-tools/tree/master/modules/babel-preset
+    jira/project-key: CACTUS
+spec:
+  system: ui-tools
+  type: library
+  owner: group:ui-team
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: eslint-config
+  description: A JavaScript or TypeScript compatible eslint configuration used for front-end projects at REPAY
+  tags:
+    - javascript
+  annotations:
+    backstage.io/view-url: https://github.com/repaygithub/ui-tools/tree/master/.backstage/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/repaygithub/ui-tools/edit/master/.backstage/catalog-info.yaml
+    backstage.io/source-location: url:https://github.com/repaygithub/ui-tools/tree/master/modules/eslint-config
+    jira/project-key: CACTUS
+spec:
+  system: ui-tools
+  type: library
+  owner: ui-team
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: repay-scripts
+  description: A CLI tool used for building, bundling, and running front-end packages or applications
+  tags:
+    - javascript
+  annotations:
+    backstage.io/view-url: https://github.com/repaygithub/ui-tools/tree/master/.backstage/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/repaygithub/ui-tools/edit/master/.backstage/catalog-info.yaml
+    backstage.io/source-location: url:https://github.com/repaygithub/ui-tools/tree/master/modules/repay-scripts
+    jira/project-key: CACTUS
+spec:
+  system: ui-tools
+  type: library
+  owner: group:ui-team
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: testing-tools
+  description: A collection of tools to help test front-end applications
+  tags:
+    - javascript
+  annotations:
+    backstage.io/view-url: https://github.com/repaygithub/ui-tools/tree/master/.backstage/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/repaygithub/ui-tools/edit/master/.backstage/catalog-info.yaml
+    backstage.io/source-location: url:https://github.com/repaygithub/ui-tools/tree/master/modules/testing-tools
+    jira/project-key: CACTUS
+spec:
+  system: ui-tools
+  type: library
+  owner: ui-team
+  lifecycle: production
+---
