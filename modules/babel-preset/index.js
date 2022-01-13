@@ -10,7 +10,7 @@ module.exports = function babelPreset(
     presets: [
       isEnvTest && [
         // ES features necessary for user's Node version
-        require('@babel/preset-env').default,
+        '@babel/preset-env',
         {
           targets: {
             node: 'current',
@@ -19,7 +19,7 @@ module.exports = function babelPreset(
       ],
       (isEnvProduction || isEnvDevelopment) && [
         // Latest stable ECMAScript features
-        require('@babel/preset-env').default,
+        '@babel/preset-env',
         {
           targets: {
             ie: 11,
@@ -38,7 +38,7 @@ module.exports = function babelPreset(
         },
       ],
       [
-        require('@babel/preset-react').default,
+        '@babel/preset-react',
         {
           // Adds component stack to warning messages
           // Adds __self attribute to JSX which React will use for some warnings
@@ -49,7 +49,7 @@ module.exports = function babelPreset(
         },
       ],
       [
-        require('@babel/preset-typescript').default,
+        '@babel/preset-typescript',
         {
           isTSX: true,
           allExtensions: true,
@@ -58,7 +58,7 @@ module.exports = function babelPreset(
     ].filter(Boolean),
     plugins: [
       (isEnvProduction || isEnvDevelopment) && [
-        require('@babel/plugin-transform-runtime'),
+        '@babel/plugin-transform-runtime',
         {
           // these polyfills are provided by @babel/preset-env or babel-polyfill
           corejs: false,
@@ -73,25 +73,25 @@ module.exports = function babelPreset(
       // Necessary to include regardless of the environment because
       // in practice some other transforms (such as object-rest-spread)
       // don't work without it: https://github.com/babel/babel/issues/7215
-      require('@babel/plugin-transform-destructuring').default,
+      ['@babel/plugin-transform-destructuring'],
       [
-        require('@babel/plugin-proposal-class-properties').default,
+        '@babel/plugin-proposal-class-properties',
         {
           loose: true,
         },
       ],
-      [require('@babel/plugin-proposal-private-methods').default, { loose: true }],
+      ['@babel/plugin-proposal-private-methods', { loose: true }],
       [
-        require('@babel/plugin-proposal-object-rest-spread').default,
+        '@babel/plugin-proposal-object-rest-spread',
         {
           useBuiltIns: true,
         },
       ],
       // addes dynamic import syntax
-      require('@babel/plugin-syntax-dynamic-import').default,
-      isEnvTest && require('babel-plugin-dynamic-import-node').default,
+      ['@babel/plugin-syntax-dynamic-import'],
+      isEnvTest && ['babel-plugin-dynamic-import-node'],
       [
-        require('babel-plugin-styled-components').default,
+        'babel-plugin-styled-components',
         {
           displayName: true,
           ssr: false,
