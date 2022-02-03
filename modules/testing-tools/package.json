@@ -1,6 +1,6 @@
 {
   "name": "@repay/testing-tools",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Tools to help with testing front-end applications",
   "main": "src/index.js",
   "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/testing-tools",
@@ -21,7 +21,9 @@
       "^.+\\.js": "babel-jest"
     },
     "testRegex": "tests/.*\\.test\\.js",
-    "setupFilesAfterEnv": ["./tests/setup.js"],
+    "setupFilesAfterEnv": [
+      "./tests/setup.js"
+    ],
     "verbose": true,
     "coverageReporters": [
       "lcov",
