@@ -1,3 +1,15 @@
+# v1.1.3 (Thu Feb 03 2022)
+
+#### 🐛 Bug Fix
+
+- Include plugin-proposal-private-property-in-object to silence warning when building projects [#103](https://github.com/repaygithub/ui-tools/pull/103) ([@daniloPenaR](https://github.com/daniloPenaR))
+
+#### Authors: 1
+
+- Danilo Peña ([@daniloPenaR](https://github.com/daniloPenaR))
+
+---
+
 # v1.1.2 (Thu Dec 09 2021)
 
 #### 🔩 Dependency Updates
