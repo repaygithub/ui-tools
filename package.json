@@ -26,9 +26,9 @@
     "@repay/eslint-config": "./modules/eslint-config",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.9.0",
     "lerna": "^4.0.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1"
   },
   "config": {
     "commitizen": {
