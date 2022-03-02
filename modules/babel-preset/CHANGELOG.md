@@ -1,3 +1,15 @@
+# v1.1.4 (Wed Mar 02 2022)
+
+#### 🔩 Dependency Updates
+
+- CACTUS-848 :: Dependency Upgrades [#105](https://github.com/repaygithub/ui-tools/pull/105) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 1
+
+- [@Dhalton](https://github.com/Dhalton)
+
+---
+
 # v1.1.3 (Thu Feb 03 2022)
 
 #### 🐛 Bug Fix
