@@ -46,7 +46,7 @@ function getRollupConfig(input, { cwd, treeShaking, babelEnv }) {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.svg'],
       }),
       rollupCommonjs({
-        include: 'node_modules/**',
+        include: /node_modules/,
       }),
       rollupBabel({
         babelHelpers: babelEnv === 'test' ? 'bundled' : 'runtime',
