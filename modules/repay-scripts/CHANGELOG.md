@@ -1,3 +1,15 @@
+# v3.0.4 (Fri Apr 01 2022)
+
+#### 🚀 Enhancement
+
+- Make rollup config work out of the box for more use cases [#108](https://github.com/repaygithub/ui-tools/pull/108) ([@wilysword](https://github.com/wilysword))
+
+#### Authors: 1
+
+- [@wilysword](https://github.com/wilysword)
+
+---
+
 # v3.0.3 (Wed Mar 02 2022)
 
 #### 🔩 Dependency Updates
