@@ -48,7 +48,7 @@
     "arg": "^5.0.1",
     "dotenv": "^16.0.0",
     "esm": "^3.2.25",
-    "testcafe-browser-provider-browserstack": "^1.13.1"
+    "testcafe-browser-provider-browserstack": "^1.14.0"
   },
   "devDependencies": {
     "jest": "^27.5.1",
