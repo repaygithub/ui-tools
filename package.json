@@ -17,8 +17,7 @@
     "fmt": "yarn lint --fix",
     "test": "yarn lint && yarn ws run test",
     "test:ci": "yarn test",
-    "test:sonar": "yarn w @repay/testing-tools test --coverage",
-    "scan:blackduck": "bash scripts/blackduck.sh babel-preset && bash scripts/blackduck.sh eslint-config && bash scripts/blackduck.sh repay-scripts && bash scripts/blackduck.sh testing-tools"
+    "test:sonar": "yarn w @repay/testing-tools test --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
