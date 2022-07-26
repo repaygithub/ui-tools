@@ -58,7 +58,7 @@ module.exports = function babelPreset(
     ].filter(Boolean),
     plugins: [
       (isEnvProduction || isEnvDevelopment) && [
-        require('@babel/plugin-transform-runtime'),
+        require('@babel/plugin-transform-runtime').default,
         {
           // these polyfills are provided by @babel/preset-env or babel-polyfill
           corejs: false,
