@@ -13,9 +13,10 @@
   "scripts": {
     "w": "yarn workspace",
     "ws": "yarn workspaces",
+    "ws:run": "yarn ws foreach -i -v --exclude ui-tools run",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
     "fmt": "yarn lint --fix",
-    "test": "yarn lint && yarn ws run test",
+    "test": "yarn lint && yarn ws:run test",
     "test:ci": "yarn test",
     "test:sonar": "yarn w @repay/testing-tools test --coverage"
   },
