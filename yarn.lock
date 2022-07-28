@@ -3358,7 +3358,7 @@ __metadata:
 
 "@repay/eslint-config@file:./modules/eslint-config::locator=ui-tools%40workspace%3A.":
   version: 5.0.4
-  resolution: "@repay/eslint-config@file:./modules/eslint-config#./modules/eslint-config::hash=38b25c&locator=ui-tools%40workspace%3A."
+  resolution: "@repay/eslint-config@file:./modules/eslint-config#./modules/eslint-config::hash=028f07&locator=ui-tools%40workspace%3A."
   dependencies:
     "@babel/eslint-parser": ^7.15.8
     "@typescript-eslint/eslint-plugin": ^5.12.1
@@ -3374,7 +3374,7 @@ __metadata:
     prettier: ">=2.5.1"
   bin:
     repay-eslint: ./cli.js
-  checksum: 7a08d2b9915978a5d1ac405b3f94fc0505b7d63f252ee2aa6fd8261dd6f5053b7e9b01ee000f953c3373c2cdf393dc85c1d6754da05b75e2f4f519563fb026a9
+  checksum: 709ea4c449b0fe1c79735f9ffd3868ce7155b1a5bd6e910b95d01be42fd3c597a21dfcaf007a01ee837cedcb1f74bbba1ce59abb8817ae70a1299182e251fc01
   languageName: node
   linkType: hard
 
