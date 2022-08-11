@@ -5,9 +5,7 @@
   "main": "src/index.js",
   "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/testing-tools",
   "license": "MIT",
-  "bin": {
-    "testing-tools": "bin/testing-tools"
-  },
+  "bin": "bin/testing-tools",
   "keywords": [
     "cli",
     "testing-tools"

@@ -26,6 +26,7 @@ class TestSetup {
 
   async setup() {
     await fs.copy(path.join(__dirname, 'fixtures', this.fixture), this.tempDir)
+    await exec('yarn set version 1.22.0', { cwd: this.tempDir })
     const localRepayScriptsPath = path.join(__dirname, '..')
     await this.yarnAdd(localRepayScriptsPath)
   }
