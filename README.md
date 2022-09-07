@@ -1,6 +1,6 @@
 # 🔨 UI Tools
 
-[![CircleCI](https://circleci.com/gh/repaygithub/ui-tools.svg?style=svg)](https://circleci.com/gh/repaygithub/ui-tools)
+![](https://github.com/repaygithub/ui-tools/workflows/CI%20Pipeline/badge.svg)
 
 Generic tooling used throughout front-end development at REPAY.
 

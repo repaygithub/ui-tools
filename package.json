@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@repay/eslint-config": "./modules/eslint-config",
     "eslint": "^8.9.0",
     "lerna": "^4.0.0",
     "prettier": "^2.5.1"
