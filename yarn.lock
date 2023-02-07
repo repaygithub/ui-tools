@@ -3485,7 +3485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@repay/babel-preset@^1.1.4, @repay/babel-preset@workspace:modules/babel-preset":
+"@repay/babel-preset@^1.1.5, @repay/babel-preset@workspace:modules/babel-preset":
   version: 0.0.0-use.local
   resolution: "@repay/babel-preset@workspace:modules/babel-preset"
   dependencies:
@@ -3543,7 +3543,7 @@ __metadata:
     "@babel/runtime": ^7.17.2
     "@babel/traverse": ^7.17.3
     "@babel/types": ^7.17.0
-    "@repay/babel-preset": ^1.1.4
+    "@repay/babel-preset": ^1.1.5
     "@rollup/plugin-babel": ^5.3.0
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-node-resolve": ^13.1.3
