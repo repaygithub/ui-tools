@@ -1,6 +1,6 @@
 {
   "name": "@repay/babel-preset",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Babel preset for front end applications",
   "main": "index.js",
   "repository": "https://github.com/repaygithub/ui-tools/tree/master/modules/babel-preset",
