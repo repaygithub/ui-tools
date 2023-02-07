@@ -1,3 +1,15 @@
+# v3.0.5 (Tue Feb 07 2023)
+
+#### 🔩 Dependency Updates
+
+- CACTUS-732 :: Migrate to Yarn Berry [#116](https://github.com/repaygithub/ui-tools/pull/116) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 1
+
+- [@Dhalton](https://github.com/Dhalton)
+
+---
+
 # v3.0.4 (Fri Apr 01 2022)
 
 #### 🚀 Enhancement
