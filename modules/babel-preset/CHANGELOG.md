@@ -1,3 +1,19 @@
+# v1.1.5 (Tue Feb 07 2023)
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 [#124](https://github.com/repaygithub/ui-tools/pull/124) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- fix(babel-preset): updated dependency for removing error in pnp based project [#125](https://github.com/repaygithub/ui-tools/pull/125) ([@ranjeet31925](https://github.com/ranjeet31925))
+- CACTUS-732 :: Migrate to Yarn Berry [#116](https://github.com/repaygithub/ui-tools/pull/116) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@Dhalton](https://github.com/Dhalton)
+- [@ranjeet31925](https://github.com/ranjeet31925)
+
+---
+
 # v1.1.4 (Wed Mar 02 2022)
 
 #### 🔩 Dependency Updates
