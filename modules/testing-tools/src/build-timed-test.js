@@ -1,19 +1,16 @@
 const { performance } = require('perf_hooks')
 const convertMilliseconds = require('./utils/convert-milliseconds')
 
-const buildTimedTest = (options) => {
-  const timedTest = (testName, testFunc) => {
-    const timedTestFunc = wrapTestFunc(testName, testFunc)
-    let testInstance = test
-    if (options && options.before) {
-      testInstance = testInstance.before(options.before)
-    }
-    if (options && options.after) {
-      testInstance = testInstance.after(options.after)
-    }
-    testInstance(testName, timedTestFunc)
+const buildTimedTest = (options) => (testName, testFunc) => {
+  const timedTestFunc = wrapTestFunc(testName, testFunc)
+  let testInstance = test
+  if (options && options.before) {
+    testInstance = testInstance.before(options.before)
   }
-  return timedTest
+  if (options && options.after) {
+    testInstance = testInstance.after(options.after)
+  }
+  testInstance(testName, timedTestFunc)
 }
 
 const wrapTestFunc = (testName, testFunc) => {
