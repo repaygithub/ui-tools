@@ -7,6 +7,8 @@ const logger = require('./logger')
 
 let seen = null
 
+const EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx']
+
 module.exports = {
   init(from, to) {
     seen = new Map([[from, to]])
@@ -16,6 +18,8 @@ module.exports = {
   },
   async run(from, options) {
     const to = seen.get(from)
+    const fromDirectory = from.replace(path.basename(from), '')
+    const toDirectory = to.replace(path.basename(to), '')
     logger.debug(from + ' => ' + to)
     const { code, map, ast } = await babel.transformFileAsync(from, {
       cwd: options.cwd,
@@ -25,34 +29,42 @@ module.exports = {
       ast: true,
     })
 
+    function getPathsWithExtension(relativeSrc) {
+      const src = path.resolve(fromDirectory, relativeSrc)
+      const ext = path.extname(src)
+      if (!ext) {
+        for (const extension of EXTENSIONS) {
+          const srcPath = src + extension
+          if (fs.existsSync(srcPath)) {
+            const destPath = path.resolve(toDirectory, relativeSrc + '.js')
+            return { src: srcPath, dest: destPath }
+          }
+        }
+        if (fs.existsSync(src)) {
+          // Probably a directory, look for an index file.
+          return getPathsWithExtension(relativeSrc + '/index')
+        }
+      } else if (fs.existsSync(src)) {
+        const relativeDest = relativeSrc.replace(new RegExp(ext + '$'), '.js')
+        return { src, dest: path.resolve(toDirectory, relativeDest) }
+      }
+    }
+
     let dependencies = []
     function gatherRelativeDeps(codePath) {
       if (
         types.isStringLiteral(codePath.node.source) &&
         codePath.node.source.value.startsWith('.')
       ) {
-        const source = codePath.node.source.value
-        let depPath = path.resolve(from.replace(path.basename(from), ''), source)
-        let ext = path.extname(source)
-        if (!ext) {
-          ext = ['.ts', '.tsx', '.js', '.jsx'].find((e) => fs.existsSync(depPath + e))
-        }
-        depPath = depPath + ext
-        if (depPath.includes('placeholder')) {
-          console.log('yoyoyoyo')
-        }
-        if (!seen.has(depPath)) {
-          let depTo = path.resolve(
-            to.replace(path.basename(to), ''),
-            source.replace(ext, '') + '.js'
-          )
-          if (depTo.includes(options.cwd) && depPath !== depTo) {
-            seen.set(depPath, depTo)
-            dependencies.push(depPath)
+        const paths = getPathsWithExtension(codePath.node.source.value)
+        if (paths && !seen.has(paths.src)) {
+          if (paths.dest.includes(options.cwd) && paths.src !== paths.dest) {
+            seen.set(paths.src, paths.dest)
+            dependencies.push(paths.src)
           } else {
-            seen.set(depPath, null)
+            seen.set(paths.src, null)
             logger.log(
-              `[WARN] not building ${depPath} because it is either outside the CWD or will overwrite the code itself`
+              `[WARN] not building ${paths.src} because it is either outside the CWD or will overwrite the code itself`
             )
           }
         }
