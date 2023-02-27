@@ -62,7 +62,7 @@ function cli(cwd) {
   parser.command(
     'build <entry>',
     'build a javascript library or front-end application',
-    undefined,
+    () => undefined,
     (argv) => repayScripts(parseToConfig(argv))
   )
 
