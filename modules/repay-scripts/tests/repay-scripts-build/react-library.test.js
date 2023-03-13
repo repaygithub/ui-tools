@@ -47,6 +47,7 @@ describe('@repay/repay-scripts', () => {
     await Promise.all([test.setup(), application.setup()])
     await test.exec(`yarn repay-scripts build --lib --tree-shaking index.js`)
     await fs.existsSync(path.join(test.tempDir, 'build/app.js'))
+    await fs.existsSync(path.join(test.tempDir, 'build/sub/index.js'))
     await Promise.all([application.yarnAdd(test.tempDir), application.updateFile('app.js')])
     await application.exec(`yarn repay-scripts build index.js`)
 
