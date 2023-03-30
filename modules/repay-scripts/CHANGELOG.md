@@ -1,3 +1,20 @@
+# v3.0.6 (Thu Mar 30 2023)
+
+#### 🐛 Bug Fix
+
+- CACTUS-1179 Process index files [#127](https://github.com/repaygithub/ui-tools/pull/127) ([@wilysword](https://github.com/wilysword))
+
+#### 🏠 Internal
+
+- CACTUS-1133 :: Snyk/Sonarqube Fixes [#126](https://github.com/repaygithub/ui-tools/pull/126) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 2
+
+- [@Dhalton](https://github.com/Dhalton)
+- [@wilysword](https://github.com/wilysword)
+
+---
+
 # v3.0.5 (Tue Feb 07 2023)
 
 #### 🔩 Dependency Updates
