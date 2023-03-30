@@ -1,3 +1,15 @@
+# v0.1.9 (Thu Mar 30 2023)
+
+#### 🏠 Internal
+
+- CACTUS-1133 :: Snyk/Sonarqube Fixes [#126](https://github.com/repaygithub/ui-tools/pull/126) ([@Dhalton](https://github.com/Dhalton))
+
+#### Authors: 1
+
+- [@Dhalton](https://github.com/Dhalton)
+
+---
+
 # v0.1.8 (Tue Feb 07 2023)
 
 #### 🔩 Dependency Updates
